@@ -145,6 +145,10 @@ Error message and password prompt
 
 <li>$:/config/AutoSave</li>
 
+<li>$:/config/flibbles/relink/fields/location</li>
+
+<li>$:/config/RelinkOnRename</li>
+
 <li>$:/core</li>
 
 <li>$:/DefaultTiddlers</li>
@@ -163,15 +167,27 @@ Error message and password prompt
 
 <li>$:/palette</li>
 
+<li>$:/plugins/aaldrich/tables</li>
+
 <li>$:/plugins/flibbles/relink</li>
 
 <li>$:/plugins/sq/Stories</li>
+
+<li>$:/plugins/wikilabs/link-to-tabs</li>
 
 <li>$:/SiteSubtitle</li>
 
 <li>$:/SiteTitle</li>
 
 <li>$:/state/advancedsearch/currentTab</li>
+
+<li>$:/state/edit/references--150297391</li>
+
+<li>$:/state/edit/references--5011487</li>
+
+<li>$:/state/plugin-info--896887961-$:/plugins/flibbles/relink</li>
+
+<li>$:/state/plugin-info--896887961-$:/plugins/flibbles/relink---548854025</li>
 
 <li>$:/state/plugin-info--896887961-$:/plugins/sq/Stories</li>
 
@@ -181,9 +197,13 @@ Error message and password prompt
 
 <li>$:/state/sidebar</li>
 
+<li>$:/state/tab--1133515453</li>
+
 <li>$:/state/tab--1498284803</li>
 
 <li>$:/state/tab--1963855381</li>
+
+<li>$:/state/tab--824315756</li>
 
 <li>$:/state/tab-1749438307</li>
 
@@ -205,7 +225,13 @@ Error message and password prompt
 
 <li>Home Page</li>
 
+<li>Locations</li>
+
 <li>NPCs</li>
+
+<li>Vizeran DeVir</li>
+
+<li>Vizeran's Tower</li>
 
 </ul>
 </p>
@@ -226,6 +252,12 @@ Error message and password prompt
 </div>
 <div created="20210607065348731" modified="20210607065348731" title="$:/config/AutoSave">
 <pre>no</pre>
+</div>
+<div created="20210607092011698" modified="20210607092011698" title="$:/config/flibbles/relink/fields/location">
+<pre>wikitext</pre>
+</div>
+<div created="20210607090829228" modified="20210607090829228" title="$:/config/RelinkOnRename">
+<pre>yes</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="" description="TiddlyWiki5 core" list="readme" name="Core" plugin-priority="0" plugin-type="plugin" title="$:/core" type="application/json" version="5.1.23">
 <pre>{
@@ -10110,13 +10142,598 @@ Error message and password prompt
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[$:/plugins/flibbles/relink]]</pre>
+# [[$:/plugins/aaldrich/tables]]</pre>
 </div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
 </div>
 <div created="20210607065830121" modified="20210607065838850" title="$:/palette">
 <pre>$:/palettes/Vanilla</pre>
+</div>
+<div author="Alan Aldrich" core-version="5.1.16" created="20170212060612535" dependents="" description="TiddlyTables" list="readme" modified="20191210060523145" plugin-type="plugin" title="$:/plugins/aaldrich/tables" type="application/json" version="0.6.21">
+<pre>{
+    &quot;tiddlers&quot;: {
+        &quot;$:/plugins/aaldrich/tables/template/footer/default&quot;: {
+            &quot;text&quot;: &quot;&lt;$list filter=\&quot;[&lt;currentTable&gt;!contains:tbl-sort-by&lt;currentColumn&gt;]\&quot; &gt;\n&lt;th&gt;\n  &lt;$button set=\&quot;!!tbl-sort-by\&quot; setTo=&lt;&lt;currentColumn&gt;&gt; class=\&quot;tc-btn-invisible tc-tiddlylink\&quot; &gt;\n    &lt;$action-setfield $tiddler={{!!title}} $field=\&quot;tbl-sort-negate\&quot; $value=\&quot;false\&quot;/&gt;\n    &lt;&lt;currentColumn&gt;&gt;\n    &lt;$list filter=\&quot;[&lt;currentTable&gt;get[tbl-page-marker]]\&quot; variable=\&quot;hasMarker\&quot;&gt;\n      &lt;$set name=\&quot;firstRecord\&quot; filter=&lt;&lt;veryFirst&gt;&gt; value=&lt;&lt;firstRecord&gt;&gt; &gt;\n      &lt;$wikify name=\&quot;firstRecord\&quot; text=&lt;&lt;firstRecord&gt;&gt; mode=\&quot;inline\&quot;&gt;\n        &lt;$action-setfield $tiddler={{!!title}} $field=\&quot;tbl-page-marker\&quot; $value=&lt;&lt;firstRecord&gt;&gt; /&gt;\n      &lt;/$wikify&gt;\n      &lt;/$set&gt;\n    &lt;/$list&gt;\n  &lt;/$button&gt;\n&lt;/th&gt;\n&lt;/$list&gt;\n&lt;$list filter=\&quot;[&lt;currentTable&gt;contains:tbl-sort-by&lt;currentColumn&gt;]\&quot; &gt;\n&lt;th&gt;\n  &lt;$list filter=\&quot;[&lt;currentTable&gt;get[tbl-sort-negate]remove[true]]\&quot; variable=\&quot;hasNegate\&quot;&gt;\n    &lt;$button set=\&quot;!!tbl-sort-negate\&quot; setTo=\&quot;true\&quot; class=\&quot;tbl-sort-svg tc-btn-invisible tc-tiddlylink\&quot; &gt;\n      &lt;&lt;currentColumn&gt;&gt; {{$:/core/images/down-arrow}}\n      &lt;$list filter=\&quot;[&lt;currentTable&gt;get[tbl-page-marker]]\&quot; variable=\&quot;hasMarker\&quot;&gt;\n      &lt;$set name=\&quot;lastRecord\&quot; filter=&lt;&lt;veryLast&gt;&gt; value=&lt;&lt;lastRecord&gt;&gt; &gt;\n      &lt;$wikify name=\&quot;lastRecord\&quot; text=&lt;&lt;lastRecord&gt;&gt; mode=\&quot;inline\&quot;&gt;\n        &lt;$action-setfield $tiddler={{!!title}} $field=\&quot;tbl-page-marker\&quot; $value=&lt;&lt;lastRecord&gt;&gt; /&gt; \n      &lt;/$wikify&gt;\n      &lt;/$set&gt;\n      &lt;/$list&gt;\n    &lt;/$button&gt;\n  &lt;/$list&gt;\n  &lt;$list filter=\&quot;[&lt;currentTable&gt;get[tbl-sort-negate]remove[false]]\&quot; variable=\&quot;hasNegate\&quot;&gt;\n    &lt;$button set=\&quot;!!tbl-sort-negate\&quot; setTo=\&quot;false\&quot; class=\&quot;tbl-sort-svg tc-btn-invisible tc-tiddlylink\&quot; &gt;\n      &lt;&lt;currentColumn&gt;&gt; {{$:/core/images/up-arrow}}\n      &lt;$list filter=\&quot;[&lt;currentTable&gt;get[tbl-page-marker]]\&quot; variable=\&quot;hasMarker\&quot;&gt;\n      &lt;$set name=\&quot;firstRecord\&quot; filter=&lt;&lt;veryFirst&gt;&gt; value=&lt;&lt;firstRecord&gt;&gt; &gt;\n      &lt;$wikify name=\&quot;firstRecord\&quot; text=&lt;&lt;firstRecord&gt;&gt; mode=\&quot;inline\&quot;&gt;\n        &lt;$action-setfield $tiddler={{!!title}} $field=\&quot;tbl-page-marker\&quot; $value=&lt;&lt;firstRecord&gt;&gt; /&gt;\n      &lt;/$wikify&gt;\n      &lt;/$set&gt;\n      &lt;/$list&gt;\n    &lt;/$button&gt;\n  &lt;/$list&gt;\n&lt;/th&gt;\n&lt;/$list&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/template/footer/default&quot;,
+            &quot;tags&quot;: &quot;$:/tags/table/FooterTemplate&quot;,
+            &quot;revision&quot;: &quot;0&quot;,
+            &quot;modified&quot;: &quot;20191208103208588&quot;,
+            &quot;created&quot;: &quot;20170205234154520&quot;,
+            &quot;bag&quot;: &quot;default&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/template/body/title&quot;: {
+            &quot;text&quot;: &quot;&lt;td&gt;\n&lt;$link to=&lt;&lt;currentRecord&gt;&gt;&gt;\n&lt;$view tiddler=&lt;&lt;currentRecord&gt;&gt; field=\&quot;title\&quot;/&gt;&lt;$list filter=\&quot;[[$:/plugins/aaldrich/tables/defaults]get[tbl-title-type-show]]-false\&quot;&gt;{{$:/plugins/aaldrich/tables/defaults!!tbl-title-type-code}}&lt;/$list&gt;\n&lt;/$link&gt;\n&lt;/td&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/template/body/title&quot;,
+            &quot;tbl-noedit&quot;: &quot;title&quot;,
+            &quot;tbl-column-list&quot;: &quot;title&quot;,
+            &quot;tags&quot;: &quot;$:/tags/table/BodyTemplate&quot;,
+            &quot;revision&quot;: &quot;0&quot;,
+            &quot;modified&quot;: &quot;20191205205435926&quot;,
+            &quot;created&quot;: &quot;20170128100357203&quot;,
+            &quot;bag&quot;: &quot;default&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/template/body/default&quot;: {
+            &quot;created&quot;: &quot;20170128100543507&quot;,
+            &quot;text&quot;: &quot;&lt;td&gt;\n  &lt;$list filter=\&quot;[&lt;fieldOrIndex&gt;]-index\&quot;&gt;\n    &lt;$transclude tiddler=&lt;&lt;currentRecord&gt;&gt; field=&lt;&lt;currentColumn&gt;&gt; mode=\&quot;block\&quot; /&gt;\n  &lt;/$list&gt;\n  &lt;$list filter=\&quot;[&lt;fieldOrIndex&gt;]-field\&quot;&gt;\n    &lt;$transclude tiddler=&lt;&lt;currentRecord&gt;&gt; index=&lt;&lt;currentColumn&gt;&gt; mode=\&quot;block\&quot; /&gt;\n  &lt;/$list&gt;\n&lt;/td&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/template/body/default&quot;,
+            &quot;tags&quot;: &quot;$:/tags/table/BodyTemplate&quot;,
+            &quot;revision&quot;: &quot;0&quot;,
+            &quot;modified&quot;: &quot;20191206025142239&quot;,
+            &quot;bag&quot;: &quot;default&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/template/header/default&quot;: {
+            &quot;text&quot;: &quot;&lt;$list filter=\&quot;[&lt;currentTable&gt;!contains:tbl-sort-by&lt;currentColumn&gt;]\&quot; &gt;\n&lt;th&gt;\n  &lt;$button set=\&quot;!!tbl-sort-by\&quot; setTo=&lt;&lt;currentColumn&gt;&gt; class=\&quot;tc-btn-invisible tc-tiddlylink\&quot; &gt;\n    &lt;$action-setfield $tiddler={{!!title}} $field=\&quot;tbl-sort-negate\&quot; $value=\&quot;false\&quot;/&gt;\n    &lt;&lt;currentColumn&gt;&gt;\n    &lt;$list filter=\&quot;[&lt;currentTable&gt;get[tbl-page-marker]]\&quot; variable=\&quot;hasMarker\&quot;&gt;\n      &lt;$set name=\&quot;firstRecord\&quot; filter=&lt;&lt;veryFirst&gt;&gt; value=&lt;&lt;firstRecord&gt;&gt; &gt;\n      &lt;$wikify name=\&quot;firstRecord\&quot; text=&lt;&lt;firstRecord&gt;&gt; mode=\&quot;inline\&quot;&gt;\n        &lt;$action-setfield $tiddler={{!!title}} $field=\&quot;tbl-page-marker\&quot; $value=&lt;&lt;firstRecord&gt;&gt; /&gt;\n      &lt;/$wikify&gt;\n      &lt;/$set&gt;\n    &lt;/$list&gt;\n  &lt;/$button&gt;\n&lt;/th&gt;\n&lt;/$list&gt;\n&lt;$list filter=\&quot;[&lt;currentTable&gt;contains:tbl-sort-by&lt;currentColumn&gt;]\&quot; &gt;\n&lt;th&gt;\n  &lt;$list filter=\&quot;[&lt;currentTable&gt;get[tbl-sort-negate]remove[true]]\&quot; variable=\&quot;hasNegate\&quot;&gt;\n    &lt;$button set=\&quot;!!tbl-sort-negate\&quot; setTo=\&quot;true\&quot; class=\&quot;tbl-sort-svg tc-btn-invisible tc-tiddlylink\&quot; &gt;\n      &lt;&lt;currentColumn&gt;&gt; {{$:/core/images/down-arrow}}\n      &lt;$list filter=\&quot;[&lt;currentTable&gt;get[tbl-page-marker]]\&quot; variable=\&quot;hasMarker\&quot;&gt;\n      &lt;$set name=\&quot;lastRecord\&quot; filter=&lt;&lt;veryLast&gt;&gt; value=&lt;&lt;lastRecord&gt;&gt; &gt;\n      &lt;$wikify name=\&quot;lastRecord\&quot; text=&lt;&lt;lastRecord&gt;&gt; mode=\&quot;inline\&quot;&gt;\n        &lt;$action-setfield $tiddler={{!!title}} $field=\&quot;tbl-page-marker\&quot; $value=&lt;&lt;lastRecord&gt;&gt; /&gt; \n      &lt;/$wikify&gt;\n      &lt;/$set&gt;\n      &lt;/$list&gt;\n    &lt;/$button&gt;\n  &lt;/$list&gt;\n  &lt;$list filter=\&quot;[&lt;currentTable&gt;get[tbl-sort-negate]remove[false]]\&quot; variable=\&quot;hasNegate\&quot;&gt;\n    &lt;$button set=\&quot;!!tbl-sort-negate\&quot; setTo=\&quot;false\&quot; class=\&quot;tbl-sort-svg tc-btn-invisible tc-tiddlylink\&quot; &gt;\n      &lt;&lt;currentColumn&gt;&gt; {{$:/core/images/up-arrow}}\n      &lt;$list filter=\&quot;[&lt;currentTable&gt;get[tbl-page-marker]]\&quot; variable=\&quot;hasMarker\&quot;&gt;\n      &lt;$set name=\&quot;firstRecord\&quot; filter=&lt;&lt;veryFirst&gt;&gt; value=&lt;&lt;firstRecord&gt;&gt; &gt;\n      &lt;$wikify name=\&quot;firstRecord\&quot; text=&lt;&lt;firstRecord&gt;&gt; mode=\&quot;inline\&quot;&gt;\n        &lt;$action-setfield $tiddler={{!!title}} $field=\&quot;tbl-page-marker\&quot; $value=&lt;&lt;firstRecord&gt;&gt; /&gt;\n      &lt;/$wikify&gt;\n      &lt;/$set&gt;\n      &lt;/$list&gt;\n    &lt;/$button&gt;\n  &lt;/$list&gt;\n&lt;/th&gt;\n&lt;/$list&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/template/header/default&quot;,
+            &quot;tags&quot;: &quot;$:/tags/table/HeaderTemplate&quot;,
+            &quot;revision&quot;: &quot;0&quot;,
+            &quot;modified&quot;: &quot;20191208103157722&quot;,
+            &quot;created&quot;: &quot;20170205223914688&quot;,
+            &quot;bag&quot;: &quot;default&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/template/body/edit&quot;: {
+            &quot;created&quot;: &quot;20170209052300022&quot;,
+            &quot;text&quot;: &quot;&lt;td class=\&quot;tbl-inpt-edit\&quot;&gt;\n  &lt;$list filter=\&quot;[&lt;fieldOrIndex&gt;]-index\&quot;&gt;\n    &lt;$edit tiddler=&lt;&lt;currentRecord&gt;&gt; field=&lt;&lt;currentColumn&gt;&gt; /&gt;\n  &lt;/$list&gt;\n  &lt;$list filter=\&quot;[&lt;fieldOrIndex&gt;]-field\&quot;&gt;\n    &lt;$edit tiddler=&lt;&lt;currentRecord&gt;&gt; index=&lt;&lt;currentColumn&gt;&gt; /&gt;\n  &lt;/$list&gt;\n&lt;/td&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/template/body/edit&quot;,
+            &quot;tbl-noedit&quot;: &quot;tbl-edit&quot;,
+            &quot;tbl-column-list&quot;: &quot;tbl-edit&quot;,
+            &quot;tags&quot;: &quot;$:/tags/table/BodyTemplate&quot;,
+            &quot;revision&quot;: &quot;0&quot;,
+            &quot;modified&quot;: &quot;20191206021611931&quot;,
+            &quot;bag&quot;: &quot;default&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/template/body/tags&quot;: {
+            &quot;text&quot;: &quot;&lt;td class=\&quot;tbl-tag-template\&quot;&gt;\n&lt;$tiddler tiddler=&lt;&lt;currentRecord&gt;&gt;&gt;{{||$:/core/ui/ViewTemplate/tags}}&lt;/$tiddler&gt;\n&lt;/td&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/template/body/tags&quot;,
+            &quot;tbl-noedit&quot;: &quot;&quot;,
+            &quot;tbl-column-list&quot;: &quot;tags&quot;,
+            &quot;tags&quot;: &quot;$:/tags/table/BodyTemplate&quot;,
+            &quot;revision&quot;: &quot;0&quot;,
+            &quot;modified&quot;: &quot;20191213071802838&quot;,
+            &quot;created&quot;: &quot;20170128104241598&quot;,
+            &quot;bag&quot;: &quot;default&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/template/footer/disabled&quot;: {
+            &quot;text&quot;: &quot;&lt;th&gt;\n&lt;&lt;currentColumn&gt;&gt;\n&lt;/th&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/template/footer/disabled&quot;,
+            &quot;tbl-column-list&quot;: &quot;ID id&quot;,
+            &quot;tags&quot;: &quot;$:/tags/table/FooterTemplate&quot;,
+            &quot;revision&quot;: &quot;0&quot;,
+            &quot;modified&quot;: &quot;20191205210029064&quot;,
+            &quot;created&quot;: &quot;20170205234107408&quot;,
+            &quot;bag&quot;: &quot;default&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/template/body/button&quot;: {
+            &quot;text&quot;: &quot;&lt;td style=\&quot;width:1.4ch;text-align:center;\&quot;&gt;\n  &lt;$button class=\&quot;tc-btn-invisible\&quot; tooltip={{!!tbl-button-tip}} style=\&quot;min-width:1.4ch\&quot;&gt;\n    &lt;&lt;buttonIcon&gt;&gt;\n    &lt;&lt;buttonAction&gt;&gt;\n  &lt;/$button&gt;\n&lt;/td&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/template/body/button&quot;,
+            &quot;tbl-noedit&quot;: &quot;tbl-button&quot;,
+            &quot;tbl-column-list&quot;: &quot;tbl-button&quot;,
+            &quot;tags&quot;: &quot;$:/tags/table/BodyTemplate&quot;,
+            &quot;revision&quot;: &quot;0&quot;,
+            &quot;modified&quot;: &quot;20191215041903621&quot;,
+            &quot;created&quot;: &quot;20170206022244360&quot;,
+            &quot;bag&quot;: &quot;default&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/template/header/button&quot;: {
+            &quot;text&quot;: &quot;&lt;th style=\&quot;width:1.4ch;text-align:center;\&quot;&gt;\n  &lt;span&gt;\n    &lt;$button class=\&quot;tc-btn-invisible\&quot; tooltip={{!!tbl-button-tip}} style=\&quot;min-width:1.4ch\&quot;&gt;\n      &lt;&lt;buttonIcon&gt;&gt;\n      &lt;$list filter=&lt;&lt;tableFilter&gt;&gt; variable=\&quot;currentRecord\&quot;&gt;\n        &lt;&lt;buttonAction&gt;&gt;\n      &lt;/$list&gt;\n    &lt;/$button&gt;\n  &lt;/span&gt;\n&lt;/th&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/template/header/button&quot;,
+            &quot;tbl-column-list&quot;: &quot;tbl-button&quot;,
+            &quot;tags&quot;: &quot;$:/tags/table/HeaderTemplate&quot;,
+            &quot;revision&quot;: &quot;0&quot;,
+            &quot;modified&quot;: &quot;20191215042023298&quot;,
+            &quot;created&quot;: &quot;20170206022431198&quot;,
+            &quot;bag&quot;: &quot;default&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/template/header/checkbox&quot;: {
+            &quot;text&quot;: &quot;&lt;th style=\&quot;width:1.4ch;text-align:center;\&quot; class=\&quot;tbl-inpt-check\&quot;&gt;\n  &lt;$set name=\&quot;allSelected\&quot; filter=&lt;&lt;checkboxFilter&gt;&gt; value=\&quot;$:/plugins/aaldrich/tables/macro!!tbl-false\&quot; emptyValue=\&quot;$:/plugins/aaldrich/tables/macro!!tbl-true\&quot;&gt;\n    &lt;$reveal type=\&quot;match\&quot; state=&lt;&lt;allSelected&gt;&gt; text=\&quot;false\&quot;&gt;\n      &lt;$button class=\&quot;tc-btn-invisible\&quot; tooltip={{!!tbl-checkbox-tip}}&gt;\n        &lt;$checkbox field=\&quot;tbl-selall\&quot; unchecked=\&quot;closed\&quot; default=\&quot;closed\&quot;/&gt;\n          &lt;$list filter=&lt;&lt;tableFilter&gt;&gt;variable=\&quot;currentRecord\&quot;&gt;\n            &lt;$action-listops $tiddler=&lt;&lt;currentRecord&gt;&gt; $tags=\&quot;+[append&lt;checkTag&gt;]\&quot; /&gt;\n            &lt;$action-setfield $tiddler=&lt;&lt;currentRecord&gt;&gt; $field=&lt;&lt;checkField&gt;&gt; $value=&lt;&lt;checkSel&gt;&gt;/&gt;\n            &lt;&lt;checkActions&gt;&gt;\n          &lt;/$list&gt;\n        &lt;/$button&gt;\n      &lt;/$reveal&gt;\n      &lt;$reveal type=\&quot;match\&quot; state=&lt;&lt;allSelected&gt;&gt; text=\&quot;true\&quot;&gt;\n       &lt;$button class=\&quot;tc-btn-invisible\&quot; tooltip={{!!tbl-checkbox-tip}}&gt;\n         &lt;$checkbox &lt;$checkbox field=\&quot;tbl-selall\&quot; checked=\&quot;open\&quot; default=\&quot;open\&quot;/&gt;\n         &lt;$list filter=&lt;&lt;tableFilter&gt;&gt;variable=\&quot;currentRecord\&quot;&gt;\n           &lt;$action-listops $tiddler=&lt;&lt;currentRecord&gt;&gt; $tags=\&quot;+[remove&lt;checkTag&gt;]\&quot; /&gt;\n           &lt;$action-setfield $tiddler=&lt;&lt;currentRecord&gt;&gt; $field=&lt;&lt;checkField&gt;&gt; $value=&lt;&lt;checkUnsel&gt;&gt;/&gt;\n           &lt;&lt;checkUnactions&gt;&gt;\n        &lt;/$list&gt;\n      &lt;/$button&gt;\n    &lt;/$reveal&gt;\n  &lt;/$set&gt;\n&lt;/th&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/template/header/checkbox&quot;,
+            &quot;tbl-column-list&quot;: &quot;tbl-checkbox&quot;,
+            &quot;tags&quot;: &quot;$:/tags/table/HeaderTemplate&quot;,
+            &quot;revision&quot;: &quot;0&quot;,
+            &quot;modified&quot;: &quot;20191215042449992&quot;,
+            &quot;created&quot;: &quot;20170206022431198&quot;,
+            &quot;bag&quot;: &quot;default&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/template/body/checkbox&quot;: {
+            &quot;created&quot;: &quot;20170206082424723&quot;,
+            &quot;text&quot;: &quot;&lt;td style=\&quot;width:1.4ch;text-align:center;\&quot; class=\&quot;tbl-inpt-check\&quot;&gt;\n  &lt;$set name=\&quot;recordSelected\&quot; filter=&lt;&lt;checkboxTest&gt;&gt; value=\&quot;$:/plugins/aaldrich/tables/macro!!tbl-false\&quot; emptyValue=\&quot;$:/plugins/aaldrich/tables/macro!!tbl-true\&quot;&gt;\n  &lt;$reveal type=\&quot;match\&quot; state=&lt;&lt;recordSelected&gt;&gt; text=\&quot;false\&quot;&gt;\n    &lt;$button class=\&quot;tc-btn-invisible\&quot; tooltip={{!!tbl-checkbox-tip}}&gt;\n      &lt;$checkbox field=\&quot;tbl-selall\&quot; unchecked=\&quot;closed\&quot; default=\&quot;closed\&quot;/&gt;\n      &lt;$action-listops $tiddler=&lt;&lt;currentRecord&gt;&gt; $tags=\&quot;+[append&lt;checkTag&gt;]\&quot; /&gt;\n      &lt;$action-setfield $tiddler=&lt;&lt;currentRecord&gt;&gt; $field=&lt;&lt;checkField&gt;&gt; $value=&lt;&lt;checkSel&gt;&gt;/&gt;\n      &lt;&lt;checkActions&gt;&gt;\n    &lt;/$button&gt;\n  &lt;/$reveal&gt;\n  &lt;$reveal type=\&quot;match\&quot; state=&lt;&lt;recordSelected&gt;&gt; text=\&quot;true\&quot;&gt;\n    &lt;$button class=\&quot;tc-btn-invisible\&quot; tooltip={{!!tbl-checkbox-tip}}&gt;\n      &lt;$checkbox field=\&quot;tbl-selall\&quot; checked=\&quot;open\&quot; default=\&quot;open\&quot;/&gt;\n      &lt;$action-listops $tiddler=&lt;&lt;currentRecord&gt;&gt; $tags=\&quot;+[remove&lt;checkTag&gt;]\&quot; /&gt;\n      &lt;$action-setfield $tiddler=&lt;&lt;currentRecord&gt;&gt; $field=&lt;&lt;checkField&gt;&gt; $value=&lt;&lt;checkUnsel&gt;&gt;/&gt;\n      &lt;&lt;checkUnactions&gt;&gt;\n    &lt;/$button&gt;\n  &lt;/$reveal&gt;\n  &lt;/$set&gt;\n&lt;/td&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/template/body/checkbox&quot;,
+            &quot;tbl-noedit&quot;: &quot;tbl-checkbox&quot;,
+            &quot;tbl-column-list&quot;: &quot;tbl-checkbox&quot;,
+            &quot;tags&quot;: &quot;$:/tags/table/BodyTemplate&quot;,
+            &quot;revision&quot;: &quot;0&quot;,
+            &quot;modified&quot;: &quot;20200103012208099&quot;,
+            &quot;bag&quot;: &quot;default&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/template/header/expand&quot;: {
+            &quot;text&quot;: &quot;&lt;th style=\&quot;width:1.4ch;text-align:center;\&quot;&gt;\n  &lt;$set name=\&quot;isExpanded\&quot; filter=\&quot;[&lt;tempTableExpand&gt;indexes[]limit[1]]\&quot; value=\&quot;true\&quot; emptyValue=\&quot;false\&quot;&gt;\n  &lt;$list variable=\&quot;showColAll\&quot; filter=\&quot;[&lt;isExpanded&gt;]-[[false]]\&quot; &gt;\n      &lt;$button class=\&quot;tc-btn-invisible\&quot; tooltip=\&quot;collapse all\&quot; style=\&quot;min-width:1.4ch\&quot;&gt;{{$:/core/images/fold-button}}\n        &lt;$action-setfield $tiddler=&lt;&lt;tempTableExpand&gt;&gt; text=\&quot;\&quot;/&gt;\n      &lt;/$button&gt;\n  &lt;/$list&gt;\n&lt;!--this is done so the column stays visible if the table is squished out of tiddler margin --&gt;\n  &lt;$list variable=\&quot;hideColAll\&quot; filter=\&quot;[&lt;isExpanded&gt;]-[[true]]\&quot; &gt;\n      &lt;$button class=\&quot;tc-btn-invisible\&quot; style=\&quot;cursor:default;min-width:1.4ch\&quot;&gt;{{$:/core/images/blank}}\n      &lt;/$button&gt;\n  &lt;/$list&gt;\n  &lt;/$set&gt;\n&lt;/th&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/template/header/expand&quot;,
+            &quot;tbl-column-list&quot;: &quot;tbl-expand tbl-expand-one tbl-expand-many&quot;,
+            &quot;tags&quot;: &quot;$:/tags/table/HeaderTemplate&quot;,
+            &quot;revision&quot;: &quot;0&quot;,
+            &quot;modified&quot;: &quot;20191215042036015&quot;,
+            &quot;created&quot;: &quot;20170206022431198&quot;,
+            &quot;bag&quot;: &quot;default&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/template/body/expand-many&quot;: {
+            &quot;text&quot;: &quot;&lt;$reveal type=\&quot;nomatch\&quot; state=&lt;&lt;tempPathExpand&gt;&gt; text=\&quot;show\&quot; tag=\&quot;td\&quot; style=\&quot;width:1.4ch;text-align:center;\&quot;&gt;\n  &lt;$button class=\&quot;tc-btn-invisible tc-tiddlylink\&quot; tooltip=\&quot;expand\&quot; style=\&quot;min-width:1.4ch\&quot;&gt;\n    &lt;$action-setfield $tiddler=&lt;&lt;tempTableExpand&gt;&gt; $index=&lt;&lt;currentRecord&gt;&gt; $value=\&quot;show\&quot; /&gt;\n    &lt;$set name=\&quot;childTable\&quot; filter=\&quot;[all[tiddlers+shadows]title&lt;currentTable&gt;get[tbl-expand]]\&quot; &gt;\n      &lt;$list filter=&lt;&lt;expandResetNested&gt;&gt;&gt;\n        &lt;$action-setfield $tiddler=&lt;&lt;tableExpand&gt;&gt; $field=\&quot;tbl-page-marker\&quot; $value=\&quot;\&quot;/&gt;\n      &lt;/$list&gt;\n    &lt;/$set&gt;\n    {{$:/core/images/right-arrow}}\n  &lt;/$button&gt;\n&lt;/$reveal&gt;\n&lt;$reveal type=\&quot;match\&quot; state=&lt;&lt;tempPathExpand&gt;&gt; text=\&quot;show\&quot; tag=\&quot;td\&quot; style=\&quot;width:1.4ch;text-align:center;\&quot;&gt;\n  &lt;$button class=\&quot;tc-btn-invisible tc-tiddlylink\&quot; tooltip=\&quot;collapse\&quot; style=\&quot;min-width:1.4ch\&quot;&gt;\n    &lt;$action-setfield $tiddler=&lt;&lt;tempTableExpand&gt;&gt; $index=&lt;&lt;currentRecord&gt;&gt;/&gt;\n    {{$:/core/images/down-arrow}}\n  &lt;/$button&gt;\n&lt;/$reveal&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/template/body/expand-many&quot;,
+            &quot;tbl-noedit&quot;: &quot;tbl-expand-many&quot;,
+            &quot;tbl-column-list&quot;: &quot;tbl-expand-many&quot;,
+            &quot;tags&quot;: &quot;$:/tags/table/BodyTemplate&quot;,
+            &quot;revision&quot;: &quot;0&quot;,
+            &quot;modified&quot;: &quot;20191215041922693&quot;,
+            &quot;created&quot;: &quot;20170206022244360&quot;,
+            &quot;bag&quot;: &quot;default&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/template/body/delete&quot;: {
+            &quot;text&quot;: &quot;&lt;td style=\&quot;width:1.4ch;text-align:center;\&quot;&gt;\n  &lt;$button class=\&quot;tc-btn-invisible\&quot; tooltip=\&quot;delete\&quot; style=\&quot;min-width:1.4ch\&quot;&gt;\n    &lt;$action-setfield $tiddler=&lt;&lt;tempTableStyle&gt;&gt; $index=&lt;&lt;currentRecord&gt;&gt; $value=\&quot;\&quot;/&gt;\n    &lt;$action-sendmessage $message=\&quot;tm-delete-tiddler\&quot; $param=&lt;&lt;currentRecord&gt;&gt;/&gt;\n    {{$:/core/images/delete-button}}\n  &lt;/$button&gt;\n&lt;/td&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/template/body/delete&quot;,
+            &quot;tbl-noedit&quot;: &quot;tbl-delete&quot;,
+            &quot;tbl-column-list&quot;: &quot;tbl-delete&quot;,
+            &quot;tags&quot;: &quot;$:/tags/table/BodyTemplate&quot;,
+            &quot;revision&quot;: &quot;0&quot;,
+            &quot;modified&quot;: &quot;20191215041952847&quot;,
+            &quot;created&quot;: &quot;20170212101814663&quot;,
+            &quot;bag&quot;: &quot;default&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/template/header/delete&quot;: {
+            &quot;text&quot;: &quot;&lt;th style=\&quot;width:1.4ch;text-align:center;\&quot;&gt;\n  &lt;span&gt;\n  &lt;$button class=\&quot;tc-btn-invisible\&quot; tooltip=\&quot;delete all\&quot; style=\&quot;min-width:1.4ch\&quot;&gt;\n&lt;$list filter=&lt;&lt;showDeleteConfirm&gt;&gt;&gt;\n    &lt;$action-setfield $tiddler=\&quot;$:/temp/tables/delete-all\&quot; text=&lt;&lt;currentTable&gt;&gt;/&gt;\n&lt;/$list&gt;\n    {{$:/core/images/delete-button}}\n  &lt;/$button&gt;\n  &lt;/span&gt;\n&lt;/th&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/template/header/delete&quot;,
+            &quot;tbl-column-list&quot;: &quot;tbl-delete&quot;,
+            &quot;tags&quot;: &quot;$:/tags/table/HeaderTemplate&quot;,
+            &quot;revision&quot;: &quot;0&quot;,
+            &quot;modified&quot;: &quot;20191215042010684&quot;,
+            &quot;created&quot;: &quot;20170212102107998&quot;,
+            &quot;bag&quot;: &quot;default&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/pagination&quot;: {
+            &quot;text&quot;: &quot;&lt;$vars filteredCount=\&quot;\&quot;\&quot;&lt;$count filter=&lt;&lt;tableFilter&gt;&gt;/&gt;\&quot;\&quot;\&quot; totalCount=\&quot;\&quot;\&quot;&lt;$count filter=&lt;&lt;inputFilter&gt;&gt;/&gt;\&quot;\&quot;\&quot; firstCount=\&quot;\&quot;\&quot;&lt;$count filter=&lt;&lt;getFirst&gt;&gt;/&gt;\&quot;\&quot;\&quot; lastCount=\&quot;\&quot;\&quot;&lt;$count filter=&lt;&lt;getLast&gt;&gt;/&gt;\&quot;\&quot;\&quot; pageSetting={{!!tbl-show-pagination}} &gt;\n&lt;$wikify name=\&quot;totalCount\&quot; text=&lt;&lt;totalCount&gt;&gt; mode=\&quot;inline\&quot;&gt;\n&lt;$wikify name=\&quot;filteredCount\&quot; text=&lt;&lt;filteredCount&gt;&gt; mode=\&quot;inline\&quot;&gt;\n&lt;$set name=\&quot;pageReq\&quot; filter=&lt;&lt;overLimit&gt;&gt; value=&lt;&lt;pageSetting&gt;&gt; emptyValue=\&quot;true\&quot; &gt;\n&lt;$wikify name=\&quot;pageReq\&quot; text=&lt;&lt;pageReq&gt;&gt; mode=\&quot;inline\&quot;&gt;\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;$:/plugins/aaldrich/tables/macro!!tbl-true\&quot; text=&lt;&lt;pageReq&gt;&gt; tag=\&quot;div\&quot; &gt;\n&lt;$set name=\&quot;lastRecord\&quot; filter=&lt;&lt;lastRec&gt;&gt; value=&lt;&lt;lastRecord&gt;&gt; emptyValue={{!!tbl-page-marker}} &gt;\n&lt;$wikify name=\&quot;lastRecord\&quot; text=&lt;&lt;lastRecord&gt;&gt; mode=\&quot;inline\&quot;&gt;\n&lt;$set name=\&quot;firstRecord\&quot; filter=&lt;&lt;resetPagination&gt;&gt; value=&lt;&lt;firstRecord&gt;&gt; &gt;\n&lt;$wikify name=\&quot;firstRecord\&quot; text=&lt;&lt;firstRecord&gt;&gt; mode=\&quot;inline\&quot;&gt;\n&lt;$wikify name=\&quot;recordCount\&quot; text=\&quot;\&quot;\&quot;&lt;$count filter=&lt;&lt;tableFilter&gt;&gt;/&gt;\&quot;\&quot;\&quot; mode=\&quot;inline\&quot;&gt;\n&lt;$set name=\&quot;previousPage\&quot; filter=&lt;&lt;previousFirst&gt;&gt; value=&lt;&lt;previousPage&gt;&gt; emptyValue=&lt;&lt;firstRecord&gt;&gt;&gt;\n&lt;$wikify name=\&quot;previousPage\&quot; text=&lt;&lt;previousPage&gt;&gt; mode=\&quot;inline\&quot;&gt;\n&lt;$set name=\&quot;nextPage\&quot; filter=&lt;&lt;nextFirst&gt;&gt; value=&lt;&lt;nextPage&gt;&gt; emptyValue={{!!tbl-page-marker}} &gt;\n&lt;$wikify name=\&quot;nextPage\&quot; text=&lt;&lt;nextPage&gt;&gt; mode=\&quot;inline\&quot;&gt;\n{{||$:/plugins/aaldrich/tables/template/pagination/default}}\n&lt;/$wikify&gt;\n&lt;/$set&gt;\n&lt;/$wikify&gt;\n&lt;/$set&gt;\n&lt;/$wikify&gt;\n&lt;/$wikify&gt;\n&lt;/$set&gt;\n&lt;/$wikify&gt;\n&lt;/$set&gt;\n&lt;/$reveal&gt;  \n&lt;/$wikify&gt;\n&lt;/$set&gt;  \n&lt;/$wikify&gt;\n&lt;/$wikify&gt;\n&lt;/$vars&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/pagination&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modified&quot;: &quot;20191208103301563&quot;,
+            &quot;created&quot;: &quot;20170212033753546&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/readme&quot;: {
+            &quot;created&quot;: &quot;20170207092135594&quot;,
+            &quot;text&quot;: &quot;!!''~TiddlyTables'' is a plugin for ~TiddlyWiki to create advanced sortable tables.\n\nPut simply, a filter is used to return a list of tiddler titles, or ''records''. and a list of field/index names determines what ''columns'' to display. \n\nThe best way to explore the many features of ~TiddlyTables is to create a new table and start editing.\n\n#''Install'' - Drag this link into your ~TiddlyWiki: [[$:/plugins/aaldrich/tables]]\n#''Create'' - There are two ways to create a ~TiddlyTable.\n##Click the ''New Table'' button in the //Page Toolbar//: &lt;h2&gt;{{$:/plugins/aaldrich/tables/button/image}}&lt;/h2&gt;\n##Manual method\n###Add ''``&lt;&lt;table \&quot;My New Table\&quot;&gt;&gt;``'' to the text field of a new or existing tiddler. \n###Save tiddler. A button is rendered on the tiddler.\n###Click ''Reset Table'' button. This creates the required //tbl// fields and renders the table.\n###//Note: `&lt;&lt;table&gt;&gt;` with no title parameter will store its fields in the current tiddler.//\n#''Edit'' - There are two ways to edit the table.\n##Graphically (recommended)\n###Click the {{$:/core/images/options-button}} Button above the table to edit ''Table Options''.\n###Click the {{$:/core/images/edit-button}} Button above the table to toggle ''Edit Mode''.\n##Manually - Edit the tiddler and modify //tbl// fields.\n#''Customize'' - ~TiddlyTables are highly customizable.\n##''Defaults'' - [[$:/plugins/aaldrich/tables/defaults]]\n\n##''Themes'' (Stylesheet) - prefix ~$:/plugins/aaldrich/tables/style...\n###Tagged ~$:/tags/Stylesheet (required)\n###Field tbl-class-name (required)\n###Global default setting - tbl-class field\n\n##''Column Templates'' - determine how columns are rendered.\n\n###Each column has three template types:\n####''Header'' - prefix ~$:/plugins/aaldrich/tables/template/header...\n#####Tagged ~$:/tags/table/HeaderTemplate (required)\n#####Global default setting - tbl-temp-default-header field\n\n####''Body'' - prefix ~$:/plugins/aaldrich/tables/template/body...\n#####Tagged ~$:/tags/table/BodyTemplate (required)\n#####Global default setting - tbl-temp-default-body field\n\n####''Footer'' - prefix ~$:/plugins/aaldrich/tables/template/footer...\n#####Tagged ~$:/tags/table/FooterTemplate (required)\n#####Global default setting - tbl-temp-default-footer field\n\n###Add fields/index names to the field ''tbl-column-list'' of a template to assign them.\n###If a field/index is not assigned to a template of a particular type, the default template for that type is used.\n###New templates can be created or cloned from an existing one.\n\n##''Expand Templates'' - prefix ~$:/plugins/aaldrich/tables/template/expand...\n###Tagged ~$:/tags/table/ExpandTemplate (required)\n###Default setting - tbl-temp-default-expand field\n\n##''Pagination Template'' - ~$:/plugins/aaldrich/tables/template/pagination/default\n###No mechanism to change on per-table basis. No tag required.\n###No default setting\n###To modify, edit the default pagination template.&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/readme&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modified&quot;: &quot;20191210033829409&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/defaults&quot;: {
+            &quot;text&quot;: &quot;''all'' of a fundamental category: [all[tiddlers+shadows+tags+orphans+missing+current]]\n''backlinks'' to input: [backlinks[]]\n''contains'' - list field //contains// value ``!``: [contains:list[ENTER VALUE HERE]]\n''days'' in past/future ``!``: [days:modified[ENTER + OR - NUMBER OF DAYS HERE]]\n''field'' has value ``!``: [field:title[ENTER VALUE HERE]]\n''fields'' of input: [fields[]]\n''get'' value of field: [get[ENTER FIELD HERE]]\n''getindex'' value of property: [getindex[ENTER PROPERTY HERE]]\n''has'' field ``!``: [has[ENTER FIELD HERE]]\n''indexes'' of input: [indexes[]]\n''is'' a fundamental category ``!``: [is[current OR image OR missing OR orphan OR shadow OR tag OR tiddler OR variable OR blank]]\n''links'' of input: [links[]]\n''list'' titles of list field ``!``: [list[ENTER TIDDLER!!FIELD REFERENCE HERE]]\n''listed'' on field of input: [listed[ENTER OPTIONAL FIELD HERE]]\n''prefix'' on input titles ``!``: [prefix[ENTER TITLE PREFIX HERE]]\n''range'' of numbers ``!``: [range[1, 25, 5]]\n''regexp'' pattern ``!``: [regexp[ENTER REG EXP HERE]]\n''reverse'' order of input: [reverse[]]\n''sameday'' as field: [sameday:modified[ENTER YYYYMMDD HERE]]\n''search'' ``!``: [search:tags, text, title:literal,whitespace,regexp,words,casesensitive,anchored[ENTER SEARCH TEXT HERE]]\n''subfilter'' ``!``: [subfilter&lt;ENTER VARIABLE OR REFERENCE HERE&gt;]\n''suffix'' on input titles ``!``: [suffix[ENTER TITLE SUFFIX HERE]]\n''tag'' found on input ``!``: [tag[ENTER TAG NAME HERE]]\n''tagging'' matches input: [tagging[]]\n''tags'' of input: [tags[]]\n''untagged'' titles of input ``!``: [untagged[]]&quot;,
+            &quot;type&quot;: &quot;application/x-tiddler-dictionary&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/defaults&quot;,
+            &quot;tbl-title-type-show&quot;: &quot;true&quot;,
+            &quot;tbl-title-type-code&quot;: &quot;&lt;$list filter=\&quot;[&lt;currentRecord&gt;is[shadow]]\&quot;&gt;^^s^^&lt;/$list&gt;&lt;$list filter=\&quot;[&lt;currentRecord&gt;is[tiddler]is[shadow]]\&quot;&gt;^^*^^&lt;/$list&gt;&quot;,
+            &quot;tbl-temp-default-head&quot;: &quot;$:/plugins/aaldrich/tables/template/header/default&quot;,
+            &quot;tbl-temp-default-foot&quot;: &quot;$:/plugins/aaldrich/tables/template/footer/default&quot;,
+            &quot;tbl-temp-default-expand&quot;: &quot;$:/plugins/aaldrich/tables/template/expand/transclude&quot;,
+            &quot;tbl-temp-default-body-edit&quot;: &quot;$:/plugins/aaldrich/tables/template/body/edit-input&quot;,
+            &quot;tbl-temp-default-body&quot;: &quot;$:/plugins/aaldrich/tables/template/body/default&quot;,
+            &quot;tbl-style-table&quot;: &quot;width:100%;&quot;,
+            &quot;tbl-style-container&quot;: &quot;&quot;,
+            &quot;tbl-style-colgroup&quot;: &quot;&quot;,
+            &quot;tbl-sort-type&quot;: &quot;nsort&quot;,
+            &quot;tbl-sort-negate&quot;: &quot;false&quot;,
+            &quot;tbl-sort-by&quot;: &quot;title&quot;,
+            &quot;tbl-show-pagination&quot;: &quot;auto&quot;,
+            &quot;tbl-show-mode&quot;: &quot;true&quot;,
+            &quot;tbl-show-header&quot;: &quot;true&quot;,
+            &quot;tbl-show-footer&quot;: &quot;false&quot;,
+            &quot;tbl-show-edit&quot;: &quot;true&quot;,
+            &quot;tbl-show-colgroup&quot;: &quot;false&quot;,
+            &quot;tbl-show-caption&quot;: &quot;true&quot;,
+            &quot;tbl-page-marker&quot;: &quot;&quot;,
+            &quot;tbl-mode&quot;: &quot;normal&quot;,
+            &quot;tbl-limit-choices&quot;: &quot;[[5]] [[10]] [[15]] [[20]] [[25]] [[30]] [[40]] [[50]]&quot;,
+            &quot;tbl-limit&quot;: &quot;10&quot;,
+            &quot;tbl-filter&quot;: &quot;[!is[system]search[]]&quot;,
+            &quot;tbl-expand&quot;: &quot;&quot;,
+            &quot;tbl-default-title&quot;: &quot;New Table&quot;,
+            &quot;tbl-default-date-format&quot;: &quot;0MM/0DD/YY hh12:0mmAM&quot;,
+            &quot;tbl-columns&quot;: &quot;title modified tags&quot;,
+            &quot;tbl-class&quot;: &quot;tbl-style-default&quot;,
+            &quot;tbl-checkbox-value-unselected&quot;: &quot;&quot;,
+            &quot;tbl-checkbox-value-selected&quot;: &quot;&quot;,
+            &quot;tbl-checkbox-tip&quot;: &quot;&quot;,
+            &quot;tbl-checkbox-tag&quot;: &quot;&quot;,
+            &quot;tbl-checkbox-field&quot;: &quot;&quot;,
+            &quot;tbl-checkbox-actions-unselected&quot;: &quot;&quot;,
+            &quot;tbl-checkbox-actions-selected&quot;: &quot;&quot;,
+            &quot;tbl-caption-mode&quot;: &quot;inline&quot;,
+            &quot;tbl-caption&quot;: &quot;''{{!!title}}''&quot;,
+            &quot;tbl-button-tip&quot;: &quot;&quot;,
+            &quot;tbl-button-icon&quot;: &quot;{{$:/core/images/menu-button}}&quot;,
+            &quot;tbl-button-actions&quot;: &quot;&quot;,
+            &quot;tbl-anything&quot;: &quot;&quot;,
+            &quot;tbl-add-records&quot;: &quot;&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modified&quot;: &quot;20191214043748895&quot;,
+            &quot;created&quot;: &quot;20170207075434434&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/macro&quot;: {
+            &quot;created&quot;: &quot;20170205053213873&quot;,
+            &quot;text&quot;: &quot;\\define table(title:)\n&lt;$set name=\&quot;currentTable\&quot; value=&lt;&lt;__title__&gt;&gt; emptyValue={{!!title}}&gt;\n&lt;$tiddler tiddler=&lt;&lt;currentTable&gt;&gt;&gt;\n&lt;!-- assign vars --&gt;\n&lt;$vars buttonAction={{!!tbl-button-actions}} buttonIcon={{!!tbl-button-icon}} anythingCode={{!!tbl-anything}} pageMarker={{!!tbl-page-marker}} enteredFilter={{!!tbl-filter}} enteredTitles={{!!tbl-add-records}} recordLimit={{!!tbl-limit}} sortBy={{!!tbl-sort-by}} sortType={{!!tbl-sort-type}} checkTag={{!!tbl-checkbox-tag}} checkSel={{!!tbl-checkbox-value-selected}} checkUnsel={{!!tbl-checkbox-value-unselected}} checkActions={{!!tbl-checkbox-actions-selected}} checkUnactions={{!!tbl-checkbox-actions-unselected}} &gt;\n&lt;$set name=\&quot;tableExpand\&quot; filter=\&quot;[&lt;currentTable&gt;get[tbl-expand]]\&quot; emptyValue={{$:/plugins/aaldrich/tables/defaults!!tbl-temp-default-expand}} value={{!!tbl-expand}}&gt;\n&lt;$set name=\&quot;checkField\&quot; filter=\&quot;[&lt;currentTable&gt;get[tbl-checkbox-field]]\&quot; emptyValue=\&quot;modified\&quot; value={{!!tbl-checkbox-field}}&gt;\n&lt;$set name=\&quot;sortNeg\&quot; filter=\&quot;[&lt;currentTable&gt;field:tbl-sort-negate[true]]\&quot; emptyValue=\&quot;\&quot; value=\&quot;!\&quot;&gt;\n&lt;$set name=\&quot;pageFilter\&quot; filter=&lt;&lt;nextFirst&gt;&gt;  emptyValue=\&quot;+[allafter{!!tbl-page-marker}]+[{!!tbl-page-marker}]\&quot; value=\&quot;+[allafter:including{!!tbl-page-marker}]\&quot; &gt;\n&lt;$set name=\&quot;includePage\&quot; filter=\&quot;[&lt;currentTable&gt;get[tbl-page-marker]]\&quot;  emptyValue=\&quot;\&quot; value=&lt;&lt;pageFilter&gt;&gt; &gt;\n&lt;!-- check if table can be rendered properly --&gt;\n&lt;$set name=\&quot;hideTable\&quot; filter=&lt;&lt;currentTiddler&gt;&gt; value=&lt;&lt;currentTiddler&gt;&gt; emptyValue=\&quot;$:/plugins/aaldrich/tables/template/expand/transclude\&quot; &gt;\n&lt;$set name=\&quot;hideTable\&quot; filter=\&quot;[&lt;hideTable&gt;]-[[$:/plugins/aaldrich/tables/template/expand/transclude]]-[[field]]+[limit[1]]\&quot; value=\&quot;false\&quot; emptyValue=\&quot;true\&quot;&gt;\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;$:/plugins/aaldrich/tables/macro!!tbl-true\&quot; text=&lt;&lt;hideTable&gt;&gt;&gt;\n''Table transclusion error: ''use //title// parameter: `&lt;&lt;table \&quot;My Table\&quot;&gt;&gt;`.\n&lt;/$reveal&gt;\n&lt;/$set&gt;\n&lt;$list filter=\&quot;[&lt;hideTable&gt;]-[[$:/plugins/aaldrich/tables/template/expand/transclude]]-[[field]]+[limit[1]]\&quot; variable=\&quot;showTable\&quot;&gt;\n&lt;!-- reveal refresh table button that adds req fields to a table using default values --&gt;\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;!!tbl-columns\&quot; text=\&quot;\&quot;&gt;\n&lt;$button class=\&quot;tc-btn-invisible tc-tiddlylink\&quot; &gt;{{$:/core/images/refresh-button}} Reset Table&lt;$action-setfield \ntbl-add-records={{$:/plugins/aaldrich/tables/defaults!!tbl-add-records}}\ntbl-anything={{$:/plugins/aaldrich/tables/defaults!!tbl-anything}}\ntbl-button-actions={{$:/plugins/aaldrich/tables/defaults!!tbl-button-actions}}\ntbl-button-icon={{$:/plugins/aaldrich/tables/defaults!!tbl-button-icon}}\ntbl-button-tip={{$:/plugins/aaldrich/tables/defaults!!tbl-button-tip}}\ntbl-caption={{$:/plugins/aaldrich/tables/defaults!!tbl-caption}}\ntbl-checkbox-actions-selected={{$:/plugins/aaldrich/tables/defaults!!tbl-checkbox-actions-selected}}\ntbl-checkbox-actions-unselected={{$:/plugins/aaldrich/tables/defaults!!tbl-checkbox-actions-unselected}}\ntbl-checkbox-field={{$:/plugins/aaldrich/tables/defaults!!tbl-checkbox-field}}\ntbl-checkbox-tag={{$:/plugins/aaldrich/tables/defaults!!tbl-checkbox-tag}}\ntbl-checkbox-tip={{$:/plugins/aaldrich/tables/defaults!!tbl-checkbox-tip}}\ntbl-checkbox-value-selected={{$:/plugins/aaldrich/tables/defaults!!tbl-checkbox-value-selected}}\ntbl-checkbox-value-unselected={{$:/plugins/aaldrich/tables/defaults!!tbl-checkbox-value-unselected}}\ntbl-class={{$:/plugins/aaldrich/tables/defaults!!tbl-class}}\ntbl-columns={{$:/plugins/aaldrich/tables/defaults!!tbl-columns}}\ntbl-expand={{$:/plugins/aaldrich/tables/defaults!!tbl-expand}}\ntbl-filter={{$:/plugins/aaldrich/tables/defaults!!tbl-filter}}\ntbl-show-caption={{$:/plugins/aaldrich/tables/defaults!!tbl-show-caption}}\ntbl-show-colgroup={{$:/plugins/aaldrich/tables/defaults!!tbl-show-colgroup}}\ntbl-show-edit={{$:/plugins/aaldrich/tables/defaults!!tbl-show-edit}}\ntbl-show-footer={{$:/plugins/aaldrich/tables/defaults!!tbl-show-footer}}\ntbl-show-header={{$:/plugins/aaldrich/tables/defaults!!tbl-show-header}}\ntbl-show-mode={{$:/plugins/aaldrich/tables/defaults!!tbl-show-mode}}\ntbl-show-pagination={{$:/plugins/aaldrich/tables/defaults!!tbl-show-pagination}}\ntbl-limit={{$:/plugins/aaldrich/tables/defaults!!tbl-limit}}\ntbl-mode={{$:/plugins/aaldrich/tables/defaults!!tbl-mode}}\ntbl-page-marker={{$:/plugins/aaldrich/tables/defaults!!tbl-page-marker}}\ntbl-sort-by={{$:/plugins/aaldrich/tables/defaults!!tbl-sort-by}}\ntbl-sort-negate={{$:/plugins/aaldrich/tables/defaults!!tbl-sort-negate}}\ntbl-sort-type={{$:/plugins/aaldrich/tables/defaults!!tbl-sort-type}}\ntbl-style-colgroup={{$:/plugins/aaldrich/tables/defaults!!tbl-style-colgroup}}\ntbl-style-container={{$:/plugins/aaldrich/tables/defaults!!tbl-style-container}}\ntbl-style-table={{$:/plugins/aaldrich/tables/defaults!!tbl-style-table}}/&gt;\n&lt;/$button&gt;\n&lt;/$reveal&gt;\n&lt;!-- reveal table if req field (tbl-columns) exists --&gt;\n&lt;$reveal type=\&quot;nomatch\&quot; state=\&quot;!!tbl-columns\&quot; text=\&quot;\&quot; tag=\&quot;div\&quot; style={{!!tbl-style-container}} class={{!!tbl-class}}&gt;\n{{||$:/plugins/aaldrich/tables/view}}\n&lt;/$reveal&gt;\n&lt;/$list&gt;\n&lt;/$set&gt;\n&lt;/$set&gt;\n&lt;/$set&gt;\n&lt;/$set&gt;\n&lt;/$set&gt;\n&lt;/$set&gt;\n&lt;/$vars&gt;\n&lt;/$tiddler&gt;\n&lt;/$set&gt;\n\\end\n\n\\define inputFilter()\n$(enteredFilter)$[list[$(currentTable)$!!tbl-add-records]]\n\\end\n\n\\define resetPagination()\n$(inputFilter)$+[$(sortType)$[title]$(sortNeg)$$(sortType)$[$(sortBy)$]]+[first[]]\n\\end\n\n\\define veryFirst()\n$(inputFilter)$+[$(sortType)$[title]$(sortType)$[$(currentColumn)$]]+[first[]]\n\\end\n\n\\define veryLast()\n$(inputFilter)$+[!$(sortType)$[title]$(sortType)$[$(currentColumn)$]]+[last[]]\n\\end\n\n\\define previousFirst()\n$(inputFilter)$+[$(sortType)$[title]$(sortNeg)$$(sortType)$[$(sortBy)$]]+[allbefore[$(pageMarker)$]]+[last[$(recordLimit)$]]+[first[]]\n\\end\n\n\\define nextFirst()\n$(inputFilter)$+[$(sortType)$[title]$(sortNeg)$$(sortType)$[$(sortBy)$]]+[allafter[$(pageMarker)$]]+[limit[$(recordLimit)$]]+[last[]]\n\\end\n\n\\define lastRec()\n$(inputFilter)$+[$(sortType)$[title]$(sortNeg)$$(sortType)$[$(sortBy)$]]+[allafter:including[$(pageMarker)$]]+[limit[$(recordLimit)$]]+[last[]]\n\\end\n\n\\define getFirst()\n$(inputFilter)$+[$(sortType)$[title]$(sortNeg)$$(sortType)$[$(sortBy)$]]+[allbefore[$(pageMarker)$]]+[prepend[1]]\n\\end\n\n\\define getLast()\n$(inputFilter)$+[$(sortType)$[title]$(sortNeg)$$(sortType)$[$(sortBy)$]]+[allbefore:including[$(lastRecord)$]]\n\\end\n\n\\define tableFilter()\n$(inputFilter)$+[$(sortType)$[title]$(sortNeg)$$(sortType)$[$(sortBy)$]]$(includePage)$+[limit[$(recordLimit)$]]\n\\end\n\n\\define showDeleteConfirm()\n$(tableFilter)$+[limit[1]]\n\\end\n\n\\define checkboxFilter()\n$(inputFilter)$+[$(sortType)$[title]$(sortNeg)$$(sortType)$[$(sortBy)$]]$(includePage)$+[limit[$(recordLimit)$]!tag[$(checkTag)$]!$(checkField)$[$(checkSel)$]]\n\\end\n\n\\define checkboxTest()\n[[$(currentRecord)$]!tag[$(checkTag)$]!$(checkField)$[$(checkSel)$]]\n\\end\n\n\\define overLimit()\n$(inputFilter)$+[limit[$(recordLimit)$]]+[nth[$(totalCount)$]addprefix[zzz]][[$(currentTable)$]get[tbl-show-pagination]]+[remove[auto]reverse[]][range[$(filteredCount)$]]+[butlast[$(totalCount)$]]\n\\end\n\n\\define tempTable()\n$:/temp/tables/$(currentTable)$\n\\end\n\n\\define tempTableExpand()\n$:/temp/tables/expand/$(currentTable)$\n\\end\n\n\\define tempTableStyle()\n$:/temp/tables/style/$(currentTable)$\n\\end\n\n\\define tempTagPopup()\n$(tempTable)$/$(currentRecord)$/$(currentTiddler)$\n\\end\n\n\\define tempRecord()\n$(tempTable)$/$(currentRecord)$\n\\end\n\n\\define tempPath()\n$(tempTable)$##$(currentRecord)$\n\\end\n\n\\define tempPathExpand()\n$(tempTableExpand)$##$(currentRecord)$\n\\end\n\n\\define tableExpandRender()\n{{$(tableExpand)$}}\n\\end\n\n\\define buttonIconPick()\n{{$(iconPickTitle)$}}\n\\end\n\n\\define expandClassFilter()\n[title[$(childTable)$]get[tbl-columns]]\n\\end\n\n\\define expandResetNested()\n[title[$(childTable)$]get[tbl-page-marker]]\n\\end\n\n\\define editorPreview()\n{{$(editorTarget)$}}\n\\end\n\n\\define tableFilterPick()\n$(existingTableFilter)$$(existingTableFilterPrefix)$$(filterValues)$\n\\end\n\n\\define getIndex()\n$(inputFilter)$+[$(sortType)$[title]]+[allbefore:including[$(currentRecord)$]count[]]\n\\end&quot;,
+            &quot;type&quot;: &quot;text/vnd.tiddlywiki&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/macro&quot;,
+            &quot;tbl-true&quot;: &quot;true&quot;,
+            &quot;tbl-false&quot;: &quot;false&quot;,
+            &quot;tags&quot;: &quot;$:/tags/Macro&quot;,
+            &quot;revision&quot;: &quot;0&quot;,
+            &quot;modified&quot;: &quot;20200103011234341&quot;,
+            &quot;bag&quot;: &quot;default&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/style/dark&quot;: {
+            &quot;text&quot;: &quot;{{||$:/plugins/aaldrich/tables/style/default}}&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/style/dark&quot;,
+            &quot;tbl-width-border&quot;: &quot;1px&quot;,
+            &quot;tbl-size-icons&quot;: &quot;{{$:/themes/tiddlywiki/vanilla/metrics/bodyfontsize}}&quot;,
+            &quot;tbl-size-height&quot;: &quot;{{$:/themes/tiddlywiki/vanilla/metrics/bodylineheight}}&quot;,
+            &quot;tbl-size-font&quot;: &quot;{{$:/themes/tiddlywiki/vanilla/metrics/bodyfontsize}}&quot;,
+            &quot;tbl-pad-tb-headfoot&quot;: &quot;2px&quot;,
+            &quot;tbl-pad-tb-body&quot;: &quot;1px&quot;,
+            &quot;tbl-pad-lr&quot;: &quot;7px&quot;,
+            &quot;tbl-color-text-hover&quot;: &quot;#FFFEE2&quot;,
+            &quot;tbl-color-text&quot;: &quot;#FFFFFF&quot;,
+            &quot;tbl-color-row-odd&quot;: &quot;#7A7A7A&quot;,
+            &quot;tbl-color-row-hover&quot;: &quot;#46486B&quot;,
+            &quot;tbl-color-row-even&quot;: &quot;#737373&quot;,
+            &quot;tbl-color-row-all&quot;: &quot;#686868&quot;,
+            &quot;tbl-color-header&quot;: &quot;#595959&quot;,
+            &quot;tbl-color-footer&quot;: &quot;#595959&quot;,
+            &quot;tbl-color-caption&quot;: &quot;#3D3D3D&quot;,
+            &quot;tbl-color-border&quot;: &quot;#999999&quot;,
+            &quot;tbl-class-type&quot;: &quot;child&quot;,
+            &quot;tbl-class-name&quot;: &quot;tbl-style-dark&quot;,
+            &quot;tags&quot;: &quot;$:/tags/Stylesheet&quot;,
+            &quot;modified&quot;: &quot;20191205031607095&quot;,
+            &quot;created&quot;: &quot;20190723034929272&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/style/invisible&quot;: {
+            &quot;text&quot;: &quot;{{||$:/plugins/aaldrich/tables/style/default}}&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/style/invisible&quot;,
+            &quot;tbl-width-border&quot;: &quot;0px&quot;,
+            &quot;tbl-size-icons&quot;: &quot;{{$:/themes/tiddlywiki/vanilla/metrics/bodyfontsize}}&quot;,
+            &quot;tbl-size-height&quot;: &quot;{{$:/themes/tiddlywiki/vanilla/metrics/bodylineheight}}&quot;,
+            &quot;tbl-size-font&quot;: &quot;{{$:/themes/tiddlywiki/vanilla/metrics/bodyfontsize}}&quot;,
+            &quot;tbl-pad-tb-headfoot&quot;: &quot;2px&quot;,
+            &quot;tbl-pad-tb-body&quot;: &quot;1px&quot;,
+            &quot;tbl-pad-lr&quot;: &quot;7px&quot;,
+            &quot;tbl-color-text-hover&quot;: &quot;#001177&quot;,
+            &quot;tbl-color-text&quot;: &quot;#000000&quot;,
+            &quot;tbl-color-row-odd&quot;: &quot;transparent&quot;,
+            &quot;tbl-color-row-hover&quot;: &quot;transparent&quot;,
+            &quot;tbl-color-row-even&quot;: &quot;transparent&quot;,
+            &quot;tbl-color-row-all&quot;: &quot;transparent&quot;,
+            &quot;tbl-color-header&quot;: &quot;transparent&quot;,
+            &quot;tbl-color-footer&quot;: &quot;transparent&quot;,
+            &quot;tbl-color-caption&quot;: &quot;transparent&quot;,
+            &quot;tbl-color-border&quot;: &quot;#000000&quot;,
+            &quot;tbl-class-type&quot;: &quot;child&quot;,
+            &quot;tbl-class-name&quot;: &quot;tbl-style-invisible&quot;,
+            &quot;tags&quot;: &quot;$:/tags/Stylesheet&quot;,
+            &quot;modified&quot;: &quot;20191205031632668&quot;,
+            &quot;created&quot;: &quot;20190723040014559&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/template/body/date&quot;: {
+            &quot;text&quot;: &quot;&lt;td&gt;\n  &lt;$list filter=\&quot;[&lt;fieldOrIndex&gt;]-index\&quot;&gt;\n    &lt;$view tiddler=&lt;&lt;currentRecord&gt;&gt; field=&lt;&lt;currentColumn&gt;&gt; format=\&quot;date\&quot; template={{$:/plugins/aaldrich/tables/defaults!!tbl-default-date-format}}/&gt;\n  &lt;/$list&gt;\n  &lt;$list filter=\&quot;[&lt;fieldOrIndex&gt;]-field\&quot;&gt;\n    &lt;$view tiddler=&lt;&lt;currentRecord&gt;&gt; index=&lt;&lt;currentColumn&gt;&gt; format=\&quot;date\&quot; template={{$:/plugins/aaldrich/tables/defaults!!tbl-default-date-format}}/&gt;\n  &lt;/$list&gt;\n&lt;/td&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/template/body/date&quot;,
+            &quot;tbl-noedit&quot;: &quot;created modified&quot;,
+            &quot;tbl-column-list&quot;: &quot;created modified&quot;,
+            &quot;tags&quot;: &quot;$:/tags/table/BodyTemplate&quot;,
+            &quot;revision&quot;: &quot;0&quot;,
+            &quot;modified&quot;: &quot;20191207211809915&quot;,
+            &quot;created&quot;: &quot;20170128100657312&quot;,
+            &quot;bag&quot;: &quot;default&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/style/standard&quot;: {
+            &quot;text&quot;: &quot;{{||$:/plugins/aaldrich/tables/style/default}}&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/style/standard&quot;,
+            &quot;tbl-width-border&quot;: &quot;1px&quot;,
+            &quot;tbl-size-icons&quot;: &quot;{{$:/themes/tiddlywiki/vanilla/metrics/bodyfontsize}}&quot;,
+            &quot;tbl-size-height&quot;: &quot;{{$:/themes/tiddlywiki/vanilla/metrics/bodylineheight}}&quot;,
+            &quot;tbl-size-font&quot;: &quot;{{$:/themes/tiddlywiki/vanilla/metrics/bodyfontsize}}&quot;,
+            &quot;tbl-pad-tb-headfoot&quot;: &quot;5px&quot;,
+            &quot;tbl-pad-tb-body&quot;: &quot;3px&quot;,
+            &quot;tbl-pad-lr&quot;: &quot;7px&quot;,
+            &quot;tbl-color-text-hover&quot;: &quot;#001177&quot;,
+            &quot;tbl-color-text&quot;: &quot;#000000&quot;,
+            &quot;tbl-color-row-odd&quot;: &quot;#FFFFFF&quot;,
+            &quot;tbl-color-row-hover&quot;: &quot;#f2f6ff&quot;,
+            &quot;tbl-color-row-even&quot;: &quot;#FFFFFF&quot;,
+            &quot;tbl-color-row-all&quot;: &quot;#FFFFFF&quot;,
+            &quot;tbl-color-header&quot;: &quot;#E0E0E0&quot;,
+            &quot;tbl-color-footer&quot;: &quot;#E0E0E0&quot;,
+            &quot;tbl-color-caption&quot;: &quot;#c6c6c6&quot;,
+            &quot;tbl-color-border&quot;: &quot;#a5a5a5&quot;,
+            &quot;tbl-class-type&quot;: &quot;child&quot;,
+            &quot;tbl-class-name&quot;: &quot;tbl-style-standard&quot;,
+            &quot;tags&quot;: &quot;$:/tags/Stylesheet&quot;,
+            &quot;modified&quot;: &quot;20191205031639271&quot;,
+            &quot;created&quot;: &quot;20190723034800933&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/template/body/edit-textarea&quot;: {
+            &quot;created&quot;: &quot;20170209052300022&quot;,
+            &quot;text&quot;: &quot;&lt;td class=\&quot;tbl-inpt-edit\&quot;&gt;\n  &lt;$list filter=\&quot;[&lt;fieldOrIndex&gt;]-index\&quot;&gt;\n    &lt;$edit-text tiddler=&lt;&lt;currentRecord&gt;&gt; field=&lt;&lt;currentColumn&gt;&gt; tag=\&quot;textarea\&quot; minHeight=10px rows=1/&gt;\n  &lt;/$list&gt;\n  &lt;$list filter=\&quot;[&lt;fieldOrIndex&gt;]-field\&quot;&gt;\n    &lt;$edit-text tiddler=&lt;&lt;currentRecord&gt;&gt; index=&lt;&lt;currentColumn&gt;&gt; tag=\&quot;textarea\&quot; minHeight=10px rows=1/&gt;\n  &lt;/$list&gt;\n&lt;/td&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/template/body/edit-textarea&quot;,
+            &quot;tbl-noedit&quot;: &quot;tbl-edit-textarea&quot;,
+            &quot;tbl-column-list&quot;: &quot;tbl-edit-textarea&quot;,
+            &quot;tags&quot;: &quot;$:/tags/table/BodyTemplate&quot;,
+            &quot;revision&quot;: &quot;0&quot;,
+            &quot;modified&quot;: &quot;20191206021427822&quot;,
+            &quot;bag&quot;: &quot;default&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/template/body/expand-one&quot;: {
+            &quot;text&quot;: &quot;&lt;$reveal type=\&quot;nomatch\&quot; state=&lt;&lt;tempPathExpand&gt;&gt; text=\&quot;show\&quot; tag=\&quot;td\&quot; style=\&quot;width:1.4ch;text-align:center;\&quot;&gt;\n  &lt;$button class=\&quot;tc-btn-invisible tc-tiddlylink\&quot; tooltip=\&quot;expand\&quot; style=\&quot;min-width:1.4ch\&quot;&gt;\n    &lt;$action-setfield $tiddler=&lt;&lt;tempTableExpand&gt;&gt; $field=\&quot;text\&quot; $value=\&quot;\&quot;/&gt;\n    &lt;$action-setfield $tiddler=&lt;&lt;tempTableExpand&gt;&gt; $index=&lt;&lt;currentRecord&gt;&gt; $value=\&quot;show\&quot; /&gt;\n    &lt;$set name=\&quot;childTable\&quot; filter=\&quot;[all[tiddlers+shadows]title&lt;currentTable&gt;get[tbl-expand]]\&quot; &gt;\n      &lt;$list filter=&lt;&lt;expandResetNested&gt;&gt;&gt;\n        &lt;$action-setfield $tiddler=&lt;&lt;tableExpand&gt;&gt; $field=\&quot;tbl-page-marker\&quot; $value=\&quot;\&quot;/&gt;\n      &lt;/$list&gt;\n    &lt;/$set&gt;\n    {{$:/core/images/right-arrow}}\n  &lt;/$button&gt;\n&lt;/$reveal&gt;\n&lt;$reveal type=\&quot;match\&quot; state=&lt;&lt;tempPathExpand&gt;&gt; text=\&quot;show\&quot; tag=\&quot;td\&quot; style=\&quot;width:1.4ch;text-align:center;\&quot;&gt;\n  &lt;$button class=\&quot;tc-btn-invisible tc-tiddlylink\&quot; tooltip=\&quot;collapse\&quot; style=\&quot;min-width:1.4ch\&quot;&gt;\n    &lt;$action-setfield $tiddler=&lt;&lt;tempTableExpand&gt;&gt; $field=\&quot;text\&quot; $value=\&quot;\&quot;/&gt;\n    {{$:/core/images/down-arrow}}\n  &lt;/$button&gt;\n&lt;/$reveal&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/template/body/expand-one&quot;,
+            &quot;tbl-noedit&quot;: &quot;tbl-expand tbl-expand-one&quot;,
+            &quot;tbl-column-list&quot;: &quot;tbl-expand tbl-expand-one&quot;,
+            &quot;tags&quot;: &quot;$:/tags/table/BodyTemplate&quot;,
+            &quot;revision&quot;: &quot;0&quot;,
+            &quot;modified&quot;: &quot;20191215041940295&quot;,
+            &quot;created&quot;: &quot;20170206022244360&quot;,
+            &quot;bag&quot;: &quot;default&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/template/body/index&quot;: {
+            &quot;text&quot;: &quot;&lt;td style=\&quot;width:1.4ch;\&quot;&gt;\n&lt;$set name=\&quot;currentIndex\&quot; filter=&lt;&lt;getIndex&gt;&gt; &gt;\n&lt;&lt;currentIndex&gt;&gt;\n&lt;/$set&gt;\n&lt;/td&gt;&quot;,
+            &quot;type&quot;: &quot;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/template/body/index&quot;,
+            &quot;tbl-noedit&quot;: &quot;ID id tbl-index&quot;,
+            &quot;tbl-column-list&quot;: &quot;ID id tbl-index&quot;,
+            &quot;tags&quot;: &quot;$:/tags/table/BodyTemplate&quot;,
+            &quot;revision&quot;: &quot;0&quot;,
+            &quot;modified&quot;: &quot;20191215045925271&quot;,
+            &quot;created&quot;: &quot;20190714050106704&quot;,
+            &quot;bag&quot;: &quot;default&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/template/expand/transclude&quot;: {
+            &quot;created&quot;: &quot;20190714035903654&quot;,
+            &quot;text&quot;: &quot;&lt;$tiddler tiddler=&lt;&lt;currentRecord&gt;&gt;&gt;\n&lt;$transclude tiddler=&lt;&lt;currentRecord&gt;&gt; field=\&quot;text\&quot; mode=\&quot;block\&quot; /&gt;\n&lt;/$tiddler&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/template/expand/transclude&quot;,
+            &quot;tbl-template-name&quot;: &quot;view&quot;,
+            &quot;tags&quot;: &quot;$:/tags/table/ExpandTemplate&quot;,
+            &quot;modified&quot;: &quot;20191210184939804&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/template/header/empty&quot;: {
+            &quot;text&quot;: &quot;&lt;th&gt;\n&lt;/th&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/template/header/empty&quot;,
+            &quot;tbl-column-list&quot;: &quot;tbl-anything tbl-index tbl-radio&quot;,
+            &quot;tags&quot;: &quot;$:/tags/table/HeaderTemplate&quot;,
+            &quot;revision&quot;: &quot;0&quot;,
+            &quot;modified&quot;: &quot;20191214044612648&quot;,
+            &quot;created&quot;: &quot;20190714062216671&quot;,
+            &quot;bag&quot;: &quot;default&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/view&quot;: {
+            &quot;text&quot;: &quot;&lt;!-- reveals Edit Buttons--&gt;\n{{||$:/plugins/aaldrich/tables/editor/open}}\n&lt;!-- reveals deletion confirmation --&gt;\n  &lt;$reveal class=\&quot;tbl-delete-confirm\&quot; type=\&quot;match\&quot; state=\&quot;$:/temp/tables/delete-all!!text\&quot; text=&lt;&lt;currentTable&gt;&gt; tag=\&quot;div\&quot;&gt;\n    Delete all displayed records? \n    &lt;$button class=\&quot;tc-btn-invisible\&quot;&gt;\n      &lt;$action-deletetiddler $tiddler=\&quot;$:/temp/tables/delete-all\&quot;/&gt;\n      &lt;$list filter=&lt;&lt;tableFilter&gt;&gt; variable=\&quot;currentRecord\&quot;&gt;\n        &lt;$action-setfield $tiddler=&lt;&lt;tempTableStyle&gt;&gt; $index=&lt;&lt;currentRecord&gt;&gt; $value=\&quot;\&quot;/&gt;\n        &lt;$action-deletetiddler $tiddler=&lt;&lt;currentRecord&gt;&gt;/&gt;\n      &lt;/$list&gt;\n      {{$:/core/images/delete-button}} ''yes'' \n    &lt;/$button&gt; or \n    &lt;$button class=\&quot;tc-btn-invisible\&quot;&gt;\n      &lt;$action-deletetiddler $tiddler=\&quot;$:/temp/tables/delete-all\&quot;/&gt;\n      {{$:/core/images/close-button}} ''no'' \n    &lt;/$button&gt;\n  &lt;/$reveal&gt;\n&lt;table style={{!!tbl-style-table}}&gt;\n&lt;!-- reveals table caption --&gt;\n  &lt;$reveal type=\&quot;match\&quot; state=\&quot;!!tbl-show-caption\&quot; text=\&quot;true\&quot; tag=\&quot;caption\&quot;&gt;\n    &lt;$transclude tiddler=&lt;&lt;currentTable&gt;&gt; field=\&quot;tbl-caption\&quot; mode={{$:/plugins/aaldrich/tables/defaults!!tbl-caption-mode}}/&gt;\n  &lt;/$reveal&gt;\n&lt;!-- reveals column groups --&gt;\n  &lt;$reveal type=\&quot;match\&quot; state=\&quot;!!tbl-show-colgroup\&quot; text=\&quot;true\&quot; tag=\&quot;colgroup\&quot;&gt;\n    {{!!tbl-style-colgroup}}\n  &lt;/$reveal&gt;\n&lt;!-- reveal header --&gt;\n  &lt;$reveal type=\&quot;match\&quot; state=\&quot;!!tbl-show-header\&quot; text=\&quot;true\&quot; tag=\&quot;thead\&quot;&gt;\n    &lt;tr&gt;\n        &lt;$list filter={{!!tbl-columns}} variable=\&quot;currentColumn\&quot;&gt;\n            &lt;$set name=\&quot;headerLookup\&quot; filter=\&quot;[all[tiddlers+shadows]tag[$:/tags/table/HeaderTemplate]tag&lt;currentColumn&gt;][all[tiddlers+shadows]tag[$:/tags/table/HeaderTemplate]contains:tbl-column-list&lt;currentColumn&gt;]+[limit[1]get[title]]\&quot; value=&lt;&lt;headerLookup&gt;&gt; emptyValue={{$:/plugins/aaldrich/tables/defaults!!tbl-temp-default-head}}&gt;\n              &lt;$transclude tiddler=&lt;&lt;headerLookup&gt;&gt; field=\&quot;text\&quot; mode=\&quot;inline\&quot;/&gt;\n            &lt;/$set&gt;\n        &lt;/$list&gt;\n    &lt;/tr&gt;\n  &lt;/$reveal&gt;\n&lt;!-- reveal footer --&gt;\n  &lt;$reveal type=\&quot;match\&quot; state=\&quot;!!tbl-show-footer\&quot; text=\&quot;true\&quot; tag=\&quot;tfoot\&quot;&gt;\n    &lt;tr&gt;\n        &lt;$list filter={{!!tbl-columns}} variable=\&quot;currentColumn\&quot;&gt;\n            &lt;$set name=\&quot;footerLookup\&quot; filter=\&quot;[all[tiddlers+shadows]tag[$:/tags/table/FooterTemplate]tag&lt;currentColumn&gt;][all[tiddlers+shadows]tag[$:/tags/table/FooterTemplate]contains:tbl-column-list&lt;currentColumn&gt;]+[limit[1]get[title]]\&quot; value=&lt;&lt;footerLookup&gt;&gt; emptyValue={{$:/plugins/aaldrich/tables/defaults!!tbl-temp-default-foot}}&gt;\n              &lt;$transclude tiddler=&lt;&lt;footerLookup&gt;&gt; field=\&quot;text\&quot; mode=\&quot;inline\&quot;/&gt;\n            &lt;/$set&gt;\n        &lt;/$list&gt;\n    &lt;/tr&gt;\n  &lt;/$reveal&gt;\n&lt;!-- generate records --&gt;\n  &lt;tbody&gt;\n    &lt;$list filter=&lt;&lt;tableFilter&gt;&gt; variable=\&quot;currentRecord\&quot;&gt;\n    &lt;$wikify name=\&quot;rowStyle\&quot; text=\&quot;\&quot;\&quot;&lt;$transclude tiddler=&lt;&lt;tempTableStyle&gt;&gt; index=&lt;&lt;currentRecord&gt;&gt; /&gt;\&quot;\&quot;\&quot; mode=\&quot;inline\&quot;&gt;\n      &lt;$list filter=\&quot;[&lt;currentTable&gt;contains:tbl-mode[edit]]\&quot; variable=\&quot;tableModeEdit\&quot;&gt;\n      &lt;tr class=\&quot;tbl-record-row\&quot; style=&lt;&lt;rowStyle&gt;&gt;&gt;\n        &lt;$list filter={{!!tbl-columns}} variable=\&quot;currentColumn\&quot;&gt;\n          &lt;$set name=\&quot;hasIndex\&quot; filter=\&quot;[&lt;currentRecord&gt;indexes[]]-[&lt;currentColumn&gt;]+[count[]]-[&lt;currentRecord&gt;indexes[]count[]]\&quot; value=index emptyValue=\&quot;field\&quot;&gt;\n          &lt;$set name=\&quot;fieldOrIndex\&quot; filter=\&quot;[&lt;currentRecord&gt;fields[]]-[&lt;currentColumn&gt;]+[count[]]-[&lt;currentRecord&gt;fields[]count[]]\&quot; value=\&quot;field\&quot; emptyValue=&lt;&lt;hasIndex&gt;&gt;&gt;\n          &lt;$set name=\&quot;bodyLookup\&quot; filter=\&quot;[all[tiddlers+shadows]tag[$:/tags/table/BodyTemplate]contains:tbl-noedit&lt;currentColumn&gt;limit[1]get[title]]\&quot; value=&lt;&lt;bodyLookup&gt;&gt; emptyValue={{$:/plugins/aaldrich/tables/defaults!!tbl-temp-default-body-edit}}&gt;\n            &lt;$transclude tiddler=&lt;&lt;bodyLookup&gt;&gt; field=\&quot;text\&quot; mode=\&quot;inline\&quot;/&gt;\n          &lt;/$set&gt;\n          &lt;/$set&gt;\n          &lt;/$set&gt;\n        &lt;/$list&gt;\n      &lt;/tr&gt;\n      &lt;/$list&gt;\n      &lt;$list filter=\&quot;[&lt;currentTable&gt;!contains:tbl-mode[edit]]\&quot; variable=\&quot;tableModeNormal\&quot;&gt;\n      &lt;tr class=\&quot;tbl-record-row\&quot; style=&lt;&lt;rowStyle&gt;&gt;&gt;\n        &lt;$list filter={{!!tbl-columns}} variable=\&quot;currentColumn\&quot;&gt;\n          &lt;$set name=\&quot;hasIndex\&quot; filter=\&quot;[&lt;currentRecord&gt;indexes[]]-[&lt;currentColumn&gt;]+[count[]]-[&lt;currentRecord&gt;indexes[]count[]]\&quot; value=index emptyValue=\&quot;field\&quot;&gt;\n          &lt;$set name=\&quot;fieldOrIndex\&quot; filter=\&quot;[&lt;currentRecord&gt;fields[]]-[&lt;currentColumn&gt;]+[count[]]-[&lt;currentRecord&gt;fields[]count[]]\&quot; value=\&quot;field\&quot; emptyValue=&lt;&lt;hasIndex&gt;&gt;&gt;\n          &lt;$set name=\&quot;bodyLookup\&quot; filter=\&quot;[all[tiddlers+shadows]tag[$:/tags/table/BodyTemplate]tag&lt;currentColumn&gt;][all[tiddlers+shadows]tag[$:/tags/table/BodyTemplate]contains:tbl-column-list&lt;currentColumn&gt;]+[limit[1]get[title]]\&quot; value=&lt;&lt;bodyLookup&gt;&gt; emptyValue={{$:/plugins/aaldrich/tables/defaults!!tbl-temp-default-body}}&gt;\n            &lt;$transclude tiddler=&lt;&lt;bodyLookup&gt;&gt; field=\&quot;text\&quot; mode=\&quot;inline\&quot;/&gt;\n          &lt;/$set&gt;\n          &lt;/$set&gt;\n          &lt;/$set&gt;\n        &lt;/$list&gt;\n      &lt;/tr&gt;\n      &lt;/$list&gt;\n&lt;!-- reveal expanded record--&gt;\n      &lt;$list variable=\&quot;isExpanded\&quot; filter=\&quot;[&lt;tempTableExpand&gt;getindex&lt;currentRecord&gt;limit[1]]\&quot;&gt;\n      &lt;tr class=\&quot;tbl-record-expand\&quot; &gt;\n        &lt;$set name=\&quot;childTable\&quot; filter=\&quot;[all[tiddlers+shadows]title&lt;currentTable&gt;get[tbl-expand]]\&quot; &gt;\n        &lt;$set name=\&quot;expandClass\&quot; filter=&lt;&lt;expandClassFilter&gt;&gt; value=\&quot;tbl-expand-nopad\&quot;  emptyValue=\&quot;tbl-expand-pad\&quot;&gt;\n        &lt;td colspan=\&quot;999\&quot; class=&lt;&lt;expandClass&gt;&gt; &gt;\n\n          &lt;&lt;tableExpandRender&gt;&gt;\n\n        &lt;/td&gt;\n        &lt;/$set&gt;\n        &lt;/$set&gt;\n      &lt;/tr&gt;\n    &lt;/$list&gt;\n    &lt;/$wikify&gt;\n    &lt;/$list&gt;\n  &lt;/tbody&gt;\n&lt;/table&gt;\n{{||$:/plugins/aaldrich/tables/pagination}}&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/view&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modified&quot;: &quot;20191215053651054&quot;,
+            &quot;created&quot;: &quot;20170205062652787&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/template/header/disabled&quot;: {
+            &quot;text&quot;: &quot;&lt;th&gt;\n&lt;&lt;currentColumn&gt;&gt;\n&lt;/th&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/template/header/disabled&quot;,
+            &quot;tbl-column-list&quot;: &quot;ID id&quot;,
+            &quot;tags&quot;: &quot;$:/tags/table/HeaderTemplate&quot;,
+            &quot;revision&quot;: &quot;0&quot;,
+            &quot;modified&quot;: &quot;20191205210234858&quot;,
+            &quot;created&quot;: &quot;20170205233518589&quot;,
+            &quot;bag&quot;: &quot;default&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/template/footer/empty&quot;: {
+            &quot;text&quot;: &quot;&lt;th&gt;\n&lt;/th&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/template/footer/empty&quot;,
+            &quot;tbl-column-list&quot;: &quot;tbl-expand tbl-expand-one tbl-expand-many tbl-anything tbl-index tbl-delete tbl-button tbl-checkbox tbl-radio&quot;,
+            &quot;tags&quot;: &quot;$:/tags/table/FooterTemplate&quot;,
+            &quot;revision&quot;: &quot;0&quot;,
+            &quot;modified&quot;: &quot;20191214044407597&quot;,
+            &quot;created&quot;: &quot;20170206022519162&quot;,
+            &quot;bag&quot;: &quot;default&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/template/pagination/default&quot;: {
+            &quot;text&quot;: &quot;&lt;$reveal type=\&quot;nomatch\&quot; style=\&quot;text-align:center;\&quot; state=\&quot;!!tbl-page-marker\&quot; text=\&quot;\&quot; tag=\&quot;div\&quot; class=\&quot;tbl-page-footer\&quot;&gt;\n    &lt;$reveal type=\&quot;nomatch\&quot; style=\&quot;float:left;\&quot; state=\&quot;!!tbl-page-marker\&quot; text=&lt;&lt;previousPage&gt;&gt; tag=\&quot;div\&quot; class=\&quot;tbl-page-prev\&quot;&gt;\n        &lt;$button class=\&quot;tc-btn-invisible tc-tiddlylink\&quot;&gt;\n        &lt;$action-setfield tbl-page-marker=&lt;&lt;previousPage&gt;&gt;/&gt;{{$:/core/images/chevron-left}} ''Prev''&lt;/$button&gt;\n    &lt;/$reveal&gt;\n    &lt;$reveal type=\&quot;match\&quot; style=\&quot;float:right;\&quot; state=\&quot;!!tbl-limit\&quot; text=&lt;&lt;recordCount&gt;&gt; tag=\&quot;div\&quot; class=\&quot;tbl-page-next\&quot;&gt;\n        &lt;$button class=\&quot;tc-btn-invisible tc-tiddlylink\&quot;&gt;\n        &lt;$action-setfield tbl-page-marker=&lt;&lt;nextPage&gt;&gt;/&gt;''Next'' {{$:/core/images/chevron-right}}&lt;/$button&gt;\n    &lt;/$reveal&gt;\nDisplaying &lt;&lt;firstCount&gt;&gt; through &lt;&lt;lastCount&gt;&gt; of &lt;&lt;totalCount&gt;&gt; Results&amp;nbsp; |\n&lt;$select tiddler=&lt;&lt;currentTable&gt;&gt; field=\&quot;tbl-limit\&quot; actions=\&quot;\&quot;\&quot;&lt;$action-setfield $tiddler=&lt;&lt;currentTable&gt;&gt; tbl-page-marker=&lt;&lt;firstRecord&gt;&gt;/&gt;\&quot;\&quot;\&quot;&gt;\n&lt;$set name=\&quot;limitFilter\&quot; value={{$:/plugins/aaldrich/tables/defaults!!tbl-limit-choices}} &gt;\n&lt;$list filter=&lt;&lt;limitFilter&gt;&gt;&gt;\n&lt;option value={{!!title}}&gt;Limit {{!!title}}&lt;/option&gt;\n&lt;/$list&gt;\n&lt;/$set&gt;\n&lt;option value=9999999&gt;Show All&lt;/option&gt;\n&lt;/$select&gt;\n&lt;/$reveal&gt;\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;!!tbl-page-marker\&quot; text=\&quot;\&quot; &gt;\n  &lt;$list filter=&lt;&lt;veryFirst&gt;&gt; &gt;\n    &lt;div class=\&quot;tbl-page-refresh\&quot;&gt;\n    &lt;$button class=\&quot;tc-btn-invisible tc-tiddlylink\&quot;&gt;\n    &lt;$action-setfield $tiddler=&lt;&lt;currentTable&gt;&gt; tbl-page-marker=&lt;&lt;firstRecord&gt;&gt;/&gt;''Click to Enable Pagination''&lt;/$button&gt;\n    &lt;/div&gt;\n  &lt;/$list&gt;\n&lt;/$reveal&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/template/pagination/default&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modified&quot;: &quot;20191208103154143&quot;,
+            &quot;created&quot;: &quot;20190715072523828&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/style/tight&quot;: {
+            &quot;created&quot;: &quot;20190726060145636&quot;,
+            &quot;text&quot;: &quot;{{||$:/plugins/aaldrich/tables/style/default}}&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/style/tight&quot;,
+            &quot;tbl-width-border&quot;: &quot;1px&quot;,
+            &quot;tbl-size-icons&quot;: &quot;10pt&quot;,
+            &quot;tbl-size-height&quot;: &quot;20px&quot;,
+            &quot;tbl-size-font&quot;: &quot;10pt&quot;,
+            &quot;tbl-pad-tb-headfoot&quot;: &quot;1px&quot;,
+            &quot;tbl-pad-tb-body&quot;: &quot;1px&quot;,
+            &quot;tbl-pad-lr&quot;: &quot;7px&quot;,
+            &quot;tbl-color-text-hover&quot;: &quot;#001177&quot;,
+            &quot;tbl-color-text&quot;: &quot;#000000&quot;,
+            &quot;tbl-color-row-odd&quot;: &quot;#FFFFFF&quot;,
+            &quot;tbl-color-row-hover&quot;: &quot;#FFFEE2&quot;,
+            &quot;tbl-color-row-even&quot;: &quot;#FCFCFC&quot;,
+            &quot;tbl-color-row-all&quot;: &quot;#FFFFFF&quot;,
+            &quot;tbl-color-header&quot;: &quot;#F0F0F0&quot;,
+            &quot;tbl-color-footer&quot;: &quot;#F0F0F0&quot;,
+            &quot;tbl-color-caption&quot;: &quot;#DDDDDD&quot;,
+            &quot;tbl-color-border&quot;: &quot;#DDDDDD&quot;,
+            &quot;tbl-class-type&quot;: &quot;child&quot;,
+            &quot;tbl-class-name&quot;: &quot;tbl-style-tight&quot;,
+            &quot;tags&quot;: &quot;$:/tags/Stylesheet&quot;,
+            &quot;modified&quot;: &quot;20191215061001950&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/style/default&quot;: {
+            &quot;created&quot;: &quot;20190723034442800&quot;,
+            &quot;text&quot;: &quot;&lt;!-- CONTAINER/TABLE--&gt;\n.{{!!tbl-class-name}} {  \n  text-shadow: none;\n  width:100%;\n  overflow:visible;\n}\n\n.{{!!tbl-class-name}} &gt; table{  \n  text-shadow: none;\n  border-collapse: collapse;\n  caption-side: top;\n  table-layout:auto;\n  width:100%;\n  margin: 0 0 0 0;\n  border-top: {{!!tbl-width-border}} solid {{!!tbl-color-border}};\n  border-right: {{!!tbl-width-border}} solid {{!!tbl-color-border}};\n  border-bottom: {{!!tbl-width-border}} solid {{!!tbl-color-border}};\n  border-left: {{!!tbl-width-border}} solid {{!!tbl-color-border}};\n}\n\n&lt;!--CAPTION--&gt;\n.{{!!tbl-class-name}} &gt; table &gt; caption {\n  margin: 0 0 0 0;\n  padding: {{!!tbl-pad-tb-headfoot}} {{!!tbl-pad-lr}} {{!!tbl-pad-tb-headfoot}} {{!!tbl-pad-lr}};\n  text-shadow: none;\n  color:{{!!tbl-color-text}};\n  background-color:{{!!tbl-color-caption}};\n  vertical-align: middle;\n  font-size: {{!!tbl-size-font}};\n  line-height: {{!!tbl-size-height}};\n  border-top: {{!!tbl-width-border}} solid {{!!tbl-color-border}};\n  border-right: {{!!tbl-width-border}} solid {{!!tbl-color-border}};\n  border-bottom: 0px solid {{!!tbl-color-border}};\n  border-left: {{!!tbl-width-border}} solid {{!!tbl-color-border}};\n  text-align:center;\n}\n\n.{{!!tbl-class-name}} &gt; table &gt; caption *,\n.{{!!tbl-class-name}} &gt; table &gt; caption &gt; div *{\n  margin: 0 0 0 0;\n  padding: 0 0 0 0;\n  text-shadow: none;\n  color:{{!!tbl-color-text}};\n  fill:{{!!tbl-color-text}};\n}\n\n.{{!!tbl-class-name}} &gt; table &gt; caption &gt; div &gt; .tbl-hidden-edit{\n  background: transparent !important;\n  border: none;\n  color:{{!!tbl-color-text}}!important;\n}\n\n.{{!!tbl-class-name}} &gt; table &gt; caption &gt; div &gt; .tbl-hidden-edit-wide{\n  width: 100%;\n  background: transparent !important;\n  border: none;\n  color:{{!!tbl-color-text}}!important;\n}\n\n&lt;!--HEADER--&gt;\n  .{{!!tbl-class-name}} &gt; table &gt; thead {\n  text-shadow: none;\n}\n\n.{{!!tbl-class-name}} &gt; table &gt; thead &gt; tr {\n  text-shadow: none;\n  background: {{!!tbl-color-header}};\n  vertical-align: middle;\n  font-size: {{!!tbl-size-font}};\n  line-height: {{!!tbl-size-height}};\n}\n\n.{{!!tbl-class-name}} &gt; table &gt; thead &gt; tr &gt; th {\n  text-shadow: none;\n  color:{{!!tbl-color-text}};\n  background: transparent;\n  margin: 0 0 0 0;\n  padding: {{!!tbl-pad-tb-headfoot}} {{!!tbl-pad-lr}} {{!!tbl-pad-tb-headfoot}} {{!!tbl-pad-lr}};\n  border-top: {{!!tbl-width-border}} solid {{!!tbl-color-border}};\n  border-right: {{!!tbl-width-border}} solid {{!!tbl-color-border}};\n  border-bottom: {{!!tbl-width-border}} solid {{!!tbl-color-border}};\n  border-left: {{!!tbl-width-border}} solid {{!!tbl-color-border}};\n  text-align: left;\n  vertical-align: middle;\n  font-size: {{!!tbl-size-font}};\n  line-height: {{!!tbl-size-height}};\n  white-space: nowrap;\n}\n\n.{{!!tbl-class-name}} &gt; table &gt; thead&gt; tr &gt; th p, \n.{{!!tbl-class-name}} &gt; table &gt; thead&gt; tr &gt; th a,\n.{{!!tbl-class-name}} &gt; table &gt; thead&gt; tr &gt; th button,\n.{{!!tbl-class-name}} &gt; table &gt; thead&gt; tr &gt; th .tc-tiddlylink {\n  text-shadow: none;\n  margin: 0 0 0 0;\n  padding: 0 0 0 0;\n  color:{{!!tbl-color-text}};\n  font-weight: bold;\n}\n\n.{{!!tbl-class-name}} &gt; table &gt; thead&gt; tr &gt; th &gt; button &gt; svg,\n.{{!!tbl-class-name}} &gt; table &gt; thead&gt; tr &gt; th &gt; span &gt; button &gt; svg {\n  text-shadow: none;\n  fill:{{!!tbl-color-text}};\n  height:{{!!tbl-size-icons}};\n  padding:0 0 2px 0;\n}\n\n.{{!!tbl-class-name}} &gt; table &gt; thead&gt; tr &gt; th &gt; button.tbl-sort-svg &gt; svg {\n  text-shadow: none;\n  fill:{{!!tbl-color-text}};\n  height:10px;\n  padding:0 0 2px 0;\n}\n\n&lt;!--FOOTER--&gt;\n.{{!!tbl-class-name}} &gt; table &gt; tfoot {\n  text-shadow: none;\n}\n\n.{{!!tbl-class-name}} &gt; table &gt; tfoot &gt; tr {\n  text-shadow: none;\n  background: {{!!tbl-color-footer}};\n  vertical-align: middle;\n  font-size: {{!!tbl-size-font}};\n  line-height: {{!!tbl-size-height}};\n}\n\n.{{!!tbl-class-name}} &gt; table &gt; tfoot &gt; tr &gt; th {\n  text-shadow: none;\n  color:{{!!tbl-color-text}};\n  background: transparent;\n  margin: 0 0 0 0;\n  padding: {{!!tbl-pad-tb-headfoot}} {{!!tbl-pad-lr}} {{!!tbl-pad-tb-headfoot}} {{!!tbl-pad-lr}};\n  border-top: {{!!tbl-width-border}} solid {{!!tbl-color-border}};\n  border-right: {{!!tbl-width-border}} solid {{!!tbl-color-border}};\n  border-bottom: {{!!tbl-width-border}} solid {{!!tbl-color-border}};\n  border-left: {{!!tbl-width-border}} solid {{!!tbl-color-border}};\n  text-align: left;\n  vertical-align: middle;\n  font-size: {{!!tbl-size-font}};\n  line-height: {{!!tbl-size-height}};\n  white-space: nowrap;\n}\n\n.{{!!tbl-class-name}} &gt; table &gt; tfoot&gt; tr &gt; th p, \n.{{!!tbl-class-name}} &gt; table &gt; tfoot&gt; tr &gt; th a,\n.{{!!tbl-class-name}} &gt; table &gt; tfoot&gt; tr &gt; th button,\n.{{!!tbl-class-name}} &gt; table &gt; tfoot&gt; tr &gt; th .tc-tiddlylink {\n  text-shadow: none;\n  margin: 0 0 0 0;\n  padding: 0 0 0 0;\n  color:{{!!tbl-color-text}};\n  font-weight: bold;\n}\n\n.{{!!tbl-class-name}} &gt; table &gt; tfoot&gt; tr &gt; th &gt; button &gt; svg,\n.{{!!tbl-class-name}} &gt; table &gt; tfoot&gt; tr &gt; th &gt; span &gt; button &gt; svg {\n  text-shadow: none;\n  fill:{{!!tbl-color-text}};\n  height:{{!!tbl-size-icons}};\n  padding:0 0 2px 0;\n}\n\n.{{!!tbl-class-name}} &gt; table &gt; tfoot&gt; tr &gt; th &gt; button.tbl-sort-svg &gt; svg {\n  text-shadow: none;\n  fill:{{!!tbl-color-text}};\n  height:10px;\n  padding:0 0 2px 0;\n}\n\n&lt;!--BODY--&gt;\n.{{!!tbl-class-name}} &gt; table &gt; tbody {\n  text-shadow: none;\n}\n\n.{{!!tbl-class-name}} &gt; table &gt; tbody &gt; tr {\n  text-shadow: none;\n  background: {{!!tbl-color-row-all}};\n  vertical-align: middle;\n  font-size: {{!!tbl-size-font}};\n  line-height: {{!!tbl-size-height}};\n}\n\n.{{!!tbl-class-name}} &gt; table &gt; tbody &gt; tr &gt; td {\n  text-shadow: none;\n  color:{{!!tbl-color-text}};\n  background: transparent;\n  margin: 0 0 0 0;\n  padding: {{!!tbl-pad-tb-body}} {{!!tbl-pad-lr}} {{!!tbl-pad-tb-body}} {{!!tbl-pad-lr}};\n  border-top: {{!!tbl-width-border}} solid {{!!tbl-color-border}};\n  border-right: {{!!tbl-width-border}} solid {{!!tbl-color-border}};\n  border-bottom: {{!!tbl-width-border}} solid {{!!tbl-color-border}};\n  border-left: {{!!tbl-width-border}} solid {{!!tbl-color-border}};\n  text-align: left;\n}\n\n.{{!!tbl-class-name}} &gt; table &gt; tbody &gt; tr &gt; td.tbl-tag-template &gt; div &gt; div.tc-tags-wrapper {\nmargin:0 0 0 0;\n}\n\n.{{!!tbl-class-name}} &gt; table &gt; tbody&gt; tr &gt; td &gt; p &gt; svg{\n  vertical-align: middle;\n  fill:{{!!tbl-color-text}};\n}\n\n.{{!!tbl-class-name}} &gt; table &gt; tbody&gt; tr &gt; td &gt; a &gt; sup{\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  -khtml-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n}\n\n.{{!!tbl-class-name}} &gt; table &gt; tbody&gt; tr &gt; td &gt; p,\n.{{!!tbl-class-name}} &gt; table &gt; tbody&gt; tr &gt; td &gt; p &gt; a, \n.{{!!tbl-class-name}} &gt; table &gt; tbody&gt; tr &gt; td &gt; a,\n.{{!!tbl-class-name}} &gt; table &gt; tbody&gt; tr &gt; td &gt; a &gt; a,\n.{{!!tbl-class-name}} &gt; table &gt; tbody&gt; tr &gt; td &gt; button, \n.{{!!tbl-class-name}} &gt; table &gt; tbody&gt; tr &gt; td &gt; .tc-tiddlylink,\n.{{!!tbl-class-name}} &gt; table &gt; tbody&gt; tr &gt; td &gt; a &gt; a.tc-tiddlylink{\n  text-shadow: none;\n  margin:0 0 0 0;\n  color:{{!!tbl-color-text}};\n  background-color:transparent;\n  font-weight: normal;\n}\n\n.{{!!tbl-class-name}} &gt; table &gt; tbody&gt; tr &gt; td &gt; button &gt; svg {\n  text-shadow: none;\n  fill:{{!!tbl-color-text}};\n  height:{{!!tbl-size-icons}};\n  padding:0 0 2px 0;\n  align:center;\n}\n\n\n&lt;!-- EVEN/ODD &amp; ROW HIGHLIGHT --&gt;\n.{{!!tbl-class-name}} &gt; table &gt; tbody &gt; tr.tbl-record-row:nth-child(odd) {\n  background-color: {{!!tbl-color-row-odd}};\n}\n\n.{{!!tbl-class-name}} &gt; table &gt; tbody &gt; tr.tbl-record-row:nth-child(even) {\n  background-color: {{!!tbl-color-row-even}};\n}\n\n&lt;!--ROW HOVER--&gt;\n.{{!!tbl-class-name}} &gt; table &gt; tbody &gt; tr.tbl-record-row:hover {\n  background-color: {{!!tbl-color-row-hover}};\n}\n\n&lt;!--LINK HOVER--&gt;\n.{{!!tbl-class-name}} &gt; table &gt; caption a:hover,\n.{{!!tbl-class-name}} &gt; table &gt; caption &gt; .tc-tiddlylink:hover {\n  color:{{!!tbl-color-text-hover}};\n  text-decoration: none;\n  font-weight: normal;\n}\n\n.{{!!tbl-class-name}} &gt; table &gt; thead &gt; tr &gt; th a:hover, \n.{{!!tbl-class-name}} &gt; table &gt; thead &gt; tr &gt; th button:hover,\n.{{!!tbl-class-name}} &gt; table &gt; thead&gt; tr &gt; th &gt; .tc-tiddlylink:hover {\n  color: {{!!tbl-color-text}};\n  text-decoration: none;\n  font-weight: bold;\n}\n\n.{{!!tbl-class-name}} &gt; table &gt; tfoot &gt; tr &gt; th a:hover,\n.{{!!tbl-class-name}} &gt; table &gt; tfoot &gt; tr &gt; th button:hover,\n.{{!!tbl-class-name}} &gt; table &gt; tfoot&gt; tr &gt; th &gt; .tc-tiddlylink:hover {\n  color: {{!!tbl-color-text}};\n  text-decoration: none;\n  font-weight: bold;\n}\n\n.{{!!tbl-class-name}} &gt; table &gt; tbody &gt; tr &gt; td a:hover,\n.{{!!tbl-class-name}} &gt; table &gt; tbody &gt; tr &gt; td &gt; a &gt; a:hover,\n.{{!!tbl-class-name}} &gt; table &gt; tbody &gt; tr &gt; td &gt; .tc-tiddlylink:hover, \n.{{!!tbl-class-name}} &gt; table &gt; tbody &gt; tr &gt; td &gt; a &gt; .tc-tiddlylink:hover{\n  color:{{!!tbl-color-text-hover}};\n  text-decoration: none;\n  font-weight: normal;\n}\n\n.{{!!tbl-class-name}} &gt; div a:hover,\n.{{!!tbl-class-name}} &gt; div .tc-tiddlylink:hover {\n  color: {{!!tbl-color-text-hover}};\n  text-decoration: none;\n  font-weight: normal;\n}\n\n&lt;!--INPUTS--&gt;\n.{{!!tbl-class-name}} &gt; table &gt; tbody&gt; tr &gt; .tbl-inpt-edit &gt; input[type=\&quot;text\&quot;],\n.{{!!tbl-class-name}} &gt; table &gt; tbody&gt; tr &gt; .tbl-inpt-edit &gt; textarea {\n  width: 100%;\n  background-color: transparent;\n  border: none;\n  color: {{!!tbl-color-text}};\n}\n\n.{{!!tbl-class-name}} &gt; table &gt; tbody &gt; tr &gt; .tbl-inpt-check &gt; span &gt; button &gt; label &gt; input[type=\&quot;checkbox\&quot;],\n.{{!!tbl-class-name}} &gt; table &gt; thead &gt; tr &gt; .tbl-inpt-check &gt; span &gt; button &gt; label &gt; input[type=\&quot;checkbox\&quot;]{\n  vertical-align: middle;\n  margin: 0px 0px 2px 0px;\n}\n\n.{{!!tbl-class-name}} &gt; table &gt; tbody&gt; tr &gt; td &gt; select {\n  background: transparent;\n  border: none;\n  color: {{!!tbl-color-text}};\n}\n\n.{{!!tbl-class-name}} &gt; table &gt; tbody&gt; tr &gt; td &gt; select &gt; option {\n  background: {{!!tbl-color-row-all}};\n  border: none;\n  color: {{!!tbl-color-text}};\n}\n\n&lt;!--EXPAND--&gt;\n.{{!!tbl-class-name}} &gt; table &gt; tbody&gt; tr &gt; td.tbl-expand-pad,\n.{{!!tbl-class-name}} &gt; table &gt; tbody&gt; tr &gt; td.tbl-expand-pad &gt; p &gt; pre {\n  background-color: transparent;\n  border: none;\n  color: {{!!tbl-color-text}};\n  padding: 5px 8px 5px 8px;\n}\n\n.{{!!tbl-class-name}} &gt; table &gt; tbody&gt; tr &gt; td.tbl-expand-nopad,\n.{{!!tbl-class-name}} &gt; table &gt; tbody&gt; tr &gt; td.tbl-expand-nopad &gt; p,\n.{{!!tbl-class-name}} &gt; table &gt; tbody&gt; tr &gt; td.tbl-expand-nopad &gt; p &gt; pre {\n  background-color: transparent;\n  border: none;\n  color: {{!!tbl-color-text}};\n  margin: 0 0 0 0;\n  padding: 0 0 0 0;\n}\n\n.{{!!tbl-class-name}} &gt; table &gt; tbody&gt; tr &gt; td &gt; p &gt; .tbl-inpt-edit {\n  width: 100%;\n  background-color: transparent;\n  border: none;\n  color: {{!!tbl-color-text}};\n}\n\n.{{!!tbl-class-name}} &gt; table &gt; tbody&gt; tr &gt; td &gt; canvas {\n  width: 100%;\n  background-color: transparent;\n  border: none;\n  color: ;\n  padding: 0 0 0 0;\n  margin: 0 0 0 0;\n}\n\n&lt;!--PAGINATION--&gt;\n.{{!!tbl-class-name}} &gt; div &gt; div.tbl-page-footer,\n.{{!!tbl-class-name}} &gt; div &gt; span &gt; div.tbl-page-refresh {\n  text-align: center;\n  margin: 0 0 0 0;\n  padding: {{!!tbl-pad-tb-headfoot}} {{!!tbl-pad-lr}} {{!!tbl-pad-tb-headfoot}} {{!!tbl-pad-lr}};\n  color:{{!!tbl-color-text}};\n  background-color:{{!!tbl-color-caption}};\n  font-size: {{!!tbl-size-font}};\n  line-height: {{!!tbl-size-height}};\n  border-top: 0px solid {{!!tbl-color-border}};\n  border-right: {{!!tbl-width-border}} solid {{!!tbl-color-border}};\n  border-bottom: {{!!tbl-width-border}} solid {{!!tbl-color-border}};\n  border-left: {{!!tbl-width-border}} solid {{!!tbl-color-border}};\n}\n\n.{{!!tbl-class-name}} &gt; div &gt; span &gt; div.tbl-page-refresh &gt; button,\n.{{!!tbl-class-name}} &gt; div &gt; span &gt; div.tbl-page-refresh &gt; .tc-tiddlylink{\n  padding: 0 0 0 0;\n  margin: 0 0 0 0;\n  color:{{!!tbl-color-text}};\n  font-weight: normal;\n  font-size: {{!!tbl-size-font}};\n}\n\n.{{!!tbl-class-name}} &gt; div &gt; div.tbl-page-footer &gt; div.tbl-page-prev &gt; button,\n.{{!!tbl-class-name}} &gt; div &gt; div.tbl-page-footer &gt; div.tbl-page-prev &gt; .tc-tiddlylink{\n  padding: 0 0 0 0;\n  margin: 2px 0 0 0;\n  color:{{!!tbl-color-text}};\n  font-weight: normal;\n  font-size: {{!!tbl-size-font}};\n  float:left;\n}\n\n.{{!!tbl-class-name}} &gt; div &gt; div.tbl-page-footer &gt; div.tbl-page-next &gt; button,\n.{{!!tbl-class-name}} &gt; div &gt; div.tbl-page-footer &gt; div.tbl-page-next &gt; .tc-tiddlylink{\n  padding: 0 0 0 0;\n  margin: 2px 0 0 0;\n  color:{{!!tbl-color-text}};\n  font-weight: normal;\n  font-size: {{!!tbl-size-font}};\n  float:right;\n}\n\n.{{!!tbl-class-name}} &gt; div &gt; div.tbl-page-footer &gt; select {\n  padding: 0 0 0 0;\n  margin: 0 0 0 0;\n  background: transparent;\n  border: none;\n  color: {{!!tbl-color-text}};\n}\n\n.{{!!tbl-class-name}} &gt; div &gt; div.tbl-page-footer &gt; div.tbl-page-prev &gt; button &gt; svg,\n.{{!!tbl-class-name}} &gt; div &gt; div.tbl-page-footer &gt; div.tbl-page-next &gt; button &gt; svg {\n  text-shadow: none;\n  fill:{{!!tbl-color-text}};\n  padding:0 0 3px 0;\n}\n\n&lt;!--DELETE CONFIRMATION--&gt;\n.tbl-delete-confirm {\n  color: white;\n  background-color:red;\n  padding: 8px;\n  margin: 0px;\n  text-align:center;\n}\n\n.tbl-delete-confirm &gt; button {\n  color: white;\n  fill: white;\n}\n\n&lt;!--EDIT MENU--&gt;\n.tbl-edit-menu textarea{\n  width:100%;\n}\n.tbl-edit-wide{\n  width:94%;\n}&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/style/default&quot;,
+            &quot;tbl-width-border&quot;: &quot;1px&quot;,
+            &quot;tbl-size-icons&quot;: &quot;{{$:/themes/tiddlywiki/vanilla/metrics/bodyfontsize}}&quot;,
+            &quot;tbl-size-height&quot;: &quot;{{$:/themes/tiddlywiki/vanilla/metrics/bodylineheight}}&quot;,
+            &quot;tbl-size-font&quot;: &quot;{{$:/themes/tiddlywiki/vanilla/metrics/bodyfontsize}}&quot;,
+            &quot;tbl-pad-tb-headfoot&quot;: &quot;4px&quot;,
+            &quot;tbl-pad-tb-body&quot;: &quot;2px&quot;,
+            &quot;tbl-pad-lr&quot;: &quot;7px&quot;,
+            &quot;tbl-color-text-hover&quot;: &quot;#001177&quot;,
+            &quot;tbl-color-text&quot;: &quot;#000000&quot;,
+            &quot;tbl-color-row-odd&quot;: &quot;#FFFFFF&quot;,
+            &quot;tbl-color-row-hover&quot;: &quot;#FFFEE2&quot;,
+            &quot;tbl-color-row-even&quot;: &quot;#FCFCFC&quot;,
+            &quot;tbl-color-row-all&quot;: &quot;#FFFFFF&quot;,
+            &quot;tbl-color-header&quot;: &quot;#F0F0F0&quot;,
+            &quot;tbl-color-footer&quot;: &quot;#F0F0F0&quot;,
+            &quot;tbl-color-caption&quot;: &quot;#DDDDDD&quot;,
+            &quot;tbl-color-border&quot;: &quot;#DDDDDD&quot;,
+            &quot;tbl-class-type&quot;: &quot;parent&quot;,
+            &quot;tbl-class-name&quot;: &quot;tbl-style-default&quot;,
+            &quot;tags&quot;: &quot;$:/tags/Stylesheet&quot;,
+            &quot;modified&quot;: &quot;20191215064245416&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/editor/open&quot;: {
+            &quot;created&quot;: &quot;20190726023217378&quot;,
+            &quot;text&quot;: &quot;&lt;$reveal type=\&quot;nomatch\&quot; state=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-edit-target\&quot; text={{!!title}} &gt;\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;!!tbl-show-edit\&quot; text=\&quot;true\&quot;&gt;\n&lt;$button class=\&quot;tc-btn-invisible tc-tiddlylink\&quot; tooltip=\&quot;table options\&quot;&gt;\n  &lt;$action-setfield $tiddler=\&quot;$:/temp/tables/editor/settings-page-vars\&quot; tbl-edit-target={{!!title}} /&gt;\n  &lt;$action-setfield $tiddler=\&quot;$:/temp/tables/editor/settings-page-vars\&quot; tbl-edit-page=\&quot;Records\&quot; /&gt;\n  &lt;$action-sendmessage $message=\&quot;tm-modal\&quot; $param=\&quot;$:/plugins/aaldrich/tables/editor/view\&quot; /&gt;\n{{$:/core/images/options-button}}\n&lt;/$button&gt;\n&lt;/$reveal&gt;\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;!!tbl-show-mode\&quot; text=\&quot;true\&quot;&gt;\n&lt;$reveal type=\&quot;nomatch\&quot; state=\&quot;!!tbl-mode\&quot; text=\&quot;edit\&quot;&gt;\n&lt;$button class=\&quot;tc-btn-invisible tc-tiddlylink\&quot; tooltip=\&quot;edit mode\&quot;&gt;\n  &lt;$action-setfield $tiddler=&lt;&lt;currentTable&gt;&gt; tbl-mode=\&quot;edit\&quot; /&gt;\n{{$:/core/images/edit-button}}\n&lt;/$button&gt;\n&lt;/$reveal&gt;\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;!!tbl-mode\&quot; text=\&quot;edit\&quot;&gt;\n&lt;$button class=\&quot;tc-btn-invisible tc-tiddlylink\&quot; tooltip=\&quot;normal mode\&quot;&gt;\n  &lt;$action-setfield $tiddler=&lt;&lt;currentTable&gt;&gt; tbl-mode=\&quot;normal\&quot; /&gt;\n{{$:/core/images/done-button}}\n&lt;/$button&gt;\n&lt;/$reveal&gt;\n&lt;/$reveal&gt;\n&lt;/$reveal&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/editor/open&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modified&quot;: &quot;20191215055334115&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/button/image&quot;: {
+            &quot;text&quot;: &quot;&lt;svg class=\&quot;tc-image-button\&quot; viewBox=\&quot;0 0 128 128\&quot; width=\&quot;22pt\&quot; height=\&quot;22pt\&quot;&gt;\n    &lt;rect x=\&quot;0\&quot; y=\&quot;0\&quot; width=\&quot;128\&quot; height=\&quot;8\&quot;&gt;&lt;/rect&gt;\n    &lt;rect x=\&quot;0\&quot; y=\&quot;20\&quot; width=\&quot;128\&quot; height=\&quot;8\&quot;&gt;&lt;/rect&gt;\n    &lt;rect x=\&quot;0\&quot; y=\&quot;40\&quot; width=\&quot;128\&quot; height=\&quot;8\&quot;&gt;&lt;/rect&gt;\n    &lt;rect x=\&quot;0\&quot; y=\&quot;60\&quot; width=\&quot;128\&quot; height=\&quot;8\&quot;&gt;&lt;/rect&gt;\n    &lt;rect x=\&quot;0\&quot; y=\&quot;80\&quot; width=\&quot;128\&quot; height=\&quot;8\&quot;&gt;&lt;/rect&gt;\n    &lt;rect x=\&quot;0\&quot; y=\&quot;100\&quot; width=\&quot;128\&quot; height=\&quot;8\&quot;&gt;&lt;/rect&gt;\n    &lt;rect x=\&quot;0\&quot; y=\&quot;120\&quot; width=\&quot;128\&quot; height=\&quot;8\&quot;&gt;&lt;/rect&gt;\n    &lt;rect x=\&quot;0\&quot; y=\&quot;0\&quot; width=\&quot;8\&quot; height=\&quot;128\&quot;&gt;&lt;/rect&gt;\n    &lt;rect x=\&quot;40\&quot; y=\&quot;0\&quot; width=\&quot;8\&quot; height=\&quot;128\&quot;&gt;&lt;/rect&gt;\n    &lt;rect x=\&quot;80\&quot; y=\&quot;0\&quot; width=\&quot;8\&quot; height=\&quot;128\&quot;&gt;&lt;/rect&gt;\n    &lt;rect x=\&quot;120\&quot; y=\&quot;0\&quot; width=\&quot;8\&quot; height=\&quot;128\&quot;&gt;&lt;/rect&gt;\n&lt;/svg&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/button/image&quot;,
+            &quot;tags&quot;: &quot;[[ $:/tags/Image]]&quot;,
+            &quot;modified&quot;: &quot;20190727005459045&quot;,
+            &quot;created&quot;: &quot;20190725080524516&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/button&quot;: {
+            &quot;text&quot;: &quot;\\define newTableText()\n&lt;&lt;table \&quot;$(newTableTitle)$\&quot;&gt;&gt;\n\\end\n\n\\define makeNewTable()\n\n&lt;$set name=\&quot;newTableTitle\&quot; value={{$:/temp/tables/button/generate-new-table-name}} &gt;\n&lt;$action-setfield $tiddler={{$:/temp/tables/button/generate-new-table-name}} text=&lt;&lt;newTableText&gt;&gt;/&gt;\n&lt;/$set&gt;\n&lt;$action-navigate $to={{$:/temp/tables/button/generate-new-table-name}}/&gt;\n&lt;$action-deletetiddler $tiddler=\&quot;$:/temp/tables/button/generate-new-table-name\&quot;/&gt;\n\\end\n\n&lt;$button class=&lt;&lt;tv-config-toolbar-class&gt;&gt; tooltip=\&quot;Create new table\&quot; aria-label={{$:/plugins/aaldrich/tables/button!!caption}} actions=&lt;&lt;makeNewTable&gt;&gt;&gt;\n&lt;$list filter=\&quot;[&lt;tv-config-toolbar-icons&gt;prefix[yes]]\&quot;&gt;\n{{$:/plugins/aaldrich/tables/button/image}}\n&lt;/$list&gt;\n&lt;$list filter=\&quot;[&lt;tv-config-toolbar-text&gt;prefix[yes]]\&quot;&gt;\n&lt;span class=\&quot;tc-btn-text\&quot;&gt;&lt;$text text=\&quot;new table\&quot;/&gt;&lt;/span&gt;\n&lt;/$list&gt;\n&lt;$action-createtiddler $basetitle={{$:/plugins/aaldrich/tables/defaults!!tbl-default-title}}\n$savetitle=\&quot;$:/temp/tables/button/generate-new-table-name\&quot;\ntbl-add-records={{$:/plugins/aaldrich/tables/defaults!!tbl-add-records}}\ntbl-anything={{$:/plugins/aaldrich/tables/defaults!!tbl-anything}}\ntbl-button-actions={{$:/plugins/aaldrich/tables/defaults!!tbl-button-actions}}\ntbl-button-icon={{$:/plugins/aaldrich/tables/defaults!!tbl-button-icon}}\ntbl-button-tip={{$:/plugins/aaldrich/tables/defaults!!tbl-button-tip}}\ntbl-caption={{$:/plugins/aaldrich/tables/defaults!!tbl-caption}}\ntbl-checkbox-actions-selected={{$:/plugins/aaldrich/tables/defaults!!tbl-checkbox-actions-selected}}\ntbl-checkbox-actions-unselected={{$:/plugins/aaldrich/tables/defaults!!tbl-checkbox-actions-unselected}}\ntbl-checkbox-field={{$:/plugins/aaldrich/tables/defaults!!tbl-checkbox-field}}\ntbl-checkbox-tag={{$:/plugins/aaldrich/tables/defaults!!tbl-checkbox-tag}}\ntbl-checkbox-tip={{$:/plugins/aaldrich/tables/defaults!!tbl-checkbox-tip}}\ntbl-checkbox-value-selected={{$:/plugins/aaldrich/tables/defaults!!tbl-checkbox-value-selected}}\ntbl-checkbox-value-unselected={{$:/plugins/aaldrich/tables/defaults!!tbl-checkbox-value-unselected}}\ntbl-class={{$:/plugins/aaldrich/tables/defaults!!tbl-class}}\ntbl-columns={{$:/plugins/aaldrich/tables/defaults!!tbl-columns}}\ntbl-expand={{$:/plugins/aaldrich/tables/defaults!!tbl-expand}}\ntbl-filter={{$:/plugins/aaldrich/tables/defaults!!tbl-filter}}\ntbl-show-caption={{$:/plugins/aaldrich/tables/defaults!!tbl-show-caption}}\ntbl-show-colgroup={{$:/plugins/aaldrich/tables/defaults!!tbl-show-colgroup}}\ntbl-show-edit={{$:/plugins/aaldrich/tables/defaults!!tbl-show-edit}}\ntbl-show-footer={{$:/plugins/aaldrich/tables/defaults!!tbl-show-footer}}\ntbl-show-header={{$:/plugins/aaldrich/tables/defaults!!tbl-show-header}}\ntbl-show-mode={{$:/plugins/aaldrich/tables/defaults!!tbl-show-mode}}\ntbl-show-pagination={{$:/plugins/aaldrich/tables/defaults!!tbl-show-pagination}}\ntbl-limit={{$:/plugins/aaldrich/tables/defaults!!tbl-limit}}\ntbl-mode={{$:/plugins/aaldrich/tables/defaults!!tbl-mode}}\ntbl-page-marker={{$:/plugins/aaldrich/tables/defaults!!tbl-page-marker}}\ntbl-sort-by={{$:/plugins/aaldrich/tables/defaults!!tbl-sort-by}}\ntbl-sort-negate={{$:/plugins/aaldrich/tables/defaults!!tbl-sort-negate}}\ntbl-sort-type={{$:/plugins/aaldrich/tables/defaults!!tbl-sort-type}}\ntbl-style-colgroup={{$:/plugins/aaldrich/tables/defaults!!tbl-style-colgroup}}\ntbl-style-container={{$:/plugins/aaldrich/tables/defaults!!tbl-style-container}}\ntbl-style-table={{$:/plugins/aaldrich/tables/defaults!!tbl-style-table}}\n/&gt;\n&lt;/$button&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/button&quot;,
+            &quot;tags&quot;: &quot;$:/tags/PageControls&quot;,
+            &quot;modified&quot;: &quot;20191212071246997&quot;,
+            &quot;description&quot;: &quot;Create a new table&quot;,
+            &quot;created&quot;: &quot;20170205062652787&quot;,
+            &quot;caption&quot;: &quot;{{$:/plugins/aaldrich/tables/button/image}} new table&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/editor/view&quot;: {
+            &quot;text&quot;: &quot;&lt;$keyboard actions=\&quot;\&quot;\&quot;&lt;$action-sendmessage $message=\&quot;tm-close-tiddler\&quot; /&gt;&lt;$action-deletetiddler $tiddler=\&quot;$:/temp/tables/editor/settings-page-vars\&quot;/&gt;\&quot;\&quot;\&quot; key=\&quot;ctrl-enter\&quot;&gt;\n&lt;span class=\&quot;tbl-edit-menu\&quot;&gt;\n&lt;$set name=\&quot;currentTable\&quot; value={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} &gt;\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-edit-page\&quot; text=\&quot;Records\&quot;&gt;\n\n''Query Records'' (tbl-filter) - filter syntax&lt;br&gt;\n&lt;$edit-text  class=\&quot;tbl-edit-wide\&quot; tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-filter\&quot;/&gt;\n&lt;span class=\&quot;tc-popup-keep\&quot;&gt;\n&lt;$button popup=\&quot;$:/state/tables/filter/preset-dropdown\&quot; class=\&quot;tc-btn-invisible\&quot;&gt;\n&amp;nbsp;{{$:/core/images/down-arrow}}\n&lt;/$button&gt;&lt;br&gt;\n&lt;/span&gt;\n&lt;$reveal class=\&quot;tc-block-dropdown\&quot; state=\&quot;$:/state/tables/filter/preset-dropdown\&quot; type=\&quot;popup\&quot; position=\&quot;belowleft\&quot; animate=\&quot;yes\&quot;&gt;\n&lt;$list filter=\&quot;[[$:/plugins/aaldrich/tables/defaults]indexes[]]\&quot; variable=\&quot;filterList\&quot;&gt;\n&lt;$list filter=\&quot;[[$:/plugins/aaldrich/tables/defaults]getindex&lt;filterList&gt;]\&quot; variable=\&quot;filterValues\&quot; &gt;\n&lt;$set name=\&quot;existingTableFilter\&quot; filter=\&quot;[{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}get[tbl-filter]]\&quot;&gt;\n&lt;$set name=\&quot;existingTableFilterPrefix\&quot; filter=\&quot;[{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}get[tbl-filter]]\&quot; value=\&quot;+\&quot; emptyValue=\&quot;\&quot;&gt;\n&lt;a style=\&quot;margin:0 0 0 0;padding:0 0 0 0;\&quot; &gt;&lt;$button style=\&quot;display:block;width:100%;text-align:left;margin:0 0 0 0;padding:4px 4px 4px 4px;\&quot; actions=\&quot;\&quot;\&quot;&lt;$action-setfield $tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} tbl-filter=&lt;&lt;tableFilterPick&gt;&gt; /&gt;\&quot;\&quot;\&quot; class=\&quot;tc-btn-invisible\&quot;&gt;&lt;&lt;filterList&gt;&gt;&lt;/$button&gt;&lt;/a&gt;\n&lt;/$set&gt;\n&lt;/$set&gt;\n&lt;/$list&gt;\n&lt;/$list&gt;\n&lt;/$reveal&gt;&lt;br&gt;\n&lt;$reveal type=\&quot;nomatch\&quot; state=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-edit-presets\&quot; text=\&quot;true\&quot;&gt;\n&lt;$button class=\&quot;tc-btn-invisible tc-tiddlylink\&quot; set=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-edit-presets\&quot; setTo=true &gt;edit presets\n&lt;/$button&gt;\n&lt;/$reveal&gt;\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-edit-presets\&quot; text=\&quot;true\&quot;&gt;\n&lt;$button class=\&quot;tc-btn-invisible tc-tiddlylink\&quot; set=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-edit-presets\&quot; setTo=false&gt;close\n&lt;/$button&gt;&lt;br&gt;\n&lt;$edit-text tiddler=\&quot;$:/plugins/aaldrich/tables/defaults\&quot; field=\&quot;text\&quot;/&gt;\n&lt;/$reveal&gt;&lt;br&gt;&lt;br&gt;\n''Enter Records Manually'' (tbl-add-records) - filter syntax&lt;br&gt;\n&lt;$edit-text tag=textarea tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-add-records\&quot;/&gt;\n&lt;/$reveal&gt;\n\n\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-edit-page\&quot; text=\&quot;Columns\&quot;&gt;\n\n''Columns to Display'' (tbl-columns) - filter syntax&lt;br&gt;\n&lt;$edit-text class=\&quot;tbl-edit-wide\&quot; tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-columns\&quot;/&gt;\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-show-columns\&quot; text=\&quot;true\&quot;&gt;\n\n&lt;$button class=\&quot;tc-btn-invisible tc-tiddlylink\&quot; set=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-show-columns\&quot; setTo=\&quot;false\&quot; &gt;close&lt;/$button&gt;\n\n!!''Assign/Modify Column Templates''\n\nUse the table below to assign fields/indexes to column templates by adding the field/index name to ''tbl-column-list''. \n\nUnassigned fields/indexes will inherit one of three default templates:\n\n*~$:/plugins/aaldrich/tables/template/header/default&lt;br&gt;\n*~$:/plugins/aaldrich/tables/template/body/default&lt;br&gt;\n*~$:/plugins/aaldrich/tables/template/footer/default&lt;br&gt;\n\n(Optional) Restrict a field/index from edit mode by adding the field/index name to ''tbl-noedit''.\n\n{{$:/plugins/aaldrich/tables/editor/templates}}\n\n''Note:'' Ensure each field/index name is only assigned to one of each template type - header, body and footer.&lt;br&gt;&lt;br&gt;\n\n!!''Create New Column Template''&lt;br&gt;\n\n__''Create Blank Template''__&lt;br&gt;\n\n&lt;$edit-text tiddler=\&quot;$:/temp/tables/editor/settings-page-vars\&quot; field=\&quot;tbl-new-template-name\&quot; placeholder=\&quot;Template name (no spaces)...\&quot; size=\&quot;30\&quot;/&gt;\n&lt;$set name=\&quot;newTemplateTitle\&quot; filter=\&quot;[{$:/temp/tables/editor/settings-page-vars!!tbl-new-template-name}]+[addprefix[/]]+[addprefix{$:/temp/tables/editor/settings-page-vars!!tbl-new-template-type}]+[addprefix[$:/plugins/aaldrich/tables/template/]]\&quot; value=&lt;&lt;newTemplateTitle&gt;&gt; noValue=\&quot;\&quot; &gt;\n&lt;$select tiddler=\&quot;$:/temp/tables/editor/settings-page-vars\&quot; field=\&quot;tbl-new-template-type\&quot; &gt;\n&lt;option&gt;header&lt;/option&gt;\n&lt;option&gt;body&lt;/option&gt;\n&lt;option&gt;footer&lt;/option&gt;\n&lt;/$select&gt;\n&lt;$reveal type=\&quot;nomatch\&quot; state=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-new-template-name\&quot; text=\&quot;\&quot;&gt;\n&lt;$button class=\&quot;tc-btn-invisible tc-tiddlylink\&quot; &gt;\n&lt;$action-setfield $tiddler=&lt;&lt;newTemplateTitle&gt;&gt; tags=\&quot;$:/tags/table/BodyTemplate\&quot; tbl-column-list=\&quot;\&quot; tbl-noedit=\&quot;\&quot;/&gt;\n&lt;$action-setfield $tiddler=\&quot;$:/temp/tables/editor/settings-page-vars\&quot; tbl-new-template-name=\&quot;\&quot;/&gt; create&lt;/$button&gt;\n&lt;/$reveal&gt;\n&lt;/$set&gt;\n\n__''Create Template Manually''__&lt;br&gt;\n\n(Tip) One way to create a new template is to clone and modify an existing one.&lt;br&gt;\n\n''Required Tags:''&lt;br&gt;\n\n*''Header Templates'' - must be tagged with //''~$:/tags/table/HeaderTemplate''//&lt;br&gt;\n*''Body Templates'' - must be tagged with //''~$:/tags/table/BodyTemplate''//&lt;br&gt;\n*''Footer Templates'' - must be tagged with //''~$:/tags/table/FooterTemplate''//&lt;br&gt;\n\n''Required Fields:''&lt;br&gt;\n\n*//''tbl-column-list''// - used to assign fields/indexes to a column template\n*//''tbl-noedit''// - used to restrict fields/indexes from entering //edit mode// \n*//''text''// - template code (wikitext) - see below for useful macro parameters\n\n''Useful Macro Parameters''\n\n//Can be used anywhere inside the table container://\n\n*''current table:'' `&lt;&lt;currentTable&gt;&gt;`\n*''input filter:'' `&lt;&lt;inputFilter&gt;&gt;`\n*''processed filter:'' `&lt;&lt;tableFilter&gt;&gt;`\n*''temporary table tiddler:'' `&lt;&lt;tempTable&gt;&gt;`\n\n//Can only be used in //Header//, //Footer// or //Body// Templates://\n\n*''current column:'' `&lt;&lt;currentColumn&gt;&gt;`\n\n//Can only be used in //Body// Templates://\n\n*''current record:'' `&lt;&lt;currentRecord&gt;&gt;`\n*''temporary record tiddler:'' `&lt;&lt;tempRecord&gt;&gt;`\n*''numerical record index (filter):'' `&lt;&lt;getIndex&gt;&gt;`\n&lt;/$reveal&gt;\n\n&lt;$reveal type=\&quot;nomatch\&quot; state=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-show-columns\&quot; text=\&quot;true\&quot;&gt;\n&lt;$button class=\&quot;tc-btn-invisible tc-tiddlylink\&quot; set=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-show-columns\&quot; setTo=\&quot;true\&quot;&gt;manage column templates\n&lt;$action-setfield $tiddler=\&quot;$:/temp/tables/editor/settings-page-vars\&quot; tbl-new-template-type=\&quot;body\&quot;/&gt;\n&lt;/$button&gt;\n&lt;/$reveal&gt;\n&lt;/$reveal&gt;\n\n\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-edit-page\&quot; text=\&quot;Sorting\&quot;&gt;\n\n''Sort Type'' (tbl-sort-type)&lt;br&gt;\n&lt;$select tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-sort-type\&quot;&gt;\n&lt;option&gt;sort&lt;/option&gt;\n&lt;option&gt;nsort&lt;/option&gt;\n&lt;option&gt;sortcs&lt;/option&gt;\n&lt;option&gt;nsortcs&lt;/option&gt;\n&lt;option&gt;sortan&lt;/option&gt;\n&lt;option&gt;sortby&lt;/option&gt;\n&lt;/$select&gt;\n\n''Sort By'' (tbl-sort-by)&lt;br&gt;\n&lt;$edit-text tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-sort-by\&quot; size=22/&gt;\n\n''Sort Negate (Invert Order)'' (tbl-sort-negate) &lt;br&gt;\n&lt;$checkbox tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-sort-negate\&quot; checked=\&quot;true\&quot; unchecked=\&quot;false\&quot;&gt;\n&lt;$transclude tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-sort-negate\&quot; mode=\&quot;inline\&quot;/&gt;&lt;/$checkbox&gt; \n&lt;/$reveal&gt;\n\n\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-edit-page\&quot; text=\&quot;Limit\&quot;&gt;\n\n''Limit'' (tbl-limit)&lt;br&gt;\n&lt;$select tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-limit\&quot; &gt;\n&lt;$set name=\&quot;limitFilter\&quot; value={{$:/plugins/aaldrich/tables/defaults!!tbl-limit-choices}} &gt;\n&lt;$list filter=&lt;&lt;limitFilter&gt;&gt;&gt;\n&lt;option value={{!!title}}&gt;Limit {{!!title}}&lt;/option&gt;\n&lt;/$list&gt;\n&lt;/$set&gt;\n&lt;option value=9999999&gt;Show All&lt;/option&gt;\n&lt;/$select&gt;\n\n''Show Pagination'' (tbl-show-pagination)&lt;br&gt;\n&lt;$select tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-show-pagination\&quot; actions=\&quot;\&quot;\&quot;&lt;$action-setfield $tiddler=&lt;&lt;currentTable&gt;&gt; tbl-page-marker=\&quot;\&quot;/&gt;&lt;$list filter=\&quot;[&lt;currentTable&gt;tbl-show-pagination[false]]\&quot; &gt;&lt;$action-setfield $tiddler=&lt;&lt;currentTable&gt;&gt; tbl-limit=\&quot;9999999\&quot;/&gt;&lt;/$list&gt;\&quot;\&quot;\&quot;&gt;\n&lt;option&gt;true&lt;/option&gt;\n&lt;option&gt;false&lt;/option&gt;\n&lt;option&gt;auto&lt;/option&gt;\n&lt;/$select&gt;\n\n''Pagination Marker'' (tbl-page-marker)&lt;br&gt;\n&lt;$edit-text tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-page-marker\&quot; size=50/&gt;\n&lt;$button class=\&quot;tc-btn-invisible tc-tiddlylink\&quot; &gt;\n&lt;$action-setfield $tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} $field=\&quot;tbl-page-marker\&quot; $value=\&quot;\&quot; /&gt;clear\n&lt;/$button&gt;\n&lt;/$reveal&gt;\n\n\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-edit-page\&quot; text=\&quot;Theme\&quot;&gt;\n\n''Stylesheet'' (tbl-class)&lt;br&gt;\n&lt;$select tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-class\&quot;&gt;\n&lt;optgroup label=\&quot;Parent Themes\&quot;&gt;\n&lt;$list filter=\&quot;[all[tiddlers+shadows]has[tbl-class-name]contains:tbl-class-type[parent]sort[title]]\&quot;&gt;\n&lt;option&gt;{{!!tbl-class-name}}&lt;/option&gt;\n&lt;/$list&gt;\n&lt;/optgroup&gt;\n&lt;optgroup label=\&quot;Child Themes\&quot;&gt;\n&lt;$list filter=\&quot;[all[tiddlers+shadows]has[tbl-class-name]contains:tbl-class-type[child]sort[title]]\&quot;&gt;\n&lt;option&gt;{{!!tbl-class-name}}&lt;/option&gt;\n&lt;/$list&gt;\n&lt;/optgroup&gt;\n&lt;optgroup label=\&quot;Other\&quot;&gt;\n&lt;$list filter=\&quot;[all[tiddlers+shadows]has[tbl-class-name]!contains:tbl-class-type[child]!contains:tbl-class-type[parent]sort[title]]\&quot;&gt;\n&lt;option&gt;{{!!tbl-class-name}}&lt;/option&gt;\n&lt;/$list&gt;\n&lt;option value=\&quot;\&quot; &gt;inherit&lt;/option&gt;\n&lt;/optgroup&gt;\n&lt;/$select&gt;\n&lt;$set name=\&quot;currentThemeClass\&quot; filter=\&quot;[{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}get[tbl-class]]\&quot; value=&lt;&lt;currentThemeClass&gt;&gt; emptyValue=\&quot;\&quot; &gt;\n&lt;$set name=\&quot;currentThemeTitle\&quot; filter=\&quot;[all[tiddlers+shadows]contains:tbl-class-name&lt;currentThemeClass&gt;limit[1]]\&quot; value=&lt;&lt;currentThemeTitle&gt;&gt; emptyValue=\&quot;Inheriting style from {{$:/theme}}.\&quot; &gt;\n&lt;h2&gt;&lt;&lt;currentThemeTitle&gt;&gt; \n&lt;$reveal type=\&quot;nomatch\&quot; state=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-show-style-settings\&quot; text=\&quot;true\&quot;&gt;\n&lt;$button class=\&quot;tc-btn-invisible tc-tiddlylink\&quot; set=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-show-style-settings\&quot; setTo=\&quot;true\&quot;&gt; {{$:/core/images/edit-button}} &lt;/$button&gt;\n&lt;/$reveal&gt;\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-show-style-settings\&quot; text=\&quot;true\&quot;&gt;\n&lt;$button class=\&quot;tc-btn-invisible tc-tiddlylink\&quot; set=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-show-style-settings\&quot; setTo=\&quot;false\&quot; &gt;{{$:/core/images/done-button}}&lt;/$button&gt;\n&lt;/$reveal&gt;&lt;/h2&gt;\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-show-style-settings\&quot; text=\&quot;true\&quot;&gt;\n&lt;table style=\&quot;width:100%;border-collapse: collapse; border: none;vertical-align:top;\&quot;&gt;\n  &lt;tr style=\&quot;border: none;vertical-align:top;\&quot;&gt;\n    &lt;td style=\&quot;border: none;\&quot;&gt;\n\n!!''Body''\n\n''All Rows Color:''&lt;br&gt;&lt;$edit-text tiddler=&lt;&lt;currentThemeTitle&gt;&gt; field=\&quot;tbl-color-row-all\&quot; tag=\&quot;input\&quot; type=\&quot;color\&quot;/&gt;&lt;$edit-text tiddler=&lt;&lt;currentThemeTitle&gt;&gt; field=\&quot;tbl-color-row-all\&quot; tag=\&quot;input\&quot; size=\&quot;8\&quot;/&gt;&lt;br&gt;&lt;br&gt;\n''Even Rows Color:''&lt;br&gt;&lt;$edit-text tiddler=&lt;&lt;currentThemeTitle&gt;&gt; field=\&quot;tbl-color-row-even\&quot; tag=\&quot;input\&quot; type=\&quot;color\&quot;/&gt;&lt;$edit-text tiddler=&lt;&lt;currentThemeTitle&gt;&gt; field=\&quot;tbl-color-row-even\&quot; tag=\&quot;input\&quot; size=\&quot;8\&quot;/&gt;&lt;br&gt;&lt;br&gt;\n''Odd Rows Color:''&lt;br&gt;&lt;$edit-text tiddler=&lt;&lt;currentThemeTitle&gt;&gt; field=\&quot;tbl-color-row-odd\&quot; tag=\&quot;input\&quot; type=\&quot;color\&quot;/&gt;&lt;$edit-text tiddler=&lt;&lt;currentThemeTitle&gt;&gt; field=\&quot;tbl-color-row-odd\&quot; tag=\&quot;input\&quot; size=\&quot;8\&quot;/&gt;&lt;br&gt;&lt;br&gt;\n''Row Hover Color:''&lt;br&gt;&lt;$edit-text tiddler=&lt;&lt;currentThemeTitle&gt;&gt; field=\&quot;tbl-color-row-hover\&quot; tag=\&quot;input\&quot; type=\&quot;color\&quot;/&gt;&lt;$edit-text tiddler=&lt;&lt;currentThemeTitle&gt;&gt; field=\&quot;tbl-color-row-hover\&quot; tag=\&quot;input\&quot; size=\&quot;8\&quot;/&gt;\n    &lt;/td&gt;\n    &lt;td style=\&quot;border: none;\&quot;&gt;\n\n!!''Header/Footer''\n\n''Header Color:''&lt;br&gt;&lt;$edit-text tiddler=&lt;&lt;currentThemeTitle&gt;&gt; field=\&quot;tbl-color-header\&quot; tag=\&quot;input\&quot; type=\&quot;color\&quot;/&gt;&lt;$edit-text tiddler=&lt;&lt;currentThemeTitle&gt;&gt; field=\&quot;tbl-color-header\&quot; tag=\&quot;input\&quot; size=\&quot;8\&quot;/&gt;&lt;br&gt;&lt;br&gt;\n''Footer Color:''&lt;br&gt;&lt;$edit-text tiddler=&lt;&lt;currentThemeTitle&gt;&gt; field=\&quot;tbl-color-footer\&quot; tag=\&quot;input\&quot; type=\&quot;color\&quot;/&gt;&lt;$edit-text tiddler=&lt;&lt;currentThemeTitle&gt;&gt; field=\&quot;tbl-color-footer\&quot; tag=\&quot;input\&quot; size=\&quot;8\&quot;/&gt;&lt;br&gt;&lt;br&gt;\n\n!!''Caption''\n\n''Caption Color:''&lt;br&gt;&lt;$edit-text tiddler=&lt;&lt;currentThemeTitle&gt;&gt; field=\&quot;tbl-color-caption\&quot; tag=\&quot;input\&quot; type=\&quot;color\&quot;/&gt;&lt;$edit-text tiddler=&lt;&lt;currentThemeTitle&gt;&gt; field=\&quot;tbl-color-caption\&quot; tag=\&quot;input\&quot; size=\&quot;8\&quot;/&gt;\n    &lt;/td&gt;\n    &lt;td style=\&quot;border: none;\&quot;&gt;\n\n!!''Padding''\n\n__''Header/Footer''__\n\n''Padding Top/Bottom:''&lt;br&gt;&lt;$edit-text tiddler=&lt;&lt;currentThemeTitle&gt;&gt; field=\&quot;tbl-pad-tb-headfoot\&quot; tag=\&quot;input\&quot; size=\&quot;16\&quot;/&gt;\n\n__''Body''__\n\n''Left/Right:''&lt;br&gt;&lt;$edit-text tiddler=&lt;&lt;currentThemeTitle&gt;&gt; field=\&quot;tbl-pad-lr\&quot; tag=\&quot;input\&quot; size=\&quot;16\&quot;/&gt;&lt;br&gt;&lt;br&gt;\n''Top/Bottom:''&lt;br&gt;&lt;$edit-text tiddler=&lt;&lt;currentThemeTitle&gt;&gt; field=\&quot;tbl-pad-tb-body\&quot; tag=\&quot;input\&quot; size=\&quot;16\&quot;/&gt;\n    &lt;/td&gt;\n    &lt;td style=\&quot;border: none;\&quot;&gt;\n\n!!''Text/Icons''\n\n''Text Color:''&lt;br&gt;&lt;$edit-text tiddler=&lt;&lt;currentThemeTitle&gt;&gt; field=\&quot;tbl-color-text\&quot; tag=\&quot;input\&quot; type=\&quot;color\&quot;/&gt;&lt;$edit-text tiddler=&lt;&lt;currentThemeTitle&gt;&gt; field=\&quot;tbl-color-text\&quot; tag=\&quot;input\&quot; size=\&quot;8\&quot;/&gt;&lt;br&gt;&lt;br&gt;\n''Text Hover Color:''&lt;br&gt;&lt;$edit-text tiddler=&lt;&lt;currentThemeTitle&gt;&gt; field=\&quot;tbl-color-text-hover\&quot; tag=\&quot;input\&quot; type=\&quot;color\&quot;/&gt;&lt;$edit-text tiddler=&lt;&lt;currentThemeTitle&gt;&gt; field=\&quot;tbl-color-text-hover\&quot; tag=\&quot;input\&quot; size=\&quot;8\&quot;/&gt;&lt;br&gt;&lt;br&gt;\n''Font Size:''&lt;br&gt;&lt;$edit-text tiddler=&lt;&lt;currentThemeTitle&gt;&gt; field=\&quot;tbl-size-font\&quot; tag=\&quot;input\&quot; size=\&quot;16\&quot;/&gt;&lt;br&gt;&lt;br&gt;\n''Icon Size:''&lt;br&gt;&lt;$edit-text tiddler=&lt;&lt;currentThemeTitle&gt;&gt; field=\&quot;tbl-size-icons\&quot; tag=\&quot;input\&quot; size=\&quot;16\&quot;/&gt;\n    &lt;/td&gt;\n    &lt;td style=\&quot;border: none;\&quot;&gt;\n\n!!''Border''\n\n''Border Width:''&lt;br&gt;&lt;$edit-text tiddler=&lt;&lt;currentThemeTitle&gt;&gt; field=\&quot;tbl-width-border\&quot; tag=\&quot;input\&quot; size=\&quot;16\&quot;/&gt;&lt;br&gt;&lt;br&gt;\n''Border Color:''&lt;br&gt;&lt;$edit-text tiddler=&lt;&lt;currentThemeTitle&gt;&gt; field=\&quot;tbl-color-border\&quot; tag=\&quot;input\&quot; type=\&quot;color\&quot;/&gt;&lt;$edit-text tiddler=&lt;&lt;currentThemeTitle&gt;&gt; field=\&quot;tbl-color-border\&quot; tag=\&quot;input\&quot; size=\&quot;8\&quot; /&gt;&lt;br&gt;&lt;br&gt;\n\n!!''Other''\n\n''Line Height:''&lt;br&gt;&lt;$edit-text tiddler=&lt;&lt;currentThemeTitle&gt;&gt; field=\&quot;tbl-size-height\&quot; tag=\&quot;input\&quot; size=\&quot;16\&quot;/&gt;\n    &lt;/td&gt;\n  &lt;/tr&gt;\n&lt;/table&gt;\n&lt;h2&gt;''Stylesheet:'' \n&lt;$reveal type=\&quot;nomatch\&quot; state=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-show-stylesheet\&quot; text=\&quot;true\&quot;&gt;\n&lt;$button class=\&quot;tc-btn-invisible tc-tiddlylink\&quot; set=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-show-stylesheet\&quot; setTo=\&quot;true\&quot;&gt;{{$:/core/images/edit-button}}&lt;/$button&gt;\n&lt;/$reveal&gt;\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-show-stylesheet\&quot; text=\&quot;true\&quot;&gt;\n&lt;$button class=\&quot;tc-btn-invisible tc-tiddlylink\&quot; set=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-show-stylesheet\&quot; setTo=\&quot;false\&quot; &gt;{{$:/core/images/done-button}}&lt;/$button&gt;\n&lt;/$reveal&gt;&lt;/h2&gt;\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-show-stylesheet\&quot; text=\&quot;true\&quot;&gt;\n&lt;$edit-text tiddler=&lt;&lt;currentThemeTitle&gt;&gt; field=\&quot;text\&quot; tag=\&quot;textarea\&quot;/&gt;\n&lt;/$reveal&gt;\n\n&lt;$reveal type=\&quot;nomatch\&quot; state=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-theme-delete-confirm\&quot; text=&lt;&lt;currentThemeTitle&gt;&gt;&gt;\n&lt;$button style=\&quot;color:red;fill:red;\&quot; class=\&quot;tc-btn-invisible\&quot; set=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-theme-delete-confirm\&quot; setTo=&lt;&lt;currentThemeTitle&gt;&gt; &gt;{{$:/core/images/delete-button}}'' delete theme''&lt;/$button&gt;\n&lt;/$reveal&gt;\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-theme-delete-confirm\&quot; text=&lt;&lt;currentThemeTitle&gt;&gt;&gt;\n delete this theme? &lt;$button class=\&quot;tc-btn-invisible\&quot;&gt;&lt;$action-deletetiddler $tiddler=&lt;&lt;currentThemeTitle&gt;&gt;/&gt;&lt;$action-setfield $tiddler=\&quot;$:/temp/tables/editor/settings-page-vars\&quot; tbl-theme-delete-confirm=\&quot;\&quot; /&gt;'' yes ''&lt;/$button&gt; / &lt;$button class=\&quot;tc-btn-invisible\&quot;&gt;&lt;$action-setfield $tiddler=\&quot;$:/temp/tables/editor/settings-page-vars\&quot; tbl-theme-delete-confirm=\&quot;\&quot; /&gt;'' no ''&lt;/$button&gt;\n&lt;/$reveal&gt;\n\n&lt;/$reveal&gt;\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-show-styles\&quot; text=\&quot;true\&quot;&gt;\n\n&lt;$button class=\&quot;tc-btn-invisible tc-tiddlylink\&quot; set=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-show-styles\&quot; setTo=\&quot;false\&quot; &gt;close&lt;/$button&gt;&lt;br&gt;\n\n!!''Create New Theme''\n\n__''Clone Current Theme''__\n\n&lt;$edit-text tiddler=\&quot;$:/temp/tables/editor/settings-page-vars\&quot; field=\&quot;tbl-new-theme-class\&quot; placeholder=\&quot;Enter a class name (no spaces)...\&quot; size=\&quot;30\&quot;/&gt;\n&lt;$reveal type=\&quot;nomatch\&quot; state=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-new-theme-class\&quot; text=\&quot;\&quot;&gt;\n&lt;$button class=\&quot;tc-btn-invisible tc-tiddlylink\&quot; &gt;\n&lt;$set name=\&quot;newThemeTitle\&quot; filter=\&quot;[{$:/temp/tables/editor/settings-page-vars!!tbl-new-theme-class}]+[addprefix[$:/plugins/aaldrich/tables/style/]]\&quot; value=&lt;&lt;newThemeTitle&gt;&gt; noValue=\&quot;\&quot; &gt;\n&lt;$action-setfield $tiddler=&lt;&lt;newThemeTitle&gt;&gt; title=&lt;&lt;newThemeTitle&gt;&gt;  /&gt;\n&lt;$list variable=\&quot;themeFields\&quot; filter=\&quot;[&lt;currentThemeTitle&gt;fields[]]-[[title]]-[[modified]]-[[created]]-[[tbl-class-type]]-[[text]]\&quot;&gt;\n&lt;$set name=\&quot;themeFieldValues\&quot; filter=\&quot;[&lt;currentThemeTitle&gt;get&lt;themeFields&gt;]\&quot; value=&lt;&lt;themeFieldValues&gt;&gt; noValue=\&quot;\&quot;&gt;\n&lt;$action-setfield $tiddler=&lt;&lt;newThemeTitle&gt;&gt; $field=&lt;&lt;themeFields&gt;&gt; $value=&lt;&lt;themeFieldValues&gt;&gt; /&gt;\n&lt;/$set&gt;\n&lt;/$list&gt;\n&lt;$action-setfield $tiddler=&lt;&lt;newThemeTitle&gt;&gt; tbl-class-name={{$:/temp/tables/editor/settings-page-vars!!tbl-new-theme-class}} tbl-class-type=\&quot;child\&quot; text=\&quot;{{||$:/plugins/aaldrich/tables/style/default}}\&quot;/&gt;\n&lt;$action-setfield $tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} tbl-class={{$:/temp/tables/editor/settings-page-vars!!tbl-new-theme-class}} /&gt;\n&lt;$action-setfield $tiddler=\&quot;$:/temp/tables/editor/settings-page-vars\&quot; tbl-new-theme-class=\&quot;\&quot; /&gt;\n&lt;/$set&gt;\n clone&lt;/$button&gt;\n&lt;/$reveal&gt;\n\n__''Create Theme Manually''__\n\n''Required Tags:''\n\n*//''~$:/tags/Stylesheet''//\n\n''Required Fields:''\n\n*//''tbl-class-name''// - css class name (no spaces)\n*//''tbl-class-type''// - parent or child (child themes inherit their css from a parent)\n*//''text''// - stylesheet (wikitext)\n**//parent theme// - uses css code\n**//child theme// - uses a parent theme's code\n&lt;/$reveal&gt;\n&lt;$reveal type=\&quot;nomatch\&quot; state=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-show-styles\&quot; text=\&quot;true\&quot;&gt;\n\n&lt;$button class=\&quot;tc-btn-invisible tc-tiddlylink\&quot; set=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-show-styles\&quot; setTo=\&quot;true\&quot;&gt;more themes\n&lt;/$button&gt;\n&lt;/$reveal&gt;\n&lt;/$set&gt;\n&lt;/$set&gt;\n&lt;/$reveal&gt;\n\n\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-edit-page\&quot; text=\&quot;Override\&quot;&gt;\n\n''Container'' (tbl-style-container) - css properties for the ``&lt;div&gt;`` element containing the table&lt;br&gt;\n&lt;$edit-text tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-style-container\&quot; tag=\&quot;textarea\&quot;/&gt;\n\n''Table'' (tbl-style-table) - css properties for the ``&lt;table&gt;`` element&lt;br&gt;\n&lt;$edit-text tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-style-table\&quot; tag=\&quot;textarea\&quot;/&gt;\n&lt;/$reveal&gt;\n\n\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-edit-page\&quot; text=\&quot;Colgroups\&quot;&gt;\n\n''Show Colgroup'' (tbl-show-colgroup)&lt;br&gt;\n&lt;$checkbox tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-show-colgroup\&quot; checked=\&quot;true\&quot; unchecked=\&quot;false\&quot;&gt;\n&lt;$transclude tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-show-colgroup\&quot; mode=\&quot;inline\&quot;/&gt;&lt;/$checkbox&gt;\n\n''Colgroup Elements'' (tbl-style-colgroup) - series of ``&lt;col&gt;`` elements to be included in the ``&lt;colgroup&gt;`` element&lt;br&gt; \n&lt;$edit-text tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-style-colgroup\&quot; tag=\&quot;textarea\&quot;/&gt;\n&lt;/$reveal&gt;\n\n\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-edit-page\&quot; text=\&quot;Advanced Styles\&quot;&gt;\n\n!!''Row Styling''&lt;br&gt;\n\nStyle can be applied to individual records using a button or checkbox. CSS properties should be stored in tiddler: ``&lt;&lt;tempTableStyle&gt;&gt;`` in the index: ``&lt;&lt;currentRecord&gt;&gt;``.\n\nFor example, add the ''tbl-checkbox'' column to a table and set the ''check actions'' to:\n\n`&lt;$action-setfield $tiddler=&lt;&lt;tempTableStyle&gt;&gt; $index=&lt;&lt;currentRecord&gt;&gt; $value=\&quot;background-color:green;\&quot;/&gt;`\n\nThen set the ''uncheck actions'' to:\n\n`&lt;$action-setfield $tiddler=&lt;&lt;tempTableStyle&gt;&gt; $index=&lt;&lt;currentRecord&gt;&gt; $value=\&quot;\&quot;/&gt;`\n\nThis will cause the row's background to change to green when the checkbox is checked.\n\n!!''Column Styling''&lt;br&gt;\n\nUse the ''Column Group'' options page to specify styles for individual columns using `&lt;col&gt;` elements.\n&lt;/$reveal&gt;\n\n\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-edit-page\&quot; text=\&quot;Header/Footer\&quot;&gt;\n\n''Show Header'' (tbl-show-header)&lt;br&gt;\n&lt;$checkbox tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-show-header\&quot; checked=\&quot;true\&quot; unchecked=\&quot;false\&quot;&gt;\n&lt;$transclude tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-show-header\&quot; mode=\&quot;inline\&quot;/&gt;&lt;/$checkbox&gt;\n\n''Show Footer'' (tbl-show-footer)&lt;br&gt;\n&lt;$checkbox tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-show-footer\&quot; checked=\&quot;true\&quot; unchecked=\&quot;false\&quot;&gt;\n&lt;$transclude tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-show-footer\&quot; mode=\&quot;inline\&quot;/&gt;&lt;/$checkbox&gt;\n&lt;/$reveal&gt;\n\n\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-edit-page\&quot; text=\&quot;Caption\&quot;&gt;\n\n''Show Caption'' (tbl-show-caption)&lt;br&gt;\n&lt;$checkbox tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-show-caption\&quot; checked=\&quot;true\&quot; unchecked=\&quot;false\&quot;&gt;\n&lt;$transclude tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-show-caption\&quot; mode=\&quot;inline\&quot;/&gt;&lt;/$checkbox&gt;\n\n''Caption'' (tbl-caption) - wikitext ({{$:/plugins/aaldrich/tables/defaults!!tbl-caption-mode}})&lt;br&gt;\n&lt;$edit-text tag=textarea tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-caption\&quot;/&gt;\n&lt;/$reveal&gt;\n\n\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-edit-page\&quot; text=\&quot;Edit\&quot;&gt;\n\n''Show Editor Button'' (tbl-show-edit)&lt;br&gt;\n&lt;$checkbox tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-show-edit\&quot; checked=\&quot;true\&quot; unchecked=\&quot;false\&quot;&gt;\n&lt;$transclude tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-show-edit\&quot; mode=\&quot;inline\&quot;/&gt;&lt;/$checkbox&gt;&lt;br&gt;\n''Attention:'' This will hide the {{$:/core/images/options-button}} button. To restore, manually set field ''tbl-show-edit'' to ''true''.&lt;br&gt;&lt;br&gt;\n\n''Show Mode Button'' (tbl-show-mode)&lt;br&gt;\n&lt;$checkbox tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-show-mode\&quot; checked=\&quot;true\&quot; unchecked=\&quot;false\&quot;&gt;\n&lt;$transclude tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-show-mode\&quot; mode=\&quot;inline\&quot;/&gt;&lt;/$checkbox&gt;&lt;br&gt;&lt;br&gt;\n\n''Mode'' (tbl-mode)&lt;br&gt;\n&lt;$select tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-mode\&quot; &gt;\n&lt;option&gt;normal&lt;/option&gt;\n&lt;option&gt;edit&lt;/option&gt;\n&lt;/$select&gt;\n&lt;/$reveal&gt;\n\n\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-edit-page\&quot; text=\&quot;Defaults\&quot;&gt;\n\n!!''Modify Table/Global Defaults''\nDefault settings are stored here: ''~$:/plugins/aaldrich/tables/defaults''&lt;br&gt;\n\n__''Table defaults:''__\n\n*All default table parameters can be modified.\n\n__''Global defaults:''__\n\n*''tbl-caption-mode'' - set caption to //inline// or //block// mode.&lt;br&gt;\n*''tbl-default-date-format'' - set default date format.&lt;br&gt;\n*''tbl-default-title'' - set default new table name.&lt;br&gt;\n*''tbl-temp-default-expand'' - set default expand column template.&lt;br&gt;\n*''tbl-limit-choices'' - set drop-down values for //limit// control.&lt;br&gt;\n*''tbl-temp-default-body'' - set the default body template for non-custom columns.&lt;br&gt;\n*''tbl-temp-default-body-edit'' - set the default body template for edit mode.&lt;br&gt;\n*''tbl-temp-default-foot'' - set the default footer template for non-custom columns.&lt;br&gt;\n*''tbl-temp-default-head'' - set the default header template for non-custom columns.&lt;br&gt;\n*''tbl-title-type-code'' - code to indicate the tiddler //type// in the title column.&lt;br&gt;\n*''tbl-title-type-show'' - show the tiddler //type// in the title column (true/false).&lt;br&gt;\n*''text'' - filter presets (data dictionary format)&lt;br&gt;\n&lt;/$reveal&gt;\n\n\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-edit-page\&quot; text=\&quot;Expand\&quot;&gt;\n\n''To use:'' Add column: ''tbl-expand'' or ''tbl-expand-one'' to expand one row at a time.&lt;br&gt;\nAdd column: ''tbl-expand-many'' to expand multiple rows at a time.\n\n''Expand Target'' (tbl-expand) - text reference (spaces allowed, no quotes)&lt;br&gt;\n&lt;$edit-text tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-expand\&quot; size=50/&gt;\n&lt;$select tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-expand\&quot;&gt;\n&lt;option value=\&quot;\&quot;&gt;default&lt;/option&gt;\n&lt;option value=\&quot;$:/plugins/aaldrich/tables/template/expand/transclude\&quot;&gt;transclude text&lt;/option&gt;\n&lt;option value=\&quot;$:/plugins/aaldrich/tables/template/expand/edit\&quot;&gt;edit text&lt;/option&gt;\n&lt;/$select&gt;\n&lt;/$reveal&gt;\n\n\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-edit-page\&quot; text=\&quot;Button\&quot;&gt;\n\n''To use:'' Add column: ''tbl-button'' \n\n''Button Icon'' (tbl-button-icon) - wikitext&lt;br&gt;\n&lt;$edit-text tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-button-icon\&quot; size=50/&gt; &lt;h3&gt;&lt;$list filter=\&quot;[title&lt;currentTable&gt;get[tbl-button-icon]]\&quot;&gt;{{!!title}}&lt;/$list&gt;&lt;/h3&gt;\n\n&lt;$list variable=\&quot;iconPickTitle\&quot; filter=\&quot;[all[shadows]prefix[$:/core/images/]]\&quot;&gt;\n&lt;$button class=\&quot;tc-btn-invisible\&quot; actions=\&quot;\&quot;\&quot;&lt;$action-setfield $tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} tbl-button-icon=&lt;&lt;buttonIconPick&gt;&gt;/&gt;\&quot;\&quot;\&quot; &gt;&lt;&lt;buttonIconPick&gt;&gt;&lt;/$button&gt;\n&lt;/$list&gt;\n\n''Button Actions'' (tbl-button-actions) - series of action widgets&lt;br&gt;\n&lt;$edit-text tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-button-actions\&quot; tag=\&quot;textarea\&quot;/&gt;\n\n''Button Tooltip'' (tbl-button-tip) - plain text&lt;br&gt;\n&lt;$edit-text tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-button-tip\&quot; size=50/&gt;\n&lt;/$reveal&gt;\n\n\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-edit-page\&quot; text=\&quot;Checkbox\&quot;&gt;\n\n''To use:'' Add column: ''tbl-checkbox'' \n\n''Add/Remove Tag'' (tbl-checkbox-tag)&lt;br&gt;\n&lt;$edit-text tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-checkbox-tag\&quot; size=22/&gt;\n\n''Target Field'' (tbl-checkbox-field)&lt;br&gt;\n&lt;$edit-text tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-checkbox-field\&quot; size=22/&gt;\n\n''Select Value'' (tbl-checkbox-value-selected)&lt;br&gt;\n&lt;$edit-text tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-checkbox-value-selected\&quot; size=22/&gt;\n\n''Unselect Value'' (tbl-checkbox-value-unselected)&lt;br&gt;\n&lt;$edit-text tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-checkbox-value-unselected\&quot; size=22/&gt;\n\n''Select Actions'' (tbl-checkbox-actions-selected) - series of action widgets&lt;br&gt;\n&lt;$edit-text tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-checkbox-actions-selected\&quot; tag=\&quot;textarea\&quot;/&gt;\n\n''Unselect Actions'' (tbl-checkbox-actions-unselected) - series of action widgets&lt;br&gt;\n&lt;$edit-text tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-checkbox-actions-unselected\&quot; tag=\&quot;textarea\&quot;/&gt;\n\n''Checkbox Tooltip'' (tbl-checkbox-tip) - plain text&lt;br&gt;\n&lt;$edit-text tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-checkbox-tip\&quot; size=50/&gt;\n&lt;/$reveal&gt;\n\n\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-edit-page\&quot; text=\&quot;Anything\&quot;&gt;\n\n''To use:'' Add column: ''tbl-anything'' \n\n''Code'' (tbl-anything) - wikitext&lt;br&gt;\n&lt;$edit-text tiddler={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}} field=\&quot;tbl-anything\&quot; tag=\&quot;textarea\&quot;/&gt;\n&lt;/$reveal&gt;\n\n\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-edit-page\&quot; text=\&quot;Getting Started\&quot;&gt;\n\n{{$:/plugins/aaldrich/tables/readme}}\n&lt;/$reveal&gt;\n\n\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;$:/temp/tables/editor/settings-page-vars!!tbl-edit-page\&quot; text=\&quot;About\&quot;&gt;\n\n!''~TiddlyTables''\n!!Version {{$:/plugins/aaldrich/tables!!version}}\n!!!created by {{$:/plugins/aaldrich/tables!!author}}\nlast modified {{$:/plugins/aaldrich/tables!!modified}}\n\n__TiddlyWiki version {{$:/plugins/aaldrich/tables!!core-version}} or greater required.__\n\n//This plugin is free to use, modify and share. \nWith special thanks to Jeremy Ruston and the entire ~TiddlyWiki community.//\n&lt;/$reveal&gt;\n\n&lt;br&gt;\n''Show Preview''&lt;br&gt;\n&lt;$checkbox tiddler=\&quot;$:/temp/tables/editor/persist-vars\&quot; field=\&quot;tbl-show-preview\&quot; checked=\&quot;true\&quot; unchecked=\&quot;false\&quot; default=\&quot;false\&quot;&gt;\n&lt;$transclude tiddler=\&quot;$:/temp/tables/editor/persist-vars\&quot; field=\&quot;tbl-show-preview\&quot; mode=\&quot;inline\&quot;/&gt;&lt;/$checkbox&gt;&lt;br&gt;&lt;br&gt;\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;$:/temp/tables/editor/persist-vars!!tbl-show-preview\&quot; text=\&quot;true\&quot;&gt;\n&lt;$set name=editorTarget value={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}}&gt;\n&lt;&lt;editorPreview&gt;&gt;\n&lt;/$set&gt;\n&lt;/$reveal&gt;\n&lt;/$set&gt;\n&lt;/span&gt;\n&lt;/$keyboard&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/editor/view&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;subtitle&quot;: &quot;&lt;h2&gt;''&lt;$text text={{$:/temp/tables/editor/settings-page-vars!!tbl-edit-target}}/&gt;''&lt;/h2&gt;{{||$:/plugins/aaldrich/tables/editor/navigation}}&quot;,
+            &quot;revision&quot;: &quot;0&quot;,
+            &quot;modified&quot;: &quot;20191212071106904&quot;,
+            &quot;footer&quot;: &quot;&lt;$button class=\&quot;tc-btn-invisible tc-tiddlylink\&quot; style=\&quot;padding:0 0 0 6px;\&quot;&gt;   &lt;$action-sendmessage $message=\&quot;tm-close-tiddler\&quot; /&gt;   &lt;$action-deletetiddler $tiddler=\&quot;$:/temp/tables/editor/settings-page-vars\&quot;/&gt; ''Close'' &lt;/$button&gt;&quot;,
+            &quot;created&quot;: &quot;20190722221724072&quot;,
+            &quot;bag&quot;: &quot;default&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/template/expand/edit&quot;: {
+            &quot;created&quot;: &quot;20190714035903654&quot;,
+            &quot;text&quot;: &quot;&lt;$edit class=\&quot;tbl-inpt-edit\&quot; tiddler=&lt;&lt;currentRecord&gt;&gt; field=text tag=textarea/&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/template/expand/edit&quot;,
+            &quot;tbl-template-name&quot;: &quot;edit&quot;,
+            &quot;tags&quot;: &quot;$:/tags/table/ExpandTemplate&quot;,
+            &quot;modified&quot;: &quot;20190816062006055&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/editor/navigation&quot;: {
+            &quot;text&quot;: &quot;''&lt;$select tiddler=\&quot;$:/temp/tables/editor/settings-page-vars\&quot; field=\&quot;tbl-edit-page\&quot;&gt;\n&lt;optgroup label=\&quot;Data\&quot;&gt;\n&lt;option&gt;Records&lt;/option&gt;\n&lt;option&gt;Columns&lt;/option&gt;\n&lt;option&gt;Sorting&lt;/option&gt;\n&lt;option value=\&quot;Limit\&quot;&gt;Limit/Pagination&lt;/option&gt;\n&lt;/optgroup&gt;\n&lt;optgroup label=\&quot;Style\&quot;&gt;\n&lt;option value=\&quot;Theme\&quot;&gt;Theme (Stylesheet)&lt;/option&gt;\n&lt;option value=\&quot;Override\&quot;&gt;Override (Inline Styles)&lt;/option&gt;\n&lt;option value=\&quot;Colgroups\&quot;&gt;Column Groups&lt;/option&gt;\n&lt;option&gt;Advanced Styles&lt;/option&gt;\n&lt;/optgroup&gt;\n&lt;optgroup label=\&quot;Features\&quot;&gt;\n&lt;option&gt;Header/Footer&lt;/option&gt;\n&lt;option&gt;Caption&lt;/option&gt;\n&lt;option value=\&quot;Edit\&quot;&gt;Editor/Mode&lt;/option&gt;\n&lt;option&gt;Defaults&lt;/option&gt;\n&lt;/optgroup&gt;\n&lt;optgroup label=\&quot;Special Columns\&quot;&gt;\n&lt;option&gt;Expand&lt;/option&gt;\n&lt;option&gt;Button&lt;/option&gt;\n&lt;option&gt;Checkbox&lt;/option&gt;\n&lt;option&gt;Anything&lt;/option&gt;\n&lt;/optgroup&gt;\n&lt;optgroup label=\&quot;Help\&quot;&gt;\n&lt;option&gt;Getting Started&lt;/option&gt;\n&lt;option&gt;About&lt;/option&gt;\n&lt;/optgroup&gt;\n&lt;/$select&gt;''\n&lt;$button class=\&quot;tc-btn-invisible tc-tiddlylink\&quot; style=\&quot;padding:0 0 0 6px;\&quot;&gt;\n  &lt;$action-sendmessage $message=\&quot;tm-close-tiddler\&quot; /&gt;\n  &lt;$action-deletetiddler $tiddler=\&quot;$:/temp/tables/editor/settings-page-vars\&quot;/&gt; ''Close''\n&lt;/$button&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/editor/navigation&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modified&quot;: &quot;20191208103316562&quot;,
+            &quot;created&quot;: &quot;20190727082624393&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/template/body/anything&quot;: {
+            &quot;text&quot;: &quot;&lt;td style=\&quot;width:1.4ch;\&quot;&gt;\n    &lt;&lt;anythingCode&gt;&gt;\n&lt;/td&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/template/body/anything&quot;,
+            &quot;tbl-noedit&quot;: &quot;tbl-anything&quot;,
+            &quot;tbl-column-list&quot;: &quot;tbl-anything&quot;,
+            &quot;tags&quot;: &quot;$:/tags/table/BodyTemplate&quot;,
+            &quot;revision&quot;: &quot;0&quot;,
+            &quot;modified&quot;: &quot;20191215042443693&quot;,
+            &quot;created&quot;: &quot;20170206022244360&quot;,
+            &quot;bag&quot;: &quot;default&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/template/body/edit-input&quot;: {
+            &quot;created&quot;: &quot;20191205063124704&quot;,
+            &quot;text&quot;: &quot;&lt;td class=\&quot;tbl-inpt-edit\&quot;&gt;\n  &lt;$list filter=\&quot;[&lt;fieldOrIndex&gt;]-index\&quot;&gt;\n    &lt;$edit-text tiddler=&lt;&lt;currentRecord&gt;&gt; field=&lt;&lt;currentColumn&gt;&gt; tag=\&quot;input\&quot; type=\&quot;text\&quot;/&gt;\n  &lt;/$list&gt;\n  &lt;$list filter=\&quot;[&lt;fieldOrIndex&gt;]-field\&quot;&gt;\n    &lt;$edit-text tiddler=&lt;&lt;currentRecord&gt;&gt; index=&lt;&lt;currentColumn&gt;&gt; tag=\&quot;input\&quot; type=\&quot;text\&quot;/&gt;\n  &lt;/$list&gt;\n&lt;/td&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/template/body/edit-input&quot;,
+            &quot;tbl-noedit&quot;: &quot;tbl-edit-input&quot;,
+            &quot;tbl-column-list&quot;: &quot;tbl-edit-input&quot;,
+            &quot;tags&quot;: &quot;$:/tags/table/BodyTemplate&quot;,
+            &quot;revision&quot;: &quot;0&quot;,
+            &quot;modified&quot;: &quot;20191206021441510&quot;,
+            &quot;bag&quot;: &quot;default&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/editor/templates&quot;: {
+            &quot;text&quot;: &quot;&lt;&lt;table&gt;&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/editor/templates&quot;,
+            &quot;tbl-style-table&quot;: &quot;width:100%;&quot;,
+            &quot;tbl-style-container&quot;: &quot;&quot;,
+            &quot;tbl-style-colgroup&quot;: &quot;&quot;,
+            &quot;tbl-sort-type&quot;: &quot;nsort&quot;,
+            &quot;tbl-sort-negate&quot;: &quot;false&quot;,
+            &quot;tbl-sort-by&quot;: &quot;title&quot;,
+            &quot;tbl-show-pagination&quot;: &quot;auto&quot;,
+            &quot;tbl-show-header&quot;: &quot;true&quot;,
+            &quot;tbl-show-footer&quot;: &quot;false&quot;,
+            &quot;tbl-show-edit&quot;: &quot;false&quot;,
+            &quot;tbl-show-colgroup&quot;: &quot;false&quot;,
+            &quot;tbl-show-caption&quot;: &quot;false&quot;,
+            &quot;tbl-page-marker&quot;: &quot;&quot;,
+            &quot;tbl-mode&quot;: &quot;edit&quot;,
+            &quot;tbl-limit&quot;: &quot;9999999&quot;,
+            &quot;tbl-filter&quot;: &quot;[all[shadows+tiddlers]tag[$:/tags/table/BodyTemplate]][all[shadows+tiddlers]tag[$:/tags/table/HeaderTemplate]][all[shadows+tiddlers]tag[$:/tags/table/FooterTemplate]]-[[$:/plugins/aaldrich/tables/template/body/default]]-[[$:/plugins/aaldrich/tables/template/header/default]]-[[$:/plugins/aaldrich/tables/template/footer/default]]&quot;,
+            &quot;tbl-expand&quot;: &quot;$:/plugins/aaldrich/tables/template/expand/edit&quot;,
+            &quot;tbl-columns&quot;: &quot;tbl-expand title tbl-column-list tbl-noedit&quot;,
+            &quot;tbl-class&quot;: &quot;tbl-style-tight&quot;,
+            &quot;tbl-checkbox-value-unselected&quot;: &quot;&quot;,
+            &quot;tbl-checkbox-value-selected&quot;: &quot;&quot;,
+            &quot;tbl-checkbox-tip&quot;: &quot;&quot;,
+            &quot;tbl-checkbox-tag&quot;: &quot;&quot;,
+            &quot;tbl-checkbox-field&quot;: &quot;&quot;,
+            &quot;tbl-checkbox-actions-unselected&quot;: &quot;&quot;,
+            &quot;tbl-checkbox-actions-selected&quot;: &quot;&quot;,
+            &quot;tbl-caption&quot;: &quot;''Column Templates''&quot;,
+            &quot;tbl-button-tip&quot;: &quot;clone template&quot;,
+            &quot;tbl-button-icon&quot;: &quot;{{$:/core/images/clone-button}}&quot;,
+            &quot;tbl-button-actions&quot;: &quot;&lt;$action-sendmessage $message=\&quot;tm-new-tiddler\&quot; $param=&lt;&lt;currentRecord&gt;&gt;/&gt;&quot;,
+            &quot;tbl-anything&quot;: &quot;&quot;,
+            &quot;tbl-add-records&quot;: &quot;&quot;,
+            &quot;modified&quot;: &quot;20191208062747162&quot;,
+            &quot;created&quot;: &quot;20191205205444801&quot;
+        },
+        &quot;$:/plugins/aaldrich/tables/template/body/radio&quot;: {
+            &quot;text&quot;: &quot;&lt;td style=\&quot;width:1.4ch;text-align:center;\&quot;&gt;\n&lt;$radio tiddler=&lt;&lt;currentTable&gt;&gt; field=\&quot;tbl-selected-record\&quot; value=&lt;&lt;currentRecord&gt;&gt;&gt;&lt;/$radio&gt;\n&lt;/td&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/aaldrich/tables/template/body/radio&quot;,
+            &quot;tbl-noedit&quot;: &quot;tbl-radio&quot;,
+            &quot;tbl-column-list&quot;: &quot;tbl-radio&quot;,
+            &quot;tags&quot;: &quot;$:/tags/table/BodyTemplate&quot;,
+            &quot;revision&quot;: &quot;0&quot;,
+            &quot;modified&quot;: &quot;20191215045742495&quot;,
+            &quot;created&quot;: &quot;20170206022244360&quot;,
+            &quot;bag&quot;: &quot;default&quot;
+        }
+    }
+}</pre>
 </div>
 <div author="Flibbles" core-version="&gt;=5.1.22" created="20210324034859173" demo="http://flibbles.github.io/tw5-relink/" dependents="" description="Flexibility when relinking renamed tiddlers" list="readme configuration license" name="Relink" plugin-type="plugin" source="https://github.com/flibbles/tw5-relink" title="$:/plugins/flibbles/relink" type="application/json" version="2.0.0">
 <pre>{
@@ -11355,6 +11972,57 @@ Error message and password prompt
 }
 }</pre>
 </div>
+<div author="Mario Pietsch" core-version="&gt;=5.1.15" created="20201231135216000" dependents="" description="Internal links are added to tabs if selected" list="readme license history" modified="20201231135219229" name="Link to Tabs" plugin-type="plugin" tags="$:/giffmex/stroll" title="$:/plugins/wikilabs/link-to-tabs" type="application/json" version="2.0.1">
+<pre>{
+    &quot;tiddlers&quot;: {
+        &quot;$:/core/macros/tabs&quot;: {
+            &quot;title&quot;: &quot;$:/core/macros/tabs&quot;,
+            &quot;tags&quot;: &quot;$:/tags/Macro&quot;,
+            &quot;text&quot;: &quot;\\define tabs(tabsList,default,state:\&quot;$:/state/tab\&quot;,class,template,buttonTemplate,retain,actions,explicitState)\n&lt;$set name=\&quot;qualifiedState\&quot; value=&lt;&lt;qualify \&quot;$state$\&quot;&gt;&gt;&gt;\n&lt;$set name=\&quot;tabsState\&quot; filter=\&quot;[&lt;__explicitState__&gt;minlength[1]] ~[&lt;qualifiedState&gt;]\&quot;&gt;\n&lt;div class=\&quot;tc-tab-set $class$\&quot;&gt;\n&lt;div class=\&quot;tc-tab-buttons $class$\&quot;&gt;\n&lt;$list filter=\&quot;$tabsList$\&quot; variable=\&quot;currentTab\&quot; storyview=\&quot;pop\&quot;&gt;&lt;$set name=\&quot;save-currentTiddler\&quot; value=&lt;&lt;currentTiddler&gt;&gt;&gt;&lt;$tiddler tiddler=&lt;&lt;currentTab&gt;&gt;&gt;&lt;$button set=&lt;&lt;tabsState&gt;&gt; setTo=&lt;&lt;currentTab&gt;&gt; default=\&quot;$default$\&quot; selectedClass=\&quot;tc-tab-selected\&quot; tooltip={{!!tooltip}}&gt;\n&lt;$tiddler tiddler=&lt;&lt;save-currentTiddler&gt;&gt;&gt;\n&lt;$set name=\&quot;tv-wikilinks\&quot; value=\&quot;no\&quot;&gt;\n&lt;$transclude tiddler=\&quot;$buttonTemplate$\&quot; mode=\&quot;inline\&quot;&gt;\n&lt;$transclude tiddler=&lt;&lt;currentTab&gt;&gt; field=\&quot;caption\&quot;&gt;\n&lt;$macrocall $name=\&quot;currentTab\&quot; $type=\&quot;text/plain\&quot; $output=\&quot;text/plain\&quot;/&gt;\n&lt;/$transclude&gt;\n&lt;/$transclude&gt;\n&lt;/$set&gt;&lt;/$tiddler&gt;$actions$&lt;/$button&gt;&lt;span class=\&quot;wltc-link-to-tab\&quot;&gt;&lt;$link overrideClass=\&quot;\&quot; to=&lt;&lt;currentTiddler&gt;&gt; &gt;{{$:/core/images/link}}&lt;/$link&gt;&lt;/span&gt;&lt;/$tiddler&gt;&lt;/$set&gt;&lt;/$list&gt;\n&lt;/div&gt;\n&lt;div class=\&quot;tc-tab-divider $class$\&quot;/&gt;\n&lt;div class=\&quot;tc-tab-content $class$\&quot;&gt;\n&lt;$list filter=\&quot;$tabsList$\&quot; variable=\&quot;currentTab\&quot;&gt;\n\n&lt;$reveal type=\&quot;match\&quot; state=&lt;&lt;tabsState&gt;&gt; text=&lt;&lt;currentTab&gt;&gt; default=\&quot;$default$\&quot; retain=\&quot;\&quot;\&quot;$retain$\&quot;\&quot;\&quot;&gt;\n\n&lt;$transclude tiddler=\&quot;$template$\&quot; mode=\&quot;block\&quot;&gt;\n\n&lt;$transclude tiddler=&lt;&lt;currentTab&gt;&gt; mode=\&quot;block\&quot;/&gt;\n\n&lt;/$transclude&gt;\n\n&lt;/$reveal&gt;\n\n&lt;/$list&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;/$set&gt;\n&lt;/$set&gt;\n\\end\n&quot;
+        },
+        &quot;$:/core/ui/ControlPanel/Settings/link-to-tabs&quot;: {
+            &quot;title&quot;: &quot;$:/core/ui/ControlPanel/Settings/link-to-tabs&quot;,
+            &quot;caption&quot;: &quot;Link-to-Tabs plugin&quot;,
+            &quot;created&quot;: &quot;20190712133607244&quot;,
+            &quot;modified&quot;: &quot;20190714104631250&quot;,
+            &quot;tags&quot;: &quot;$:/tags/ControlPanel/Settings&quot;,
+            &quot;type&quot;: &quot;text/vnd.tiddlywiki&quot;,
+            &quot;text&quot;: &quot;&lt;$checkbox tiddler=\&quot;$:/plugins/wikilabs/link-to-tabs/config\&quot; field=\&quot;show-all-links\&quot; checked=\&quot;inline-block\&quot; unchecked=\&quot;none\&quot; default=\&quot;none\&quot;&gt; Show internal tab link for ''all tabs''&lt;/$checkbox&gt;\n\n&lt;$checkbox tiddler=\&quot;$:/plugins/wikilabs/link-to-tabs/config\&quot; field=\&quot;show-single-link\&quot; checked=\&quot;inline-block\&quot; unchecked=\&quot;none\&quot; default=\&quot;inline-block\&quot;&gt; Show internal tab link for ''selected tabs''&lt;/$checkbox&gt;\n\n&lt;$checkbox tiddler=\&quot;$:/plugins/wikilabs/link-to-tabs/config\&quot; field=\&quot;initial-opacity\&quot; checked=\&quot;0\&quot; unchecked=\&quot;0.7\&quot; default=\&quot;0.7\&quot;&gt; Tab links are initially hidden and need mouse hover to become visible.&lt;/$checkbox&gt; The transition time in seconds is: &lt;$edit-text tiddler=\&quot;$:/plugins/wikilabs/link-to-tabs/config\&quot; field=\&quot;transition\&quot; default=\&quot;0.3\&quot;/&gt;\n\n&lt;$button message=\&quot;tm-delete-tiddler\&quot; param=\&quot;$:/plugins/wikilabs/link-to-tabs/config\&quot;&gt;\nReset to Default!\n&lt;/$button&gt;&quot;
+        },
+        &quot;$:/plugins/wikilabs/link-to-tabs/config&quot;: {
+            &quot;title&quot;: &quot;$:/plugins/wikilabs/link-to-tabs/config&quot;,
+            &quot;created&quot;: &quot;20190712133008077&quot;,
+            &quot;initial-opacity&quot;: &quot;0.7&quot;,
+            &quot;modified&quot;: &quot;20190714104541701&quot;,
+            &quot;show-all-links&quot;: &quot;none&quot;,
+            &quot;show-single-link&quot;: &quot;inline-block&quot;,
+            &quot;transition&quot;: &quot;0.3&quot;,
+            &quot;type&quot;: &quot;text/vnd.tiddlywiki&quot;,
+            &quot;text&quot;: &quot;This tiddler is used to configure the \&quot;Link-to-tabs\&quot; plugin behaviour. \n\nThere are 4 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]] enable and disable the internal links. \n\n* show-all-links: {{!!show-all-links}}\n* show-single-link: {{!!show-single-link}}\n* initial-opacity: {{!!initial-opacity}}\n* transition time in seconds: {{!!transition}}\n&quot;
+        },
+        &quot;$:/plugins/wikilabs/link-to-tabs/history&quot;: {
+            &quot;title&quot;: &quot;$:/plugins/wikilabs/link-to-tabs/history&quot;,
+            &quot;text&quot;: &quot;V 2.0.1 - 2020-12-25\n\n* update license\n\nV 2.0.0 - 2020.12.05\n\n* Update $:/core/macros/tabs to V5.1.23\n\nV 1.1.1 - 2020.01.19\n\n* Update license link/text\n\nV 1.1.0 - 2019.07.14\n\n* Add new option: Initially hide link\n** Transition time from hidden to visible is adjustable\n* Added: \&quot;Reset to Default\&quot; button\n\nV 1.0.1 - 2019.02.18\n\n* link-to-tabs works in drop-down elements now.\n\nV 1.0.0 - 2019.02.14\n\n* Use core tabs-macro from TW 5.1.19\n\nV &lt;1.0.0\n\n* Use core tabs-macro from TW 5.1.15\n&quot;
+        },
+        &quot;$:/plugins/wikilabs/link-to-tabs/license&quot;: {
+            &quot;title&quot;: &quot;$:/plugins/wikilabs/link-to-tabs/license&quot;,
+            &quot;text&quot;: &quot;[[Link-to-Tabs-Macro|https://wikilabs.github.io/#link-to-tabs]] (c) Mario Pietsch - 2016-2021\n\nhttps://opensource.org/licenses/BSD-3-Clause\n&quot;
+        },
+        &quot;$:/plugins/wikilabs/link-to-tabs/styles&quot;: {
+            &quot;title&quot;: &quot;$:/plugins/wikilabs/link-to-tabs/styles&quot;,
+            &quot;created&quot;: &quot;20190712133348541&quot;,
+            &quot;modified&quot;: &quot;20190714104306483&quot;,
+            &quot;tags&quot;: &quot;$:/tags/Stylesheet&quot;,
+            &quot;type&quot;: &quot;text/vnd.tiddlywiki&quot;,
+            &quot;text&quot;: &quot;&lt;pre&gt;\n\n.wltc-link-to-tab {\n  display: {{$:/plugins/wikilabs/link-to-tabs/config!!show-all-links}};\n  position: relative;\n  top: -1em;\n  left: -1.3em;\n  font-size: 0.7em;\n  opacity: {{$:/plugins/wikilabs/link-to-tabs/config!!initial-opacity}};\n  margin-right: -1em;\n}\n\n.wltc-link-to-tab svg{\n  width: 1.4em;\n  height: 1.4em;\n}\n\n.wltc-link-to-tab:hover {\n  opacity: 1;\n  transition:opacity {{$:/plugins/wikilabs/link-to-tabs/config!!transition}}s;\n  transition-timing-function: cubic-bezier(1,-0.06,.39,.89);\n}\n\n.tc-tab-selected + .wltc-link-to-tab {\n  display: {{$:/plugins/wikilabs/link-to-tabs/config!!show-single-link}};\n}\n\n.tc-vertical &gt; .wltc-link-to-tab {\n  top: -1.9em;\n  left: 0;\n  height: 0;\n  float: right;\n}\n\n.tc-search-results .wltc-link-to-tab a {\n  display: contents;\n  padding: 0;\n}\n\n&lt;/pre&gt;&quot;
+        },
+        &quot;$:/plugins/wikilabs/link-to-tabs/readme&quot;: {
+            &quot;title&quot;: &quot;$:/plugins/wikilabs/link-to-tabs/readme&quot;,
+            &quot;text&quot;: &quot;This plugin adds a little link icon to every tab.\n\n''Important:'' This plugin changes the core tabs macro.\n\n! Lint-to-Tabs Settings\n\n{{$:/core/ui/ControlPanel/Settings/link-to-tabs}}&quot;
+        }
+    }
+}</pre>
+</div>
 <div created="20210607065146307" modified="20210607065158997" title="$:/SiteSubtitle">
 <pre>A place for people to check information about the campaign</pre>
 </div>
@@ -11364,8 +12032,20 @@ Error message and password prompt
 <div created="20210607072901875" modified="20210607072901875" title="$:/state/advancedsearch/currentTab">
 <pre>$:/core/ui/AdvancedSearch/Shadows</pre>
 </div>
-<div created="20210607070438722" modified="20210607070438722" title="$:/state/plugin-info--896887961-$:/plugins/sq/Stories">
+<div created="20210607092042179" modified="20210607092043607" title="$:/state/edit/references--150297391">
+<pre>hide</pre>
+</div>
+<div created="20210607092028412" modified="20210607092029440" title="$:/state/edit/references--5011487">
+<pre>hide</pre>
+</div>
+<div created="20210607091849301" modified="20210607091849301" title="$:/state/plugin-info--896887961-$:/plugins/flibbles/relink">
 <pre>yes</pre>
+</div>
+<div created="20210607091850786" modified="20210607092006115" title="$:/state/plugin-info--896887961-$:/plugins/flibbles/relink---548854025">
+<pre>configuration</pre>
+</div>
+<div created="20210607070438722" modified="20210607091847117" title="$:/state/plugin-info--896887961-$:/plugins/sq/Stories">
+<pre>no</pre>
 </div>
 <div created="20210607080245964" modified="20210607080247701" title="$:/state/plugin-info--896887961-$:/plugins/sq/Stories---1130285312">
 <pre>settings</pre>
@@ -11376,25 +12056,31 @@ Error message and password prompt
 <div created="20210607070411338" modified="20210607070430254" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
+<div created="20210607085757596" modified="20210607091448970" title="$:/state/tab--1133515453">
+<pre>NPCs</pre>
+</div>
 <div created="20210607072901875" modified="20210607072901875" title="$:/state/tab--1498284803">
 <pre>$:/core/ui/AdvancedSearch/Shadows</pre>
 </div>
 <div created="20210607065826957" modified="20210607065934511" title="$:/state/tab--1963855381">
 <pre>$:/core/ui/ControlPanel/Palette</pre>
 </div>
-<div created="20210607063729344" modified="20210607083239242" title="$:/state/tab-1749438307">
-<pre>$:/core/ui/ControlPanel/Saving</pre>
+<div created="20210607091952952" modified="20210607091957962" title="$:/state/tab--824315756">
+<pre>$:/plugins/flibbles/relink/ui/configuration/Fields</pre>
+</div>
+<div created="20210607063729344" modified="20210607091835044" title="$:/state/tab-1749438307">
+<pre>$:/core/ui/ControlPanel/Plugins</pre>
 </div>
 <div created="20210607063731168" modified="20210607065351676" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
 </div>
-<div created="20210607071054872" modified="20210607073655518" title="$:/state/tab/sidebar--595412856">
-<pre>$:/core/ui/SideBar/Open</pre>
+<div created="20210607071054872" modified="20210607091445822" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div title="$:/status/RequireReloadDueToPluginChange">
-<pre>yes</pre>
+<pre>no</pre>
 </div>
-<div created="20210607083236654" list="NPCs [[Home Page]]" modified="20210607083236654" title="$:/StoryList">
+<div created="20210607085810111" list="[[Home Page]] [[Vizeran's Tower]]" modified="20210607092201528" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20210607065823082" modified="20210607065825212" title="$:/theme">
@@ -11512,7 +12198,7 @@ Error message and password prompt
 <div created="20210607065846390" modified="20210607065846390" title="$:/themes/tiddlywiki/vanilla/options/sidebarlayout">
 <pre>fluid-fixed</pre>
 </div>
-<div created="20210607065300003" modified="20210607085444907" tags="" title="Home Page">
+<div created="20210607065300003" list="Locations NPCs" modified="20210607085919587" tags="" title="Home Page">
 <pre>Greetings Players, Welcome to the home page where you can see information about the campaign. If you want to save this for offline viewing, press this button:
 
 !{{$:/core/ui/Buttons/save-wiki}}
@@ -11521,7 +12207,16 @@ It will download an HTML file you can open with any internet browser.
 
 &lt;&lt;tabs &quot;[tag[Home Page]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20210607085446860" modified="20210607085501950" tags="[[Home Page]]" title="NPCs">
+<div created="20210607085905552" modified="20210607085912069" tags="[[Home Page]]" title="Locations">
+<pre></pre>
+</div>
+<div created="20210607085446860" modified="20210607091657820" tags="[[Home Page]]" tbl-add-records="" tbl-anything="" tbl-button-actions="" tbl-button-icon="{{$:/core/images/menu-button}}" tbl-button-tip="" tbl-caption="''{{!!title}}''" tbl-checkbox-actions-selected="" tbl-checkbox-actions-unselected="" tbl-checkbox-field="" tbl-checkbox-tag="" tbl-checkbox-tip="" tbl-checkbox-value-selected="" tbl-checkbox-value-unselected="" tbl-class="tbl-style-default" tbl-columns="tbl-expand title gender race location" tbl-expand="" tbl-filter="[tag[NPC]]" tbl-limit="10" tbl-mode="normal" tbl-page-marker="" tbl-show-caption="true" tbl-show-colgroup="false" tbl-show-edit="true" tbl-show-footer="false" tbl-show-header="true" tbl-show-mode="true" tbl-show-pagination="auto" tbl-sort-by="title" tbl-sort-negate="false" tbl-sort-type="nsort" tbl-style-colgroup="" tbl-style-container="" tbl-style-table="width:100%;" title="NPCs">
+<pre>&lt;&lt;table NPCs&gt;&gt;</pre>
+</div>
+<div caption="Vizeran ~DeVir" created="20210607090114502" gender="Male" location="[[Vizeran's Tower]]" modified="20210607092046031" race="Drow" tags="NPC" title="Vizeran DeVir">
+<pre></pre>
+</div>
+<div created="20210607092022431" modified="20210607092210401" tags="Location" title="Vizeran's Tower">
 <pre></pre>
 </div>
 
