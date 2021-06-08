@@ -189,6 +189,8 @@ Error message and password prompt
 
 <li>$:/config/flibbles/relink/fields/location</li>
 
+<li>$:/config/flibbles/relink/macros/toggleBlock/details</li>
+
 <li>$:/config/Navigation/openLinkFromInsideRiver</li>
 
 <li>$:/config/NewJournal/Title</li>
@@ -277,7 +279,13 @@ Error message and password prompt
 
 <li>$:/state/edit/references--150297391</li>
 
+<li>$:/state/edit/references--1779316830</li>
+
 <li>$:/state/edit/references--5011487</li>
+
+<li>$:/state/edit/references--968508266</li>
+
+<li>$:/state/edit/references-1172910050</li>
 
 <li>$:/state/plugin-info--1982238690-$:/plugins/snowgoon88/edit-comptext</li>
 
@@ -365,7 +373,7 @@ Error message and password prompt
 
 <li>NPCs</li>
 
-<li>toggleBlock</li>
+<li>Toggle Block</li>
 
 <li>Vizeran DeVir</li>
 
@@ -753,7 +761,7 @@ Body: {{$:/config/sq/Stories/story2/fontsize-body}}px
 &lt;/span&gt;
 </pre>
 </div>
-<div caption="Stroll default tiddler title position" created="20200418121047715" modified="20200808150252094" tags="$:/giffmex/stroll $:/giffmex/titleview $:/tags/ViewTemplate" title="$:/.giffmex/ViewTemplate/title">
+<div caption="Stroll default tiddler title position" created="20200418121047715" modified="20210608074212485" tags="$:/giffmex/stroll $:/giffmex/titleview $:/tags/ViewTemplate" title="$:/.giffmex/ViewTemplate/title">
 <pre>\define title-styles()
 fill:$(foregroundColor)$;
 \end
@@ -850,6 +858,9 @@ $:/config/ViewToolbarButtons/Visibility/$(listItem)$
 <pre>comptext</pre>
 </div>
 <div created="20210607092011698" modified="20210607092011698" title="$:/config/flibbles/relink/fields/location">
+<pre>wikitext</pre>
+</div>
+<div created="20210608071717497" modified="20210608071717497" title="$:/config/flibbles/relink/macros/toggleBlock/details">
 <pre>wikitext</pre>
 </div>
 <div created="20200418141615149" modified="20210608031427125" tags="$:/giffmex/stroll" title="$:/config/Navigation/openLinkFromInsideRiver">
@@ -10797,7 +10808,7 @@ $:/config/ViewToolbarButtons/Visibility/$(listItem)$
 <pre>{{$:/snippets/viewswitcher}}
 </pre>
 </div>
-<div caption="TiddlyWiki default tiddler title position" created="20200418121129515" modified="20200808150252093" tags="$:/giffmex/stroll $:/giffmex/titleview" title="$:/core/ui/ViewTemplate/title">
+<div caption="TiddlyWiki default tiddler title position" created="20200418121129515" modified="20210608074212484" tags="$:/giffmex/stroll $:/giffmex/titleview" title="$:/core/ui/ViewTemplate/title">
 <pre>\define title-styles()
 fill:$(foregroundColor)$;
 \end
@@ -13171,14 +13182,23 @@ exports.context = contextWidget;
 <div created="20210607092042179" modified="20210607092043607" title="$:/state/edit/references--150297391">
 <pre>hide</pre>
 </div>
+<div created="20210608071842361" modified="20210608071844438" title="$:/state/edit/references--1779316830">
+<pre>hide</pre>
+</div>
 <div created="20210607092028412" modified="20210607092029440" title="$:/state/edit/references--5011487">
 <pre>hide</pre>
+</div>
+<div created="20210608071903520" modified="20210608071904624" title="$:/state/edit/references--968508266">
+<pre>hide</pre>
+</div>
+<div created="20210608071732964" modified="20210608072156340" title="$:/state/edit/references-1172910050">
+<pre>show</pre>
 </div>
 <div created="20210608025130135" modified="20210608025130135" title="$:/state/plugin-info--1982238690-$:/plugins/snowgoon88/edit-comptext">
 <pre>no</pre>
 </div>
-<div created="20210607091849301" modified="20210608025138713" title="$:/state/plugin-info--896887961-$:/plugins/flibbles/relink">
-<pre>no</pre>
+<div created="20210607091849301" modified="20210608071558959" title="$:/state/plugin-info--896887961-$:/plugins/flibbles/relink">
+<pre>yes</pre>
 </div>
 <div created="20210607091850786" modified="20210607092006115" title="$:/state/plugin-info--896887961-$:/plugins/flibbles/relink---548854025">
 <pre>configuration</pre>
@@ -13213,17 +13233,17 @@ exports.context = contextWidget;
 <div created="20210608031041885" modified="20210608031041885" title="$:/state/tab--2112689675">
 <pre>$:/core/ui/ControlPanel/Advanced</pre>
 </div>
-<div created="20210607091952952" modified="20210607091957962" title="$:/state/tab--824315756">
-<pre>$:/plugins/flibbles/relink/ui/configuration/Fields</pre>
+<div created="20210607091952952" modified="20210608071626226" title="$:/state/tab--824315756">
+<pre>$:/plugins/flibbles/relink/ui/configuration/Macros</pre>
 </div>
-<div created="20210608031056189" modified="20210608031056189" title="$:/state/tab--86143343">
-<pre>$:/core/ui/ControlPanel/Plugins/Installed/Themes</pre>
+<div created="20210608031056189" modified="20210608071553762" title="$:/state/tab--86143343">
+<pre>$:/core/ui/ControlPanel/Plugins/Installed/Plugins</pre>
 </div>
 <div created="20210608031043134" modified="20210608031045718" title="$:/state/tab--959111941">
 <pre>$:/core/ui/ControlPanel/TiddlerFields</pre>
 </div>
-<div created="20210607063729344" modified="20210608031415409" title="$:/state/tab-1749438307">
-<pre>$:/core/ui/ControlPanel/Settings</pre>
+<div created="20210607063729344" modified="20210608071551139" title="$:/state/tab-1749438307">
+<pre>$:/core/ui/ControlPanel/Plugins</pre>
 </div>
 <div created="20210607063731168" modified="20210607065351676" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
@@ -13231,8 +13251,8 @@ exports.context = contextWidget;
 <div created="20210608044324769" modified="20210608044324769" title="$:/state/tab/moresidebar-1850697562">
 <pre>$:/core/ui/MoreSideBar/Missing</pre>
 </div>
-<div created="20210607071054872" modified="20210608060924710" title="$:/state/tab/sidebar--595412856">
-<pre>$:/core/ui/SideBar/More</pre>
+<div created="20210607071054872" modified="20210608074224264" title="$:/state/tab/sidebar--595412856">
+<pre>$:/.giffmex/sidebar/tabs/strollcontrols</pre>
 </div>
 <div created="20210608055134719" modified="20210608055134719" title="$:/state/tab/strolltabs--2142185555">
 <pre>Vizeran DeVir</pre>
@@ -13243,7 +13263,7 @@ exports.context = contextWidget;
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210608050856864" list="[[Home Page]]" modified="20210608055222195" title="$:/StoryList">
+<div created="20210608065928657" list="[[Home Page]]" modified="20210608074232179" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20200519141000553" list="$:/.giffmex/Buttons/more-tiddler-edit-actions $:/core/ui/Buttons/delete $:/core/ui/Buttons/cancel $:/core/ui/Buttons/save" modified="20200521145647980" tags="$:/giffmex/bigeditarea $:/giffmex/stroll" title="$:/tags/EditToolbar">
@@ -13398,13 +13418,14 @@ And then, madness! Rifts opened in the web of energy around him. These cracks st
 
 He has since disappeared.</pre>
 </div>
-<div created="20210607065300003" list="Locations NPCs" modified="20210608065116648" tags="" title="Home Page">
+<div created="20210607065300003" list="Locations NPCs" modified="20210608074137051" tags="" title="Home Page">
 <pre>\define toggleBlock(summary details)
 &lt;details&gt;
   &lt;summary&gt;$summary$&lt;/summary&gt;
 &lt;p&gt;
 
-$details$
+$details$&lt;/p&gt;
+&lt;/details&gt;
 \end
 
 Greetings Players, Welcome to the home page where you can see information about the campaign. If you want to save this for offline viewing, press this button:
@@ -13414,7 +13435,8 @@ Greetings Players, Welcome to the home page where you can see information about 
 It will download an HTML file you can open with any internet browser.
 
 !The Story so far
-
+!!Part One
+---
 &lt;&lt;toggleBlock &quot;&quot;&quot;Beset unto the Underdark&quot;&quot;&quot;
 &quot;&quot;&quot;
 A group of unfortunate souls were captured by Drow slavers and taken to a prison in the underdark. They made an escape when a demon attacked and made their way through the dark tunnels looking for an exit only to discover the problem was larger than they thought.
@@ -13453,6 +13475,17 @@ The adventurer's learned from the Deep Gnomes of a place with teleportation gate
 While figuring out the way to teleport out of the underdark, The drow slavers that survived the prison attack finally caught up to them with significant reinforcements, but they weren't the only unexpected arrival. The Demon Lord [[Orcus]] arrived, wanting to use the room for his own purposes and began attacking all inside. The party fended off the attack long enough for the ground to crack and rumble, as [[Themberchaud]] emerged from the ground, lava rising, body infused with faerzress, mind mad.
 
 The party managed to escape through the portal as the two fought before the lava consumed what they could see and found themselves close to the dwarven city of [[Gauntlgrym]].
+&quot;&quot;&quot;&gt;&gt;
+
+!!Part Two
+---
+&lt;&lt;toggleBlock &quot;&quot;&quot;Gauntlgrym&quot;&quot;&quot;
+&quot;&quot;&quot;
+Having escaped from the Underdark, some of the adventurers part ways and return home. Those that continue into the dwarven city are [[Laine]] and [[Arnfalamme]], [[Alnar]], and [[Niro]], but are soon joined by [[Dest]] and [[Brieke]] from the feywild, and are granted participation in the meeting that [[Bruenor Battlehammer]], ruler of [[Gauntlgrym]], has called with various factions about the situation with the Demon Lords.
+
+While this meeting is taking place, the ground rumbles and fire elementals come out of a nearby fire place and attack the attendees. Our party dispatches them and learn that the fires of [[Gauntlgrym]] are powered by a slumbering titan underneath, and that if it is being disturbed, the situation could get a lot worse.
+
+With a small group from various different factions, the party are set to return to the underdark and quell the threat from the Demon Lords.
 &quot;&quot;&quot;&gt;&gt;
 
 &lt;&lt;tabs &quot;[tag[Home Page]]&quot;&gt;&gt;</pre>
@@ -13517,7 +13550,7 @@ Create a New NPC
 
 &lt;&lt;table NPCs&gt;&gt;</pre>
 </div>
-<div caption="Toggle Block" created="20210608060129894" modified="20210608060312101" tags="$:/tags/TextEditor/Snippet" title="toggleBlock">
+<div caption="Toggle Block" created="20210608060129894" modified="20210608071847899" tags="$:/tags/TextEditor/Snippet" title="Toggle Block">
 <pre>&lt;&lt;toggleBlock &quot;&quot;&quot;SectionName&quot;&quot;&quot;
 &quot;&quot;&quot;
 BlockText
