@@ -231,6 +231,8 @@ Error message and password prompt
 
 <li>$:/DefaultTiddlers</li>
 
+<li>$:/DnD/Macro/toggleBlock</li>
+
 <li>$:/GitHub/Branch</li>
 
 <li>$:/GitHub/Filename</li>
@@ -380,6 +382,8 @@ Error message and password prompt
 <li>Vizeran's Tower</li>
 
 <li>Wormwrithings</li>
+
+<li>Yown Session</li>
 
 </ul>
 </p>
@@ -10852,6 +10856,17 @@ $:/config/ViewToolbarButtons/Visibility/$(listItem)$
 <pre>[[Home Page]]
 </pre>
 </div>
+<div created="20210627073006765" modified="20210627073111676" tags="$:/tags/Macro" title="$:/DnD/Macro/toggleBlock">
+<pre>\define toggleBlock(summary, details)
+&lt;$reveal type=&quot;nomatch&quot; state=&lt;&lt;qualify &quot;$:/temp/toggleBlock/$summary$&quot;&gt;&gt; text=&quot;show&quot;&gt;
+&lt;$button class=&quot;tc-btn-invisible&quot; set=&lt;&lt;qualify &quot;$:/temp/toggleBlock/$summary$&quot;&gt;&gt; setTo=&quot;show&quot;&gt;{{$:/core/images/right-arrow}} $summary$&lt;/$button&gt;&lt;/$reveal&gt;
+&lt;$reveal type=&quot;match&quot; state=&lt;&lt;qualify &quot;$:/temp/toggleBlock/$summary$&quot;&gt;&gt; text=&quot;show&quot;&gt;
+&lt;$button class=&quot;tc-btn-invisible&quot; set=&lt;&lt;qualify &quot;$:/temp/toggleBlock/$summary$&quot;&gt;&gt; setTo=&quot;&quot;&gt;{{$:/core/images/down-arrow}} $summary$&lt;/$button&gt;&lt;p&gt;
+
+$details$&lt;/p&gt;
+&lt;/$reveal&gt;
+\end</pre>
+</div>
 <div created="20210607065005283" modified="20210607065005666" title="$:/GitHub/Branch">
 <pre>main</pre>
 </div>
@@ -13242,8 +13257,8 @@ exports.context = contextWidget;
 <div created="20210608031043134" modified="20210608031045718" title="$:/state/tab--959111941">
 <pre>$:/core/ui/ControlPanel/TiddlerFields</pre>
 </div>
-<div created="20210607063729344" modified="20210608071551139" title="$:/state/tab-1749438307">
-<pre>$:/core/ui/ControlPanel/Plugins</pre>
+<div created="20210607063729344" modified="20210627073135141" title="$:/state/tab-1749438307">
+<pre>$:/core/ui/ControlPanel/Saving</pre>
 </div>
 <div created="20210607063731168" modified="20210607065351676" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
@@ -13263,7 +13278,7 @@ exports.context = contextWidget;
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210608065928657" list="[[Home Page]]" modified="20210608074232179" title="$:/StoryList">
+<div created="20210627073131853" list="$:/ControlPanel [[Yown Session]] [[Home Page]]" modified="20210627073131853" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20200519141000553" list="$:/.giffmex/Buttons/more-tiddler-edit-actions $:/core/ui/Buttons/delete $:/core/ui/Buttons/cancel $:/core/ui/Buttons/save" modified="20200521145647980" tags="$:/giffmex/bigeditarea $:/giffmex/stroll" title="$:/tags/EditToolbar">
@@ -13418,17 +13433,8 @@ And then, madness! Rifts opened in the web of energy around him. These cracks st
 
 He has since disappeared.</pre>
 </div>
-<div created="20210607065300003" list="Locations NPCs" modified="20210608074137051" tags="" title="Home Page">
-<pre>\define toggleBlock(summary details)
-&lt;details&gt;
-  &lt;summary&gt;$summary$&lt;/summary&gt;
-&lt;p&gt;
-
-$details$&lt;/p&gt;
-&lt;/details&gt;
-\end
-
-Greetings Players, Welcome to the home page where you can see information about the campaign. If you want to save this for offline viewing, press this button:
+<div created="20210607065300003" list="Locations NPCs" modified="20210627073002385" tags="" title="Home Page">
+<pre>Greetings Players, Welcome to the home page where you can see information about the campaign. If you want to save this for offline viewing, press this button:
 
 !{{$:/core/ui/Buttons/save-wiki}}
 
@@ -13592,6 +13598,188 @@ Level 6 is [[Vizeran|Vizeran DeVir]]'s sanctum at the tower's peak, where he spe
 <pre>The [[Wormwrithings]] are a honeycomb of tunnels spanning hundreds of miles in the northern reaches of the Underdark, carved from the rock by enormous purple worms.
 
 [[Vizeran|Vizeran DeVir]] has heard rumors of a beholder living in the [[Vast Oblivium]], a chasm deep within the [[Wormwrithings]].</pre>
+</div>
+<div created="20210627072821124" modified="20210627072841236" tags="" title="Yown Session">
+<pre>&lt;&lt;toggleBlock &quot;&quot;&quot;Broxt&quot;&quot;&quot;
+&quot;&quot;&quot;
+* Broxt asked us here
+* Perp in his cell, might get info from him
+* Meeting members were in different building
+* Chiernam 
+&quot;&quot;&quot;&gt;&gt;
+
+&lt;&lt;toggleBlock &quot;&quot;&quot;To the cells&quot;&quot;&quot;
+&quot;&quot;&quot;
+* Devil saw here is gone
+* Badly damaged, stable but not being 'healed'
+* Human, bland looking
+* Basic Gear
+* Chiernam and Atkelos intimidating
+* More shakey at talk when you're dead part
+* Chiernam hits him with the mace
+* Atkelos got through
+* Baextes, the other city caught wind of cedish folk
+** Sent to make sure it didn't go through, us and officials were the targets
+** &quot;Know when you see them&quot;
+** Saw us at the meeting
+* Chiernam upset at innocent people dead
+* Oscar gives execution now that he's not co-operating
+* Chiernam planning to ritual talk with prisoner, using Rogek
+* Broxt willing to send messenger to boat for it
+* Broxt thinks Baextes will try to appeal to the Mage Hunters here in a follow up attack
+* Baextes is likely only worry, others would need to use boat travel and such
+* Suggests hiding cedeish ties while on the road
+* 1day or a MONTH before attack possible
+* Recommends port to SW
+* Broxt shakes Atkelos and Kerryn's hand
+&quot;&quot;&quot;&gt;&gt;
+
+&lt;&lt;toggleBlock &quot;&quot;&quot;To the SW Port&quot;&quot;&quot;
+&quot;&quot;&quot;
+* Another attack by time we reach (a week travel), proper war has started
+* Marshlands again, farms with mushrooms and small animals
+* Outposts guard the area, buildings and houses inside, some pubs, 3 or 4 boats and trading ships
+* Various races, human common, some dwarves, maybe a half-elf, Some human and orc MH, Looks like not with the empire
+* No magic stone we can see (Like the jail was made out of)
+* NO MAIL
+* Rogek is messaging us nightly
+* Need Jasper to make a mini boat at some point
+* Chiernam tells us of decrepit shrine to grislei, and the other of his kind
+* Streetwise check to see if ship going to bottom port
+** Supply ships go to bigger cities
+** Some have done routes to Erendui, most don't anymore
+** Attack likely waiting, but need reassurance to get there and back safely
+** Dor'streh is a port city
+** Monastery east of dock north of Dor'streh
+** Boat ride to Dor'streh
+&quot;&quot;&quot;&gt;&gt;
+
+&lt;&lt;toggleBlock &quot;&quot;&quot;Dor'streh&quot;&quot;&quot;
+&quot;&quot;&quot;
+* Stone grounding
+** better work of quality to previous towns
+* Mostly dwarvish citizens, MH from what we gather
+* Forges, smiths, armories readily available from other stores, high quality
+* Large port we arrive at, 50 boats docked, room for another 100 hundred
+* Boat is searched by guards, thankfully no magic checking stones
+* No MAILLLLL
+* Some shrines, similar deities to Nalmoer, also regel, hrevel, grislei, and newer to unknown deity, each with an attendee
+* Head priest recognizes what Chiernam is, says brother was here
+* About a month ago was here, made for the monastary for settling down purposes
+* NAME WAS VOLIOUS, also grislei follower
+* has met Zhon, serves danax, god of resilience, new god to come back
+* Dwarves like Danax already
+* Sister settlement, Small town south of Savrtsh was destroyed for it
+* Zhon was heading NW
+* Roads are wide enough for us to travel, goods too, most buildings are stations for factions
+* Variety of groups here
+&quot;&quot;&quot;&gt;&gt;
+
+&lt;&lt;toggleBlock &quot;&quot;&quot;PERCEPTION CHECK&quot;&quot;&quot;
+&quot;&quot;&quot;
+* Kerryn gets grabbed by someone
+* An's Character called Dargir notices it most
+* Strong grip holding me, mouth covered, magic teleport not working
+* GROUP FOLLOWS
+* Still got me
+* I try to drop sling bullets as we go
+* 4 checks til I'm out of sight
+* Loosened but he reached his destination
+* Get out but others grab me and rest reach the destination
+&quot;&quot;&quot;&gt;&gt;
+
+&lt;&lt;toggleBlock &quot;&quot;&quot;End of the Chase&quot;&quot;&quot;
+&quot;&quot;&quot;
+* Intricate dwarvish carvings, 2 storey building, not well manned or fortified
+* Kerryn inside building struggling
+* They get inside, 3 figures restraining me, all human and roughly a mature age, 30-40s
+* Bulky, winning struggle
+* one tries diplomacy, says orders to detain me
+* Bit too high up to ignore orders
+* Tries to make a deal
+* Wants to be civil
+* Weapons drawn
+* I'm free, Oscar tries to pin guy fleeing
+* Some folks that don't like children getting close to other folks
+* Devils are usually born through death, Knights of Savrtsh are not, are more human
+* Door leads to main hallway with stairs and left right doors
+* More humans around the place, skittish at my presence
+* WE GO IN
+&quot;&quot;&quot;&gt;&gt;
+
+&lt;&lt;toggleBlock &quot;&quot;&quot;Inside the building&quot;&quot;&quot;
+&quot;&quot;&quot;
+* Oscar leads us in, INTIMIDATE check
+* Avoid anything in the basement
+* All the knights have been recalled
+* Losing what's in the basement will be bad for them, If we go down, it'll be gone
+* Left, right, or Up?
+* UPSTAIRS
+* Unmanned office buildings, dwarf at work cleaning
+* Knights rooms up here, will know if stuff is taken
+* Beds mostly unused, some desks, some enchanted stuff bonded to creature itself (Bad feelings)
+* Diaries of conquest, some more specific than others, Some note future objectives
+* Most detail about new deity, knights deployed on this mostlikely
+* Reference to couple that have sacrifices ready in various places
+* NOW LEFT
+* Dining room, higher up, clean but untouched, kitchen and servants quarters
+* 3 kidnappers are here
+* RIGHT PATH
+* Training room, whetstone and tools, half elf servant
+* Half truth in that it's a training room
+* We LOOK AROUND
+* Can't see what's wrong with the room
+* Dargir not worried about the //room// investigation
+* OSCAR HAS VIAL WITH A SOUL IN IT!! offers it.
+* King sold their souls
+* Packs up tools, Something in the bucket is odd.
+* Dargir sees the bucket water is red
+* Mostly water.......
+* 3 people's blood, last didn't leave blood (or body?)
+* Use people like me... as the dummies...
+* Knight not back for a month or so
+* We let him get to work downstairs
+* Peaking downstairs as we leave, looks like jail cells
+&quot;&quot;&quot;&gt;&gt;
+
+&lt;&lt;toggleBlock &quot;&quot;&quot;Back in City&quot;&quot;&quot;
+&quot;&quot;&quot;
+* We prep to leave for next port
+* Find a ship, not difficult to find
+* We head to northern port
+* 2.5 weeks to get there
+&gt; Retcon back to half elf, Ask about Saelver and the other guy
+* Not allowed to be here
+&quot;&quot;&quot;&gt;&gt;
+
+&lt;&lt;toggleBlock &quot;&quot;&quot;GOING DOWN THERE&quot;&quot;&quot;
+&quot;&quot;&quot;
+* Cells mostly empty, poor condition, like the prisoner in Nalmoer was in
+* ONLY ONE PERSON HERE!!!
+* Dirty features, starved, chained to wall, 19 - 20 Human
+* Thinks there's more down here?
+* Walks to wall, glow to wall, another set of cells
+* MH Said he was caught for theft, Knight's don't know about this place?
+* Teilfing woman, Githzerai male, and HISTORY CHECK alien race, was kill on sight for MH
+** feral people, mix with human and plant, Wilden
+* Escort them out trying to keep them out of sight
+* Chiernam does Heroes' Feast? and enchanted skull watching in corner with exits in sight
+** alerts chiernam if anyone else enters
+* Dargir can escort them out of MH
+* Vance, good to meet us (Kerryn's Brother)
+* Tiefling broke out recently
+* Darsheuk's SON got out of here, Vance was friends with him...
+* Out for a week
+* Wilden about 30years old
+* 2 weeks in there for Vance, Dayum
+* Vance needs some rest
+&quot;&quot;&quot;&gt;&gt;
+
+&lt;&lt;toggleBlock &quot;&quot;&quot;Smuggling these people out of Dor'streh&quot;&quot;&quot;
+&quot;&quot;&quot;
+* Organise how to get them out of city in discord
+* Next session will be at the monastery
+&quot;&quot;&quot;&gt;&gt;</pre>
 </div>
 
 
